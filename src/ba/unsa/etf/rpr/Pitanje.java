@@ -1,6 +1,8 @@
 package ba.unsa.etf.rpr;
 
-import java.util.HashMap;
+import ba.unsa.etf.rpr.Kviz.SistemBodovanja;
+
+import java.util.*;
 
 public class Pitanje {
     private String tekst;
@@ -35,5 +37,79 @@ public class Pitanje {
 
     public void setOdgovori(HashMap<String, Odgovor> odgovori) {
         this.odgovori = odgovori;
+    }
+
+    public void dodajOdgovor(String id, String tekst, boolean tacno){
+        odgovori.put(id, new Odgovor(tekst, tacno));
+    }
+
+    public void obrisiOdgovor(String id){
+        if(!odgovori.containsKey(id))
+            throw new IllegalArgumentException("Id odgovora mora biti jedinstven");
+        odgovori.remove(id);
+    }
+
+    List<Odgovor> dajListuOdgovora(){
+        return new ArrayList<>(odgovori.values());
+    }
+
+    @Override
+    public String toString() {
+        String s = this.tekst + "?" + "(" + this.brojPoena + "b)\n";
+        char it = 'a';
+
+        for (Map.Entry<String, Odgovor> entry : odgovori.entrySet()){
+            //Nije efektivno na ovaj nacin raditi sa stringom u petlji, pokusati drugi nacin
+            s = s + it + ": " + entry.getValue().getTekstOdgovora() + "\n";
+            it = (char) (it + 1);
+        }
+
+        return s;
+    }
+
+    public double IzracunajPoene (List<String> id, SistemBodovanja s){
+        for(String it : id){
+            if(!odgovori.containsKey(it))
+                throw new IllegalArgumentException("Odabran je nepostojeći odgovor");
+        }
+
+        Set<String> testni = new HashSet<>(id);
+        if(testni.size()!=id.size())    //Iskoristena osobina skupa, da se ne mogu pojavljivati duplikati
+            throw new IllegalArgumentException("Postoje duplikati među odabranim odgovorima");
+
+        //Odrediti koliko ima tacnih odgovora
+        int brojTacnihOdgovora = 0;
+        for(Map.Entry<String, Odgovor> entry : this.odgovori.entrySet()){
+            if(entry.getValue().isTacno())
+                brojTacnihOdgovora = brojTacnihOdgovora + 1;
+        }
+
+        int brojZaokruzenihTacnihOdgovora = 0;
+        int brojZaokruzenihNetacnihOdgovora = 0;
+        for(String it : id) {
+            if (this.odgovori.get(it).isTacno())     //Zaokruzen je tacan odgovor
+                brojZaokruzenihTacnihOdgovora = brojZaokruzenihTacnihOdgovora + 1;
+            else                                    //Zaokruzen je pogresan odgovor
+                brojZaokruzenihNetacnihOdgovora = brojZaokruzenihNetacnihOdgovora + 1;
+        }
+
+        switch (s){
+            case BINARNO -> {
+                if(brojTacnihOdgovora == brojZaokruzenihTacnihOdgovora && brojZaokruzenihNetacnihOdgovora==0)
+                    return this.brojPoena;
+            }
+            case PARCIJALNO -> {
+                if(brojZaokruzenihTacnihOdgovora>0 && brojZaokruzenihNetacnihOdgovora==0)
+                    return (this.brojPoena/odgovori.size())*brojZaokruzenihTacnihOdgovora;
+            }
+            case PARCIJALNO_SA_NEGATIVNIM -> {
+                if(brojZaokruzenihNetacnihOdgovora != 0)    //Ako ima barem jedan netacno odgovoren, oduzimaju se bodovi
+                    return -this.brojPoena/2;
+                else
+                    return (this.brojPoena/odgovori.size())*brojTacnihOdgovora;
+            }
+        }
+
+        return 0;
     }
 }
