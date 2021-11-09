@@ -2,7 +2,7 @@ package ba.unsa.etf.rpr;
 
 public class Odgovor {
     private String tekstOdgovora;
-    boolean tacno;
+    private boolean tacno;
 
     public String getTekstOdgovora() {
         return tekstOdgovora;
@@ -23,5 +23,16 @@ public class Odgovor {
     public Odgovor(String tekstOdgovora, boolean tacno) {
         this.tekstOdgovora = tekstOdgovora;
         this.tacno = tacno;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj)
+            return true;
+        if(obj instanceof Odgovor){
+            Odgovor o = (Odgovor) obj;
+            return this.tacno == o.tacno && this.tekstOdgovora.equals(o.tekstOdgovora);
+        }
+        return false;
     }
 }
