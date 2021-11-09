@@ -105,14 +105,18 @@ public class Pitanje {
                     return this.brojPoena;
             }
             case PARCIJALNO -> {
-                if(brojZaokruzenihTacnihOdgovora>0 && brojZaokruzenihNetacnihOdgovora==0)
-                    return (this.brojPoena/odgovori.size())*brojZaokruzenihTacnihOdgovora;
+                if(brojZaokruzenihTacnihOdgovora>0 && brojZaokruzenihNetacnihOdgovora==0) {
+                    if(brojZaokruzenihTacnihOdgovora==brojTacnihOdgovora)
+                        return this.brojPoena;
+                    return (this.brojPoena / odgovori.size()) * brojZaokruzenihTacnihOdgovora;
+                }
             }
             case PARCIJALNO_SA_NEGATIVNIM -> {
                 if(brojZaokruzenihNetacnihOdgovora != 0)    //Ako ima barem jedan netacno odgovoren, oduzimaju se bodovi
                     return -this.brojPoena/2;
-                else
-                    return (this.brojPoena/odgovori.size())*brojTacnihOdgovora;
+                if(brojZaokruzenihTacnihOdgovora==brojTacnihOdgovora)
+                    return this.brojPoena;
+                return (this.brojPoena / odgovori.size()) * brojZaokruzenihTacnihOdgovora;
             }
         }
 
