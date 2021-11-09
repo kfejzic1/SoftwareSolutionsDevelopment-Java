@@ -9,7 +9,7 @@ public class Pitanje {
     private double brojPoena;
     private HashMap<String, Odgovor> odgovori;
 
-    public Pitanje(String tekst, int brojPoena) {
+    public Pitanje(String tekst, double brojPoena) {
         this.tekst = tekst;
         this.brojPoena = brojPoena;
         this.odgovori = new HashMap<>();
@@ -40,12 +40,14 @@ public class Pitanje {
     }
 
     public void dodajOdgovor(String id, String tekst, boolean tacno){
+        if(odgovori.containsKey(id))
+            throw new IllegalArgumentException("Id odgovora mora biti jedinstven");
         odgovori.put(id, new Odgovor(tekst, tacno));
     }
 
     public void obrisiOdgovor(String id){
         if(!odgovori.containsKey(id))
-            throw new IllegalArgumentException("Id odgovora mora biti jedinstven");
+            throw new IllegalArgumentException("Odgovor s ovim id-em ne postoji");
         odgovori.remove(id);
     }
 
@@ -55,19 +57,23 @@ public class Pitanje {
 
     @Override
     public String toString() {
-        String s = this.tekst + "?" + "(" + this.brojPoena + "b)\n";
+        String s = this.tekst + "(" + this.brojPoena + "b)\n";
         char it = 'a';
 
+        int i = 0;
         for (Map.Entry<String, Odgovor> entry : odgovori.entrySet()){
             //Nije efektivno na ovaj nacin raditi sa stringom u petlji, pokusati drugi nacin
-            s = s + it + ": " + entry.getValue().getTekstOdgovora() + "\n";
+            s = s + "\t" + it + ": " + entry.getValue().getTekstOdgovora();
             it = (char) (it + 1);
+            i = i + 1;
+            if(i != odgovori.size())
+                s = s + "\n";
         }
 
         return s;
     }
 
-    public double IzracunajPoene (List<String> id, SistemBodovanja s){
+    public double izracunajPoene (List<String> id, SistemBodovanja s){
         for(String it : id){
             if(!odgovori.containsKey(it))
                 throw new IllegalArgumentException("Odabran je nepostojeći odgovor");
