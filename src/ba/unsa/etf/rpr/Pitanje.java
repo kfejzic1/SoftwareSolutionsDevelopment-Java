@@ -39,13 +39,13 @@ public class Pitanje {
         this.odgovori = odgovori;
     }
 
-    public void dodajOdgovor(String id, String tekst, boolean tacno){
+    public void dodajOdgovor(String id, String tekst, boolean tacno) throws IllegalArgumentException{
         if(odgovori.containsKey(id))
             throw new IllegalArgumentException("Id odgovora mora biti jedinstven");
         odgovori.put(id, new Odgovor(tekst, tacno));
     }
 
-    public void obrisiOdgovor(String id){
+    public void obrisiOdgovor(String id) throws IllegalArgumentException{
         if(!odgovori.containsKey(id))
             throw new IllegalArgumentException("Odgovor s ovim id-em ne postoji");
         odgovori.remove(id);
@@ -58,13 +58,10 @@ public class Pitanje {
     @Override
     public String toString() {
         String s = this.tekst + "(" + this.brojPoena + "b)\n";
-        char it = 'a';
 
         int i = 0;
         for (Map.Entry<String, Odgovor> entry : odgovori.entrySet()){
-            //Nije efektivno na ovaj nacin raditi sa stringom u petlji, pokusati drugi nacin
-            s = s + "\t" + it + ": " + entry.getValue().getTekstOdgovora();
-            it = (char) (it + 1);
+            s = s + "\t" + entry.getKey() + ": " + entry.getValue().getTekstOdgovora();
             i = i + 1;
             if(i != odgovori.size())
                 s = s + "\n";
@@ -73,7 +70,7 @@ public class Pitanje {
         return s;
     }
 
-    public double izracunajPoene (List<String> id, SistemBodovanja s){
+    public double izracunajPoene (List<String> id, SistemBodovanja s) throws IllegalArgumentException{
         for(String it : id){
             if(!odgovori.containsKey(it))
                 throw new IllegalArgumentException("Odabran je nepostojeći odgovor");

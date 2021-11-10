@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
+import ba.unsa.etf.rpr.Kviz.SistemBodovanja;
 
 class RezultatKvizaTest {
     private static Kviz kviz;

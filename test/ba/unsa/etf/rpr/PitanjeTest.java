@@ -2,6 +2,7 @@ package ba.unsa.etf.rpr;
 
 import org.junit.jupiter.api.Test;
 import java.util.List;
+import ba.unsa.etf.rpr.Kviz.SistemBodovanja;
 
 import static org.junit.jupiter.api.Assertions.*;
 
