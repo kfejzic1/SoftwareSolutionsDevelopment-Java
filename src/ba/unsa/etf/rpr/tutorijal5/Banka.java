@@ -32,4 +32,10 @@ public class Banka {
         uposleni.add(u);
         return u;
     }
+
+    public void kreirajRacunZaKorisnika(Korisnik korisnik) {
+        if(!korisnici.contains(korisnik))
+            throw new IllegalArgumentException("Korisnik nije učlanjen u banku");
+        korisnik.dodajRacun(new Racun(brojRacuna,korisnik));
+    }
 }

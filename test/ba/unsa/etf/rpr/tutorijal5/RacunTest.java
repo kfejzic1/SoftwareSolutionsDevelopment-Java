@@ -43,4 +43,11 @@ class RacunTest {
         assertTrue(r.provjeriOdobrenjePrekoracenja(50.0));
         assertTrue(r.provjeriOdobrenjePrekoracenja(100.0));
     }
+
+    @org.junit.jupiter.api.Test
+    void provjeriVeciIznosOdOdobrenogPrekoracenja(){
+        r.odobriPrekoracenje(100.0);
+        assertFalse(r.provjeriOdobrenjePrekoracenja(1000.0));
+        assertFalse(r.izvrsiIsplatu(200.0));
+    }
 }
