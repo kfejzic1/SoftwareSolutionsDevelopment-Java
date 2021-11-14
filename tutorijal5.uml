@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>ba.unsa.etf.rpr.tutorijal5</OriginalElement>
+  <nodes>
+    <node x="431.0" y="331.0">ba.unsa.etf.rpr.tutorijal5.Banka</node>
+    <node x="241.0" y="180.0">ba.unsa.etf.rpr.tutorijal5.Korisnik</node>
+    <node x="0.0" y="205.0">ba.unsa.etf.rpr.tutorijal5.Uposlenik</node>
+    <node x="130.5" y="0.0">ba.unsa.etf.rpr.tutorijal5.Osoba</node>
+    <node x="0.0" y="331.0">ba.unsa.etf.rpr.tutorijal5.Racun</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="ba.unsa.etf.rpr.tutorijal5.Korisnik" target="ba.unsa.etf.rpr.tutorijal5.Osoba">
+      <point x="0.0" y="-53.0" />
+      <point x="348.5" y="155.0" />
+      <point x="279.0" y="155.0" />
+      <point x="49.5" y="65.0" />
+    </edge>
+    <edge source="ba.unsa.etf.rpr.tutorijal5.Uposlenik" target="ba.unsa.etf.rpr.tutorijal5.Osoba">
+      <point x="0.0" y="-28.0" />
+      <point x="110.5" y="155.0" />
+      <point x="180.0" y="155.0" />
+      <point x="-49.5" y="65.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.9" x="172.23809523809518" y="313.2222222222223" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Properties</Category>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
