@@ -19,9 +19,6 @@ public abstract class Osoba {
 
     @Override
     public String toString() {
-        return "{" +
-                "ime='" + ime + '\'' +
-                ", prezime='" + prezime + '\'' +
-                '}';
+        return ime + " " + prezime;
     }
 }

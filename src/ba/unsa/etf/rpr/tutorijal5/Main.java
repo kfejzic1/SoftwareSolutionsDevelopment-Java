@@ -1,37 +1,36 @@
 package ba.unsa.etf.rpr.tutorijal5;
 
+import ba.unsa.etf.rpr.tutorijal5.util.Kredit;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
-/*
-        Banka banka = new Banka();
-        Korisnik k1 = banka.kreirajNovogKorisnika("Maja", "Majić");
-        banka.kreirajRacun(k1);
-        k1.getRacun().izvrsiUplatu(2345.45d);
-        banka.dodajNovogUposlenog("Marko", "Marić");
-        KreditnaSposobnost funkcija = (Racun racun) -> {
-            double stanje = racun.getStanjeRacuna().doubleValue();
-            if (stanje > 1000) {
-                return stanje / 2;
-            } else {
-                return 0d;
-            }
-        };
-        Double value = Kredit.proracunKreditneSposobnosti(funkcija, k1);
-        if(value > 0){
-            System.out.println("Korisnik: "+k1.toString()+", broj racuna: " + k1.getRacun().getBrojRacuna() + " ,ima pravo na kredit iznosa "+value.toString());
-        }
-        else
-        {
-            System.out.println("Korisnik: "+k1.toString()+" nema pravo na kredit!");
-        }
+        List<Korisnik> korisnici = new ArrayList<>();
 
-        Korisnik k2 = banka.kreirajNovogKorisnika("Veseli", "Veseljkovic");
-        banka.kreirajRacun(k2);
-        System.out.println("Korisnik: "+k2.toString()+", broj racuna: " + k2.getRacun().getBrojRacuna());
+        Korisnik k = new Korisnik("Mujo", "Suljić");
+        Racun r = new Racun(1L, k);
+        k.dodajRacun(r);
 
-        Kredit.ispisiSveKorisnikeBezPrekoracenja(banka.getKorisnici());
+        k.getRacun().odobriPrekoracenje(100D);
+        k.getRacun().izvrsiIsplatu(90D);
+        korisnici.add(k);
 
- */
+        Korisnik k1 = new Korisnik("Neko", "Nekić");
+        Racun r1 = new Racun(1L, k1);
+        k1.dodajRacun(r1);
+        k1.getRacun().izvrsiUplatu(50D);
+        korisnici.add(k1);
+
+        Korisnik k2 = new Korisnik("Neko", "Nekić");
+        Racun r2 = new Racun(1L, k2);
+        k2.dodajRacun(r2);
+        k2.getRacun().odobriPrekoracenje(50D);
+        k2.getRacun().izvrsiIsplatu(20D);
+        korisnici.add(k2);
+
+        Kredit.bezPrekoracenja(korisnici);
     }
 }

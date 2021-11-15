@@ -35,6 +35,10 @@ public class Racun {
         return iznos <= iznosOdobrenogPrekoracenja;
     }
 
+    public Double getPrekoracenje(){
+        return iznosOdobrenogPrekoracenja;
+    }
+
     public Double getStanjeRacuna() {
         return stanjeRacuna;
     }
