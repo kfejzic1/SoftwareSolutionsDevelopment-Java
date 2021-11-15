@@ -2,6 +2,9 @@ package ba.unsa.etf.rpr.tutorijal5.util;
 
 import ba.unsa.etf.rpr.tutorijal5.Korisnik;
 
+import java.util.List;
+import java.util.stream.Stream;
+
 public class Kredit {
     Double dajKreditnuSposobnost(KreditnaSposobnost kredit, Korisnik korisnik) throws Exception {
         Double d = kredit.provjeri(korisnik.getRacun());
@@ -10,5 +13,7 @@ public class Kredit {
         return d;
     }
 
-
+    void bezPrekoracenja(List<Korisnik> korisnici){
+        korisnici.stream().filter(korisnik -> korisnik.getRacun().getStanjeRacuna() >= 0).forEach(System.out::println);
+    }
 }
