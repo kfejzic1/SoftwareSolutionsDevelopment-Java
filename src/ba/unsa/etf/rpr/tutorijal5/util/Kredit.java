@@ -16,4 +16,8 @@ public class Kredit {
     void bezPrekoracenja(List<Korisnik> korisnici){
         korisnici.stream().filter(korisnik -> korisnik.getRacun().getStanjeRacuna() >= 0).forEach(System.out::println);
     }
+
+    void odobriPrekoracenje(List<Korisnik> korisnici){
+        korisnici.stream().filter(korisnik -> korisnik.getRacun().getStanjeRacuna() >= 10000).forEach(korisnik -> korisnik.getRacun().odobriPrekoracenje(1000D));
+    }
 }
