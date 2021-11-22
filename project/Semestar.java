@@ -34,17 +34,22 @@ public class Semestar {
     }
 
     public void dodajIzborniPredmet(Predmet predmet){
-        //dodaje predmete u izborne
-        return;
+        if(izborniPredmeti.contains(predmet))
+            throw new IllegalArgumentException("Predmet je vec dodan u izborne!");
+        if(obavezniPredmeti.contains(predmet))
+            throw new IllegalArgumentException("Predmet je obavezan!");
+        izborniPredmeti.add(predmet);
     }
 
     public void dodajObavezniPredmet(Predmet predmet){
-        //dodaje predmete u obavezne
-        return;
+        if(obavezniPredmeti.contains(predmet))
+            throw new IllegalArgumentException("Predmet je vec dodan u obavezne!");
+        if(izborniPredmeti.contains(predmet))
+            throw new IllegalArgumentException("Predmet je izborni!");
+        obavezniPredmeti.add(predmet);
     }
 
-    boolean daLiJePredmetUSemestru(Predmet predmet){
-        //Daje true ako se predmet nalazi u semestru
-        return true;
+    public boolean daLiJePredmetUSemestru(Predmet predmet){
+        return obavezniPredmeti.contains(predmet) || izborniPredmeti.contains(predmet);
     }
 }
