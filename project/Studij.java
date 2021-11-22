@@ -4,13 +4,17 @@ import java.util.Map;
 public class Studij {
     private HashMap<Student, Semestar> upisaniStudenti;
 
-    void upisiStudentaNaSemestar(Student student, Semestar semestar){
+    public Studij() {
+        this.upisaniStudenti = new HashMap<>();
+    }
+
+    public void upisiStudentaNaSemestar(Student student, Semestar semestar){
         if(upisaniStudenti.containsKey(student))
             throw new IllegalArgumentException("Student je vec upisan!");
         upisaniStudenti.put(student, semestar);
     }
 
-    void dajStudenteNaPredmetu(Predmet predmet){
+    public String dajStudenteNaPredmetu(Predmet predmet){
         //Ispisuje studente na predmetu
         //Pristupa predmetu preko value hashmape, zatim uzima predmet iz semestra
         String s = "Studenti koji su upisani na predmet " + predmet.getNaziv() + ":\n";
@@ -20,5 +24,6 @@ public class Studij {
                 s = s + entry.getKey().getIme() + " " + entry.getKey().getPrezime() + "\n";
             }
         }
+        return s;
     }
 }

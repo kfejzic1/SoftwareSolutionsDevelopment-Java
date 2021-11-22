@@ -7,11 +7,11 @@ class SemestarTest {
     Semestar semestar1 = new Semestar(1);
     Semestar semestar2 = new Semestar(2);
 
-    Predmet p1 =  new Predmet("Razvoj programskih rješenja", 10, false);
-    Predmet p2 = new Predmet("Sistemsko programiranje", 10, true);
-    Predmet p3 = new Predmet("Logički dizajn", 10, false);
-    Predmet p4 = new Predmet("Numerički algoritmi", 10, true);
-    Predmet p5 = new Predmet("Diskretna matematika", 10, false);
+    Predmet p1 =  new Predmet("Razvoj programskih rješenja", 10);
+    Predmet p2 = new Predmet("Sistemsko programiranje", 10);
+    Predmet p3 = new Predmet("Logički dizajn", 10);
+    Predmet p4 = new Predmet("Numerički algoritmi", 10);
+    Predmet p5 = new Predmet("Diskretna matematika", 10);
 
     @Test
     void testDodajIzborniPredmet(){

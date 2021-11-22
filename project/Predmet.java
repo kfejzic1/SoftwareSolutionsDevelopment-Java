@@ -2,7 +2,7 @@ public class Predmet {
     private String naziv;
     private int ects;
 
-    public Predmet(String naziv, int ects, boolean daLiJeIzborni) {
+    public Predmet(String naziv, int ects) {
         this.naziv = naziv;
         this.ects = ects;
     }
