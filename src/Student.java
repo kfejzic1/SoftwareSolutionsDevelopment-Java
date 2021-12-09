@@ -1,21 +1,21 @@
 public class Student extends Osoba{
-    int norma;
+    Indeks indeks;
 
     public Student(String ime, String prezime) {
         super(ime, prezime);
-        this.norma = 0;
+        this.indeks = null;
     }
 
-    public Student(String ime, String prezime, int norma) {
+    public Student(String ime, String prezime, Indeks indeks){
         super(ime, prezime);
-        this.norma = norma;
+        this.indeks = indeks;
     }
 
-    public int getNorma() {
-        return norma;
+    public Indeks getIndeks(){
+        return this.indeks;
     }
 
-    public void setNorma(int norma) {
-        this.norma = norma;
+    public void setIndeks(Indeks indeks){
+        this.indeks = indeks;
     }
 }
