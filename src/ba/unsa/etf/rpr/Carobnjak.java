@@ -35,7 +35,7 @@ public class Carobnjak {
     }
 
     Set<Eliksir> dajEliksirePoNazivuAbecedno(){
-        return new HashSet<Eliksir>(eliksiri);
+        return new HashSet<>(eliksiri);
     }
 
     Map<Eliksir.TipEliksira, ArrayList<Eliksir>> dajEliksirePoTipovima(){
@@ -48,13 +48,12 @@ public class Carobnjak {
 
     void dodajEliksir(Eliksir eliksir) throws ZabranjenEliksirIzuzetak {
         if(eliksiri.size()!=0 && eliksiri.contains(eliksir))
-            throw new ZabranjenEliksirIzuzetak("Taj eliksir vec postoji");
+            throw new ZabranjenEliksirIzuzetak("Taj Eliksir vec postoji");
         eliksiri.add(eliksir);
     }
 
     Eliksir napraviEliksir(String naziv, Predicate<Biljka> kojeBiljke) throws ZabranjenEliksirIzuzetak{
-        Eliksir novi = new Eliksir(naziv, this.biljke.stream().filter(kojeBiljke).collect(Collectors.toCollection(ArrayList::new)));
-        return novi;
+        return new Eliksir(naziv, this.biljke.stream().filter(kojeBiljke).collect(Collectors.toCollection(ArrayList::new)));
     }
 
     Eliksir dajKoktel(String naziv, Predicate<Eliksir> kojiEliksiri){
