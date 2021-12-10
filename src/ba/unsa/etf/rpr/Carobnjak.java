@@ -82,6 +82,16 @@ public class Carobnjak {
     }
 
     String konzumirajSve(){
-        return "";
+        String s = "";
+        for(Eliksir e: eliksiri){
+            s+=e.konzumiraj();
+        }
+        for(Biljka b: biljke){
+            s+=b.konzumiraj();
+        }
+
+        eliksiri.clear();
+        biljke.clear();
+        return s;
     }
 }
