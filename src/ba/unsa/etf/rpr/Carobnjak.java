@@ -8,6 +8,11 @@ public class Carobnjak {
     private ArrayList<Biljka> biljke;
     private ArrayList<Eliksir> eliksiri;
 
+    public Carobnjak() {
+        this.biljke = new ArrayList<>();
+        this.eliksiri = new ArrayList<>();
+    }
+
     public static ArrayList<Eliksir> napraviEliksireIzBiljaka(ArrayList<Biljka> biljke){
         ArrayList<Eliksir> eliksiri = new ArrayList<>();
         for(Biljka x: biljke){
@@ -42,12 +47,12 @@ public class Carobnjak {
     }
 
     void dodajEliksir(Eliksir eliksir) throws ZabranjenEliksirIzuzetak {
-        if(eliksiri.contains(eliksir))
+        if(eliksiri.size()!=0 && eliksiri.contains(eliksir))
             throw new ZabranjenEliksirIzuzetak("Taj eliksir vec postoji");
         eliksiri.add(eliksir);
     }
 
-    Eliksir napraviEliksir(String naziv, Predicate<Biljka> kojeBiljke){
+    Eliksir napraviEliksir(String naziv, Predicate<Biljka> kojeBiljke) throws ZabranjenEliksirIzuzetak{
         Eliksir novi = new Eliksir(naziv, this.biljke.stream().filter(kojeBiljke).collect(Collectors.toCollection(ArrayList::new)));
         return novi;
     }
