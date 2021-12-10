@@ -2,7 +2,7 @@ package ba.unsa.etf.rpr;
 
 import java.util.Objects;
 
-public abstract class Biljka {
+public abstract class Biljka implements Konzumabilno{
     private String naziv;
     private int jacina;
 
@@ -46,4 +46,15 @@ public abstract class Biljka {
     public int compareTo(Biljka drugaBiljka){
         return this.naziv.compareTo(drugaBiljka.naziv);
     }*/
+
+    @Override
+    public String konzumiraj(){
+        if(this instanceof AromaticnaBiljka)
+            return "[AROMA +" + this.jacina + "]";
+        else if(this instanceof LjekovitaBiljka)
+            return "[ZDRAVLJE +" + this.jacina + "]";
+        else if(this instanceof OtrovnaBiljka)
+            return "[ZDRAVLJE -" + this.jacina + "]";
+        return null;
+    }
 }
