@@ -7,6 +7,11 @@ public class Semestar {
     private ArrayList<Predmet> upisaniIzborniPredmeti;
     private Ciklusi ciklus;
 
+    public Semestar(){
+        this.obavezniPredmeti = new ArrayList<>();
+        this.izborniPredmeti = new ArrayList<>();
+        this.upisaniIzborniPredmeti = new ArrayList<>();
+    }
     public Semestar(int redniBroj, Ciklusi ciklus) {
         this.redniBroj = redniBroj;
         this.ciklus = ciklus;
