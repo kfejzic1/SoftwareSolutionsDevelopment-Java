@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Predmet {
     private String naziv;
     private int ects, brojCasova;
@@ -14,6 +16,18 @@ public class Predmet {
 
     public String getNaziv() {
         return naziv;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Predmet predmet)) return false;
+        return naziv.equals(predmet.naziv);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(naziv);
     }
 
     public void setNaziv(String naziv) {
