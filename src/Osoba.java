@@ -21,4 +21,9 @@ public abstract class Osoba {
         this.ime = ime;
         this.prezime = prezime;
     }
+
+    @Override
+    public String toString() {
+        return ime + " " + prezime;
+    }
 }
