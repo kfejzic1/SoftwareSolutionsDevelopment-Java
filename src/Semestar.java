@@ -77,13 +77,15 @@ public class Semestar {
     }
 
     public boolean daLiJePredmetUSemestru(Predmet predmet){
-        return obavezniPredmeti.contains(predmet) || izborniPredmeti.contains(predmet);
+        return obavezniPredmeti.contains(predmet) || upisaniIzborniPredmeti.contains(predmet);
     }
 
     public void upisiIzborniPredmet(Predmet predmet){
         //Potrebno je provjeriti da li ce ukupni broj ects poena preci 30
-        if(daLiJePredmetUSemestru(predmet))
-            throw new IllegalArgumentException("Predmet nije u semestru!");
+        if(obavezniPredmeti.contains(predmet))
+            throw new IllegalArgumentException("Predmet je obavezan!");
+        if(!izborniPredmeti.contains(predmet))
+            throw new IllegalArgumentException("Predmet se ne nalazi u semestru!");
 
         int ukupnoECTS=predmet.getEcts();
         for(Predmet p : obavezniPredmeti)
