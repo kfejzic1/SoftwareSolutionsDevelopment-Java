@@ -18,4 +18,9 @@ public class Student extends Osoba{
     public void setIndeks(Indeks indeks){
         this.indeks = indeks;
     }
+
+    @Override
+    public String toString() {
+        return this.ime + " " + this.prezime + "\nBroj indeksa: " + this.indeks.getBrojIndeksa();
+    }
 }
