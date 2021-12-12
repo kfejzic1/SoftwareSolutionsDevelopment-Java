@@ -1,6 +1,4 @@
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public class Indeks {
     private String brojIndeksa;
@@ -32,6 +30,8 @@ public class Indeks {
     }
 
     public void upisiSemestar(Semestar upisaniSemestar) {
+        if(!Objects.isNull(this.upisaniSemestar))
+            throw new IllegalArgumentException("Student je vec upisan na " + this.upisaniSemestar.getRedniBroj() + ". semestar, " + this.upisaniSemestar.getCiklus() + " ciklusa!");
         this.upisaniSemestar = upisaniSemestar;
     }
 
