@@ -20,26 +20,25 @@ public class Semestar {
         this.obavezniPredmeti = new ArrayList<>();
         this.izborniPredmeti = new ArrayList<>();
         this.upisaniIzborniPredmeti = new ArrayList<>();
+        this.ciklus = Ciklusi.Bachelor;
     }
 
     public Semestar(int redniBroj, Ciklusi ciklus) {
         this.redniBroj = redniBroj;
         this.ciklus = ciklus;
-        this.obavezniPredmeti = null;
-        this.izborniPredmeti = null;
-        this.upisaniIzborniPredmeti = null;
+        this.obavezniPredmeti = new ArrayList<>();
+        this.izborniPredmeti = new ArrayList<>();
+        this.upisaniIzborniPredmeti = new ArrayList<>();
     }
 
-    public Semestar(int redniBroj, ArrayList<Predmet> obavezniPredmeti, ArrayList<Predmet> izborniPredmeti, ArrayList<Predmet> upisaniIzborniPredmeti, Ciklusi ciklus) {
+    public Semestar(int redniBroj, ArrayList<Predmet> obavezniPredmeti, ArrayList<Predmet> izborniPredmeti, Ciklusi ciklus) {
         this.redniBroj = redniBroj;
         this.obavezniPredmeti = obavezniPredmeti;
         this.izborniPredmeti = izborniPredmeti;
-        this.upisaniIzborniPredmeti = upisaniIzborniPredmeti;
         this.ciklus = ciklus;
+        this.upisaniIzborniPredmeti = new ArrayList<>();
 
         for(Predmet p : obavezniPredmeti)
-            updateNormeProfesora(p);
-        for(Predmet p : upisaniIzborniPredmeti)
             updateNormeProfesora(p);
     }
 
@@ -84,6 +83,8 @@ public class Semestar {
     }
 
     public void dodajObavezniPredmet(Predmet predmet){
+        if(predmet.daLiJeIzborni())
+            throw new IllegalArgumentException("Predmet nije obavezan!");
         if(obavezniPredmeti.contains(predmet))
             throw new IllegalArgumentException("Predmet se već nalazi u semestru!");
 
@@ -92,7 +93,12 @@ public class Semestar {
     }
 
     public void dodajIzborniPredmet(Predmet predmet){
-        this.obavezniPredmeti.add(predmet);
+        if(!predmet.daLiJeIzborni())
+            throw new IllegalArgumentException("Predmet nije izborni!");
+        if(izborniPredmeti.contains(predmet))
+            throw new IllegalArgumentException("Predmet se već nalazi u semestru!");
+
+        this.izborniPredmeti.add(predmet);
     }
 
     public boolean daLiJePredmetUSemestru(Predmet predmet){
@@ -111,40 +117,10 @@ public class Semestar {
             ukupnoECTS+=p.getEcts();
 
         if(ukupnoECTS>30)
-            throw new IllegalArgumentException("U semestru nije moguće imati više od 30 ECTS poena!");
+           throw new IllegalArgumentException("U semestru nije moguće imati više od 30 ECTS poena!");
 
         upisaniIzborniPredmeti.add(predmet);
         updateNormeProfesora(predmet);
-    }
-
-    public boolean daLiProfesorPredajePredmet(Profesor profesor){
-        for(Predmet p : this.obavezniPredmeti){
-            if(p.getProfesor().equals(profesor))
-                return true;
-        }
-        for(Predmet p : this.upisaniIzborniPredmeti){
-            if(p.getProfesor().equals(profesor))
-                return true;
-        }
-
-        return false;
-    }
-
-    public Set<Profesor> dajProfesore(){
-        Set<Profesor> profesori = new HashSet<>();
-
-        for(Predmet p : obavezniPredmeti)
-            profesori.add(p.getProfesor());
-        for(Predmet p : upisaniIzborniPredmeti)
-            profesori.add(p.getProfesor());
-
-        return profesori;
-    }
-
-    public ArrayList<Predmet> dajSvePredmete(){
-        ArrayList<Predmet> predmeti = obavezniPredmeti;
-        predmeti.addAll(upisaniIzborniPredmeti); //Dodaje sve predmete iz upisanih u jednu listu
-        return predmeti;
     }
 
     @Override

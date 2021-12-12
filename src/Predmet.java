@@ -50,7 +50,7 @@ public class Predmet {
         this.brojCasova = brojCasova;
     }
 
-    public boolean isDaLiJeIzborni() {
+    public boolean daLiJeIzborni() {
         return daLiJeIzborni;
     }
 
