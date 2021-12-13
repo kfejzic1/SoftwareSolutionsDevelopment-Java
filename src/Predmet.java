@@ -3,15 +3,23 @@ import java.util.Objects;
 public class Predmet {
     private String naziv;
     private int ects, brojCasova;
-    private boolean daLiJeIzborni;
+    private boolean daLiJeUpisan;
     private Profesor profesor;
 
-    public Predmet(String naziv, int ects, int brojCasova, boolean daLiJeIzborni, Profesor profesor) {
+    public boolean daLiJeUpisan() {
+        return daLiJeUpisan;
+    }
+
+    public void setDaLiJeUpisan(boolean daLiJeUpisan) {
+        this.daLiJeUpisan = daLiJeUpisan;
+    }
+
+    public Predmet(String naziv, int ects, int brojCasova, Profesor profesor) {
         this.naziv = naziv;
         this.ects = ects;
         this.brojCasova = brojCasova;
-        this.daLiJeIzborni = daLiJeIzborni;
         this.profesor = profesor;
+        this.daLiJeUpisan = false;
     }
 
     public String getNaziv() {
@@ -48,14 +56,6 @@ public class Predmet {
 
     public void setBrojCasova(int brojCasova) {
         this.brojCasova = brojCasova;
-    }
-
-    public boolean daLiJeIzborni() {
-        return daLiJeIzborni;
-    }
-
-    public void setDaLiJeIzborni(boolean daLiJeIzborni) {
-        this.daLiJeIzborni = daLiJeIzborni;
     }
 
     public Profesor getProfesor() {
