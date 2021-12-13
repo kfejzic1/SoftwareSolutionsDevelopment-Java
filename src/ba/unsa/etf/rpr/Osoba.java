@@ -1,5 +1,7 @@
+package ba.unsa.etf.rpr;
+
 public abstract class Osoba {
-    String ime, prezime;
+    private String ime, prezime;
 
     public String getIme() {
         return ime;

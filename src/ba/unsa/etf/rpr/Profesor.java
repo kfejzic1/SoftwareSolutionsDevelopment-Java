@@ -1,3 +1,5 @@
+package ba.unsa.etf.rpr;
+
 import java.util.Objects;
 
 public class Profesor extends Osoba {
@@ -25,12 +27,12 @@ public class Profesor extends Osoba {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Profesor profesor)) return false;
-        return this.ime.equals(profesor.getIme()) && this.prezime.equals(profesor.getPrezime());
+        return this.getIme().equals(profesor.getIme()) && this.getPrezime().equals(profesor.getPrezime());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.ime, this.prezime);
+        return Objects.hash(this.getIme(), this.getPrezime());
     }
 
     @Override

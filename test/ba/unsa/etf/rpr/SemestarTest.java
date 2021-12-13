@@ -1,3 +1,9 @@
+package ba.unsa.etf.rpr;
+
+import ba.unsa.etf.rpr.Ciklusi;
+import ba.unsa.etf.rpr.Predmet;
+import ba.unsa.etf.rpr.Profesor;
+import ba.unsa.etf.rpr.Semestar;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -19,7 +25,7 @@ class SemestarTest {
                         semestar.dodajObavezniPredmet(p1);
                         fail();
                     } catch (Exception e) {
-                        assertEquals("Predmet se već nalazi u semestru!", e.getMessage());
+                        assertEquals("ba.unsa.etf.rpr.Predmet se već nalazi u semestru!", e.getMessage());
                     }
                 },
                 () -> assertThrows(IllegalArgumentException.class, () -> semestar.dodajObavezniPredmet(p2)),
@@ -28,7 +34,7 @@ class SemestarTest {
                         semestar.dodajObavezniPredmet(p2);
                         fail();
                     } catch (Exception e) {
-                        assertEquals("Predmet nije obavezan!", e.getMessage());
+                        assertEquals("ba.unsa.etf.rpr.Predmet nije obavezan!", e.getMessage());
                     }
                 }
         );
@@ -50,7 +56,7 @@ class SemestarTest {
                         semestar.dodajIzborniPredmet(p2);
                         fail();
                     } catch (Exception e) {
-                        assertEquals("Predmet se već nalazi u semestru!", e.getMessage());
+                        assertEquals("ba.unsa.etf.rpr.Predmet se već nalazi u semestru!", e.getMessage());
                     }
                 },
                 () -> assertThrows(IllegalArgumentException.class, () -> semestar.dodajIzborniPredmet(p2)),
@@ -59,7 +65,7 @@ class SemestarTest {
                         semestar.dodajIzborniPredmet(p1);
                         fail();
                     } catch (Exception e) {
-                        assertEquals("Predmet nije izborni!", e.getMessage());
+                        assertEquals("ba.unsa.etf.rpr.Predmet nije izborni!", e.getMessage());
                     }
                 }
         );

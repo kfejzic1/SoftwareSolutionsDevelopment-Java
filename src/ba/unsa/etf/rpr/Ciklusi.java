@@ -1,3 +1,5 @@
+package ba.unsa.etf.rpr;
+
 public enum Ciklusi {
     Bachelor("Bachelor"), Master("Master"), PhD("PhD");
 

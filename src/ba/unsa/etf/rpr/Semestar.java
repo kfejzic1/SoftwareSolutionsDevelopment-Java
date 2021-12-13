@@ -1,3 +1,5 @@
+package ba.unsa.etf.rpr;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -68,7 +70,7 @@ public class Semestar {
 
     public void dodajObavezniPredmet(Predmet predmet) {
         if (obavezniPredmeti.contains(predmet) || izborniPredmeti.contains(predmet))
-            throw new IllegalArgumentException("Predmet se već nalazi u semestru!");
+            throw new IllegalArgumentException("ba.unsa.etf.rpr.Predmet se već nalazi u semestru!");
 
         this.obavezniPredmeti.add(predmet);
         updateNormeProfesora(predmet);
@@ -76,7 +78,7 @@ public class Semestar {
 
     public void dodajIzborniPredmet(Predmet predmet) {
         if (izborniPredmeti.contains(predmet) || obavezniPredmeti.contains(predmet))
-            throw new IllegalArgumentException("Predmet se već nalazi u semestru!");
+            throw new IllegalArgumentException("ba.unsa.etf.rpr.Predmet se već nalazi u semestru!");
 
         this.izborniPredmeti.add(predmet);
     }

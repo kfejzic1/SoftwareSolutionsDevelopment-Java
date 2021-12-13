@@ -1,3 +1,5 @@
+package ba.unsa.etf.rpr;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,7 +61,7 @@ public class Fakultet {
 
     public void dodajStudenta(Student student) {
         if (studenti.contains(student))
-            throw new IllegalArgumentException("Student je vec upisan na ovaj fakultet!");
+            throw new IllegalArgumentException("ba.unsa.etf.rpr.Student je vec upisan na ovaj fakultet!");
 
         this.studenti.add(student);
     }

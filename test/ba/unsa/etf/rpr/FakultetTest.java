@@ -1,3 +1,6 @@
+package ba.unsa.etf.rpr;
+
+import ba.unsa.etf.rpr.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;

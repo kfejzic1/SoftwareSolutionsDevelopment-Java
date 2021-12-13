@@ -1,3 +1,6 @@
+package ba.unsa.etf.rpr;
+
+import ba.unsa.etf.rpr.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -42,7 +45,7 @@ class StudentTest {
             student.upisiSemestar(semestar);
             fail();
         } catch (IllegalArgumentException e) {
-            assertEquals("Student je vec upisan na neki od semestara!", e.getMessage());
+            assertEquals("ba.unsa.etf.rpr.Student je vec upisan na neki od semestara!", e.getMessage());
         }
     }
 
@@ -66,7 +69,7 @@ class StudentTest {
                     try {
                         student.dajOcjenuIzPredmeta(new Predmet("Neki predmet", 6, 40, new Profesor("Neko", "Nekic")));
                     } catch (Exception e) {
-                        assertEquals("Student ne pohađa taj predmet!", e.getMessage());
+                        assertEquals("ba.unsa.etf.rpr.Student ne pohađa taj predmet!", e.getMessage());
                     }
                 },
                 () -> assertEquals(student.dajOcjenuIzPredmeta(student.getUpisaniPredmeti().get(1)), 5),
@@ -87,7 +90,7 @@ class StudentTest {
                         student.upisiIzborniPredmet(new Predmet("Neki predmet", 6, 40, new Profesor("Neko", "Nekic")));
                         fail();
                     } catch (IllegalArgumentException e) {
-                        assertEquals("Predmet nije izborni u upisanom semestru!", e.getMessage());
+                        assertEquals("ba.unsa.etf.rpr.Predmet nije izborni u upisanom semestru!", e.getMessage());
                     }
                 },
                 () -> {
@@ -95,7 +98,7 @@ class StudentTest {
                         student.upisiIzborniPredmet(student.getUpisaniSemestar().getIzborniPredmeti().get(0));
                         fail();
                     } catch (IllegalArgumentException e) {
-                        assertEquals("Student je već upisan na ovaj predmet!", e.getMessage());
+                        assertEquals("ba.unsa.etf.rpr.Student je već upisan na ovaj predmet!", e.getMessage());
                     }
                 },
                 () -> {
