@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class Profesor extends Osoba{
+public class Profesor extends Osoba {
     int norma;
 
     public Profesor(String ime, String prezime) {

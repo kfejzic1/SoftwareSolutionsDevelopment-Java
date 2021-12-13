@@ -1,7 +1,7 @@
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 class ProfesorTest {
 
@@ -11,8 +11,8 @@ class ProfesorTest {
         Profesor p2 = new Profesor("Željko", "Jurić", 130);
         Profesor p3 = new Profesor("Vedran", "Ljubović", 140);
 
-        assertEquals(p1,p3);
-        assertNotEquals(p1,p2);
+        assertEquals(p1, p3);
+        assertNotEquals(p1, p2);
     }
 
     @Test
