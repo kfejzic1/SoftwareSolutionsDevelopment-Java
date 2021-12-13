@@ -1,33 +1,43 @@
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 public class Fakultet {
-    private ArrayList<Profesor> profesori;
-    private ArrayList<Student> studenti;
+    private List<Profesor> profesori;
+    private List<Student> studenti;
+    private List<Semestar> semestri;
     private String naziv;
 
     public Fakultet(String naziv) {
         this.naziv = naziv;
         this.profesori = new ArrayList<>();
         this.studenti = new ArrayList<>();
+        this.semestri = new ArrayList<>();
     }
 
-    public Fakultet(ArrayList<Profesor> profesori, ArrayList<Student> studenti, String naziv) {
+    public Fakultet(String naziv, List<Profesor> profesori, List<Student> studenti, List<Semestar> semestri) {
         this.profesori = profesori;
         this.studenti = studenti;
         this.naziv = naziv;
+        this.semestri = semestri;
     }
 
-    public ArrayList<Profesor> getProfesori() {
-        return profesori;
+    public List<Profesor> getProfesori() {
+        return this.profesori;
+    }
+
+    public List<Semestar> getSemestri() {
+        return semestri;
+    }
+
+    public void setSemestri(ArrayList<Semestar> semestri) {
+        this.semestri = semestri;
     }
 
     public void setProfesori(ArrayList<Profesor> profesori) {
         this.profesori = profesori;
     }
 
-    public ArrayList<Student> getStudenti() {
+    public List<Student> getStudenti() {
         return studenti;
     }
 
@@ -43,31 +53,37 @@ public class Fakultet {
         this.naziv = naziv;
     }
 
-    public Set<Semestar> dajUpisaneSemestre(){
-        Set<Semestar> semestri = new HashSet<>();
-
-        for(Student s : studenti){
-            semestri.add(s.getIndeks().getUpisaniSemestar());
-        }
-
-        return semestri;
+    public void dodajProfesora(Profesor profesor) {
+        this.profesori.add(profesor);
     }
 
-    public String izlistajProfesoreKojiNemajuNormu(){
+    public void dodajStudenta(Student student) {
+        if (studenti.contains(student))
+            throw new IllegalArgumentException("Student je vec upisan na ovaj fakultet!");
+
+        this.studenti.add(student);
+    }
+
+    public void upisiStudentaNaSemestar(Student student, Semestar semestar) throws IllegalArgumentException {
+        student.upisiSemestar(semestar);
+    }
+
+    public String izlistajProfesoreKojiNemajuNormu() {
         String temp = "";
-        for(Profesor p : profesori){
-            if(p.getNorma()<120)
-                temp += p.toString();
+
+        for (Profesor p : profesori) {
+            if (p.getNorma() < 120)
+                temp += p + "\n";
         }
 
         return temp;
     }
 
-    public String izlistajProfesoreKojiRadePrekoNorme(){
+    public String izlistajProfesoreKojiRadePrekoNorme() {
         String temp = "";
-        for(Profesor p : profesori){
-            if(p.getNorma()>150)
-                temp += p.toString();
+        for (Profesor p : profesori) {
+            if (p.getNorma() > 150)
+                temp += p + "\n";
         }
 
         return temp;
