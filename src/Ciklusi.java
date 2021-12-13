@@ -3,11 +3,11 @@ public enum Ciklusi {
 
     private final String name;
 
-    Ciklusi(String s){
+    Ciklusi(String s) {
         name = s;
     }
 
-    public String toString(){
+    public String toString() {
         return this.name;
     }
 }
