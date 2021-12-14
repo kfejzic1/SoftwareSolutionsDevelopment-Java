@@ -42,9 +42,9 @@ class StudentTest {
 
         try {
             student.upisiSemestar(semestar);
-            fail();
+            fail("Neuspješno!");
         } catch (IllegalArgumentException e) {
-            assertEquals("Student je vec upisan na neki od semestara!", e.getMessage());
+            assertEquals("Student je vec upisan na neki od semestara!", e.getMessage(), "Neuspješno!");
         }
     }
 
@@ -59,20 +59,20 @@ class StudentTest {
                 () -> {
                     try {
                         student.upisiOcjenuIzPredmeta(student.getUpisaniPredmeti().get(0), 10);
-                        fail();
+                        fail("Neuspješno!");
                     } catch (Exception e) {
-                        assertEquals("Ocjena iz predmeta je vec upisana!", e.getMessage());
+                        assertEquals("Ocjena iz predmeta je vec upisana!", e.getMessage(), "Neuspješno!");
                     }
                 },
                 () -> {
                     try {
                         student.dajOcjenuIzPredmeta(new Predmet("Neki predmet", 6, 40, new Profesor("Neko", "Nekic")));
                     } catch (Exception e) {
-                        assertEquals("Student ne pohađa taj predmet!", e.getMessage());
+                        assertEquals("Student ne pohađa taj predmet!", e.getMessage(), "Neuspješno!");
                     }
                 },
-                () -> assertEquals(student.dajOcjenuIzPredmeta(student.getUpisaniPredmeti().get(1)), 5),
-                () -> assertEquals(student.dajOcjenuIzPredmeta(student.getUpisaniPredmeti().get(0)), 8)
+                () -> assertEquals(student.dajOcjenuIzPredmeta(student.getUpisaniPredmeti().get(1)), 5, "Neuspješno!"),
+                () -> assertEquals(student.dajOcjenuIzPredmeta(student.getUpisaniPredmeti().get(0)), 8, "Neuspješno!")
         );
     }
 
@@ -87,25 +87,25 @@ class StudentTest {
                 () -> {
                     try {
                         student.upisiIzborniPredmet(new Predmet("Neki predmet", 6, 40, new Profesor("Neko", "Nekic")));
-                        fail();
+                        fail("Neuspješno!");
                     } catch (IllegalArgumentException e) {
-                        assertEquals("Predmet nije izborni u upisanom semestru!", e.getMessage());
+                        assertEquals("Predmet nije izborni u upisanom semestru!", e.getMessage(), "Neuspješno!");
                     }
                 },
                 () -> {
                     try {
                         student.upisiIzborniPredmet(student.getUpisaniSemestar().getIzborniPredmeti().get(0));
-                        fail();
+                        fail("Neuspješno!");
                     } catch (IllegalArgumentException e) {
-                        assertEquals("Student je već upisan na ovaj predmet!", e.getMessage());
+                        assertEquals("Student je već upisan na ovaj predmet!", e.getMessage(), "Neuspješno!");
                     }
                 },
                 () -> {
                     try {
                         student.upisiIzborniPredmet(student.getUpisaniSemestar().getIzborniPredmeti().get(1));
-                        fail();
+                        fail("Neuspješno!");
                     } catch (IllegalArgumentException e) {
-                        assertEquals("Nije moguće imati više od 30 ECTS poena po semestru!", e.getMessage());
+                        assertEquals("Nije moguće imati više od 30 ECTS poena po semestru!", e.getMessage(), "Neuspješno!");
                     }
                 }
         );
@@ -128,12 +128,12 @@ class StudentTest {
                         Logički dizajn (5 ECTS) - 9
                         Osnove baza podataka (5 ECTS) - 5
                         Sistemsko programiranje (5 ECTS) - 5
-                        """);
+                        """, "Neuspješno!");
     }
 
     @Test
     void testToString() {
         Student s = new Student("Kenan", "Fejzić", "18903");
-        assertEquals(s.toString(), "Kenan Fejzić\n\tBroj indeksa: 18903");
+        assertEquals(s.toString(), "Kenan Fejzić\n\tBroj indeksa: 18903", "Neuspješno!");
     }
 }

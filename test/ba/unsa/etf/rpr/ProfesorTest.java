@@ -14,13 +14,13 @@ class ProfesorTest {
         Profesor p2 = new Profesor("Željko", "Jurić", 130);
         Profesor p3 = new Profesor("Vedran", "Ljubović", 140);
 
-        assertEquals(p1, p3);
-        assertNotEquals(p1, p2);
+        assertEquals(p1, p3, "Neuspješno!");
+        assertNotEquals(p1, p2, "Neuspješno!");
     }
 
     @Test
     void testToString() {
         Profesor p1 = new Profesor("Vedran", "Ljubović", 130);
-        assertEquals(p1.toString(), "Vedran Ljubović");
+        assertEquals(p1.toString(), "Vedran Ljubović","Neuspješno!");
     }
 }

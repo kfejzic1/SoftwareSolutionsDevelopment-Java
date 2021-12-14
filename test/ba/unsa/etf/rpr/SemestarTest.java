@@ -21,9 +21,9 @@ class SemestarTest {
                 () -> {
                     try {
                         semestar.dodajObavezniPredmet(p1);
-                        fail();
+                        fail("Neuspješno!");
                     } catch (Exception e) {
-                        assertEquals("Predmet se već nalazi u semestru!", e.getMessage());
+                        assertEquals("Predmet se već nalazi u semestru!", e.getMessage(), "Neuspješno!");
                     }
                 }
         );
@@ -41,9 +41,9 @@ class SemestarTest {
                 () -> {
                     try {
                         semestar.dodajIzborniPredmet(p2);
-                        fail();
+                        fail("Neuspješno!");
                     } catch (Exception e) {
-                        assertEquals("Predmet se već nalazi u semestru!", e.getMessage());
+                        assertEquals("Predmet se već nalazi u semestru!", e.getMessage(), "Neuspješno!");
                     }
                 }
         );
@@ -55,7 +55,7 @@ class SemestarTest {
         Semestar s2 = new Semestar(2, Ciklusi.PhD);
         Semestar s3 = new Semestar(1, Ciklusi.Bachelor);
 
-        assertEquals(s1, s3);
-        assertNotEquals(s1, s2);
+        assertEquals(s1, s3, "Neuspješno!");
+        assertNotEquals(s1, s2, "Neuspješno!");
     }
 }

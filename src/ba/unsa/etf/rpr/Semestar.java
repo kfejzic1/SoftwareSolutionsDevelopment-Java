@@ -77,7 +77,7 @@ public class Semestar {
         for(Predmet p : obavezniPredmeti)
             temp += p + "\n";
 
-        if(izborniPredmeti.size()==0){
+        if(izborniPredmeti.isEmpty()){
             temp += "U ovom semestru nema izbornih predmeta.\n";
             return temp;
         }
