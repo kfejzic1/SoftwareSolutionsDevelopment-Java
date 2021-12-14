@@ -10,11 +10,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SemestarTest {
 
-    @Test
+    @Test   //Testovi su banalni
     void dodajObavezniPredmet() {
         Semestar semestar = new Semestar(1, Ciklusi.Bachelor);
         Predmet p1 = new Predmet("Razvoj programskih rješenja", 7, 70, new Profesor("Vedran", "Ljubović"));
-        Predmet p2 = new Predmet("Random izborni predmet", 4, 40, new Profesor("Neko", "Nekić"));
 
         semestar.dodajObavezniPredmet(p1);
         assertAll(
@@ -33,7 +32,6 @@ class SemestarTest {
     @Test
     void dodajIzborniPredmet() {
         Semestar semestar = new Semestar(1, Ciklusi.Bachelor);
-        Predmet p1 = new Predmet("Razvoj programskih rješenja", 7, 70, new Profesor("Vedran", "Ljubović"));
         Predmet p2 = new Predmet("Random izborni predmet", 4, 40, new Profesor("Neko", "Nekić"));
 
         semestar.dodajIzborniPredmet(p2);

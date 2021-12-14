@@ -5,10 +5,10 @@ import java.util.List;
 import java.util.Objects;
 
 public class Semestar {
-    private int redniBroj;
-    private List<Predmet> obavezniPredmeti;
-    private List<Predmet> izborniPredmeti;
-    private Ciklusi ciklus;
+    private final int redniBroj;
+    private final List<Predmet> obavezniPredmeti;
+    private final List<Predmet> izborniPredmeti;
+    private final Ciklusi ciklus;
 
     private void updateNormeProfesora(Predmet predmet) {     //Povecava normu profesora za zadani predmet jednom
         if (!predmet.daLiJeUpisan()) {
@@ -36,36 +36,12 @@ public class Semestar {
             updateNormeProfesora(p);
     }
 
-    public int getRedniBroj() {
-        return redniBroj;
-    }
-
-    public void setRedniBroj(int redniBroj) {
-        this.redniBroj = redniBroj;
-    }
-
     public List<Predmet> getObavezniPredmeti() {
         return obavezniPredmeti;
     }
 
-    public void setObavezniPredmeti(ArrayList<Predmet> obavezniPredmeti) {
-        this.obavezniPredmeti = obavezniPredmeti;
-    }
-
     public List<Predmet> getIzborniPredmeti() {
         return izborniPredmeti;
-    }
-
-    public void setIzborniPredmeti(ArrayList<Predmet> izborniPredmeti) {
-        this.izborniPredmeti = izborniPredmeti;
-    }
-
-    public Ciklusi getCiklus() {
-        return ciklus;
-    }
-
-    public void setCiklus(Ciklusi ciklus) {
-        this.ciklus = ciklus;
     }
 
     public void dodajObavezniPredmet(Predmet predmet) {
