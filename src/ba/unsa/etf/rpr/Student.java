@@ -1,18 +1,11 @@
 package ba.unsa.etf.rpr;
 
-import ba.unsa.etf.rpr.Osoba;
-import ba.unsa.etf.rpr.Predmet;
-import ba.unsa.etf.rpr.Semestar;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public class Student extends Osoba {
-    private String indeks;
-    private Map<Predmet, Integer> ocjene;
-    private ArrayList<Predmet> upisaniPredmeti;
+    private final String indeks;
+    private final Map<Predmet, Integer> ocjene;
+    private final ArrayList<Predmet> upisaniPredmeti;
     private Semestar upisaniSemestar;
 
     public ArrayList<Predmet> getUpisaniPredmeti() {
@@ -28,14 +21,6 @@ public class Student extends Osoba {
         this.indeks = brojIndeksa;
         this.ocjene = new HashMap<>();
         this.upisaniPredmeti = new ArrayList<>();
-    }
-
-    public String getIndeks() {
-        return this.indeks;
-    }
-
-    public void setIndeks(String indeks) {
-        this.indeks = indeks;
     }
 
     public void upisiSemestar(Semestar semestar) { //Upisuje određeni semestar i odmah upisuje obavezne predmete
@@ -100,6 +85,15 @@ public class Student extends Osoba {
         }
 
         return s;
+    }
+
+    public HashSet<Profesor> dajProfesoreKojiPredajuStudentu(){
+        HashSet<Profesor> profesori = new HashSet<>();
+
+        for(Predmet p : upisaniPredmeti)
+            profesori.add(p.getProfesor());
+
+        return profesori;
     }
 
     @Override
