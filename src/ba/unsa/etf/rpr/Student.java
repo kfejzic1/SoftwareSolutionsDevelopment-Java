@@ -95,13 +95,13 @@ public class Student extends Osoba {
     }
 
     public String dajPrepisOcjena() {
-        String s = "";
+        StringBuilder s = new StringBuilder();
 
         for (Predmet predmet : this.upisaniPredmeti) {
-            s += predmet.getNaziv() + " (" + predmet.getEcts() + " ECTS) - " + dajOcjenuIzPredmeta(predmet) + "\n";
+            s.append(predmet.getNaziv()).append(" (").append(predmet.getEcts()).append(" ECTS) - ").append(dajOcjenuIzPredmeta(predmet)).append('\n');
         }
 
-        return s;
+        return s.toString();
     }
 
     public Map<Predmet, Integer> getOcjene() {

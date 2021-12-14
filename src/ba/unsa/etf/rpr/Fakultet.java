@@ -52,16 +52,16 @@ public class Fakultet {
     }
 
     private String ispisiSveProfesore(ArrayList<Profesor> profesori, boolean norma){
-        String temp = "";
+        StringBuilder temp = new StringBuilder();
         for(Profesor p : profesori){
-            temp+=p;
+            temp.append(p);
             if(norma)
-                temp+=", norma: " + p.getNorma() + "\n";
+                temp.append(", norma: ").append(p.getNorma()).append('\n');
             else
-                temp+= ", broj studenata: " + p.getBrojStudenataKojimaPredaje() + "\n";
+                temp.append(", broj studenata: ").append(p.getBrojStudenataKojimaPredaje()).append('\n');
         }
 
-        return temp;
+        return temp.toString();
     }
 
     public ArrayList<Profesor> getProfesori() {
@@ -85,27 +85,27 @@ public class Fakultet {
     }
 
     public String dajProfesoreKojiNemajuNormu() {
-        String temp = "";
+        StringBuilder temp = new StringBuilder();
 
         final int donjaGranica = 120;
         for (Profesor p : profesori) {
             if (p.getNorma() < donjaGranica)
-                temp += p + ", norma: " + p.getNorma() + "\n";
+                temp.append(p).append(", norma: ").append(p.getNorma()).append('\n');
         }
 
-        return temp;
+        return temp.toString();
     }
 
     public String dajProfesoreKojiRadePrekoNorme() {
-        String temp = "";
+        StringBuilder temp = new StringBuilder();
 
         final int gornjaGranica = 150;
         for (Profesor p : profesori) {
             if (p.getNorma() > gornjaGranica)
-                temp += p + ", norma: " + p.getNorma() + "\n";
+                temp.append(p).append(", norma: ").append(p.getNorma()).append('\n');
         }
 
-        return temp;
+        return temp.toString();
     }
 
     public String getNaziv() {

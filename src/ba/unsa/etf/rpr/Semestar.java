@@ -72,19 +72,19 @@ public class Semestar {
 
     @Override
     public String toString() {
-        String temp = redniBroj + ". semestar:\nObavezni predmeti:\n";
+        StringBuilder temp = new StringBuilder(redniBroj + ". semestar:\nObavezni predmeti:\n");
         for(Predmet p : obavezniPredmeti)
-            temp += p + "\n";
+            temp.append(p).append('\n');
 
         if(izborniPredmeti.isEmpty()){
-            temp += "U ovom semestru nema izbornih predmeta.\n";
-            return temp;
+            temp.append("U ovom semestru nema izbornih predmeta.\n");
+            return temp.toString();
         }
 
-        temp += "Izborni predmeti:\n";
+        temp.append("Izborni predmeti:\n");
         for(Predmet p : izborniPredmeti)
-            temp += p + "\n";
+            temp.append(p).append('\n');
 
-        return temp;
+        return temp.toString();
     }
 }
