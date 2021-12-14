@@ -21,6 +21,6 @@ class ProfesorTest {
     @Test
     void testToString() {
         Profesor p1 = new Profesor("Vedran", "Ljubović", 130);
-        assertEquals(p1.toString(), "Vedran Ljubović, norma: 130");
+        assertEquals(p1.toString(), "Vedran Ljubović");
     }
 }

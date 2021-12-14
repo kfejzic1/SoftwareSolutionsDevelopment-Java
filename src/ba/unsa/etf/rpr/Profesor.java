@@ -48,6 +48,6 @@ public class Profesor extends Osoba {
 
     @Override
     public String toString() {
-        return super.toString();
+        return this.getIme() + " " + this.getPrezime();
     }
 }

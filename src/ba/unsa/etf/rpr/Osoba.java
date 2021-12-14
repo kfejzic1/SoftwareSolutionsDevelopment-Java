@@ -18,7 +18,5 @@ public abstract class Osoba {
     }
 
     @Override
-    public String toString() {
-        return ime + " " + prezime;
-    }
+    public abstract String toString();
 }
