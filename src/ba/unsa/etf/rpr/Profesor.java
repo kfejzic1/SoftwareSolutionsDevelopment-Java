@@ -3,19 +3,30 @@ package ba.unsa.etf.rpr;
 import java.util.Objects;
 
 public class Profesor extends Osoba {
-    int norma;
+    private Integer norma;
+    private Integer brojStudenataKojimaPredaje;
 
     public Profesor(String ime, String prezime) {
         super(ime, prezime);
         this.norma = 0;
+        this.brojStudenataKojimaPredaje = 0;
+    }
+
+    public Integer getBrojStudenataKojimaPredaje() {
+        return brojStudenataKojimaPredaje;
+    }
+
+    public void setBrojStudenataKojimaPredaje(Integer brojStudenataKojimaPredaje) {
+        this.brojStudenataKojimaPredaje = brojStudenataKojimaPredaje;
     }
 
     public Profesor(String ime, String prezime, int norma) {
         super(ime, prezime);
         this.norma = norma;
+        this.brojStudenataKojimaPredaje = 0;
     }
 
-    public int getNorma() {
+    public Integer getNorma() {
         return norma;
     }
 
@@ -37,6 +48,6 @@ public class Profesor extends Osoba {
 
     @Override
     public String toString() {
-        return super.toString() + ", norma: " + this.norma;
+        return super.toString();
     }
 }
