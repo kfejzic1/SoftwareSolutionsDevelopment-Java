@@ -106,7 +106,7 @@ class FakultetTest {
         fakultet.getStudenti().get(1).upisiIzborniPredmet(fakultet.getStudenti().get(1).getUpisaniSemestar().getIzborniPredmeti().get(0));
         fakultet.getStudenti().get(1).upisiIzborniPredmet(fakultet.getStudenti().get(1).getUpisaniSemestar().getIzborniPredmeti().get(1));
 
-        assertEquals(fakultet.izlistajProfesoreKojiNemajuNormu(),
+        assertEquals(fakultet.dajProfesoreKojiNemajuNormu(),
                 """
                         Vedran Ljubović, norma: 100
                         Novica Nosović, norma: 90
@@ -127,7 +127,7 @@ class FakultetTest {
         fakultet.getStudenti().get(1).upisiIzborniPredmet(fakultet.getStudenti().get(1).getUpisaniSemestar().getIzborniPredmeti().get(0));
         fakultet.getStudenti().get(1).upisiIzborniPredmet(fakultet.getStudenti().get(1).getUpisaniSemestar().getIzborniPredmeti().get(1));
 
-        assertEquals(fakultet.izlistajProfesoreKojiRadePrekoNorme(), "Željko Jurić, norma: 180\n");
+        assertEquals(fakultet.dajProfesoreKojiRadePrekoNorme(), "Željko Jurić, norma: 180\n");
     }
 
     @Test
