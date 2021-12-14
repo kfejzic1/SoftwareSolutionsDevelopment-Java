@@ -75,8 +75,19 @@ public class Student extends Osoba {
         if (dajUkupanBrojECTSPoena() + predmet.getEcts() > 30)
             throw new IllegalArgumentException("Nije moguće imati više od 30 ECTS poena po semestru!");
 
+        boolean predajeProfesor = false;
+        for(Predmet p : upisaniPredmeti){   //Provjeravamo da li profesor zeljenog predmeta predaje vec studentu
+            if(p.getProfesor().equals(predmet.getProfesor())){
+                predajeProfesor = true;
+                break;
+            }
+        }
+
+        if(!predajeProfesor)    //Ako ne predaje, povećati broj studenata kojima taj profesor predaje
+            predmet.getProfesor().setBrojStudenataKojimaPredaje(predmet.getProfesor().getBrojStudenataKojimaPredaje()+1);
+
         upisaniPredmeti.add(predmet);
-        predmet.getProfesor().setBrojStudenataKojimaPredaje(predmet.getProfesor().getBrojStudenataKojimaPredaje()+1);
+
         if (!predmet.daLiJeUpisan()) {     //Potrebno je odraditi update norme profesora jer se predmet prvi put upisuje
             predmet.getProfesor().setNorma(predmet.getProfesor().getNorma() + predmet.getBrojCasova());
             predmet.setDaLiJeUpisan(true);
