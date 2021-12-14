@@ -1,12 +1,11 @@
 package ba.unsa.etf.rpr;
 
-import ba.unsa.etf.rpr.*;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class FakultetTest {
 
@@ -15,29 +14,82 @@ class FakultetTest {
     Profesor profesor3 = new Profesor("Novica", "Nosović");
     Profesor profesor4 = new Profesor("Emir", "Buza");
     Profesor profesor5 = new Profesor("Samir", "Ribić");
-    List<Profesor> profesori = Arrays.asList(profesor1, profesor2, profesor3, profesor4, profesor5);
+    ArrayList<Profesor> profesori = new ArrayList<>();
 
-    Predmet predmet1 = new Predmet("Razvoj programskih rješenja", 7, 100, profesor1);
-    Predmet predmet2 = new Predmet("Diskretna matematika", 7, 100, profesor2);
-    Predmet predmet3 = new Predmet("Logički dizajn", 5, 90, profesor3);
-    Predmet predmet4 = new Predmet("Osnove baza podataka", 5, 90, profesor4);
-    Predmet predmet5 = new Predmet("Sistemsko programiranje", 5, 50, profesor5);
-    Predmet predmet6 = new Predmet("Random izborni predmet", 4, 40, profesor5);
-    Predmet predmet7 = new Predmet("Razvoj mobilnih aplikacija", 4, 40, profesor4);
-    Predmet predmet8 = new Predmet("CAD/CAM inženjering", 5, 80, profesor2);
-    List<Predmet> obavezni1 = Arrays.asList(predmet1, predmet2);
-    List<Predmet> obavezni2 = Arrays.asList(predmet3, predmet4);
-    List<Predmet> izborni1 = Arrays.asList(predmet5, predmet6);
-    List<Predmet> izborni2 = Arrays.asList(predmet7, predmet8);
+    ArrayList<Predmet> obavezni1 = new ArrayList<>();
+    ArrayList<Predmet> obavezni2 = new ArrayList<>();
+    ArrayList<Predmet> izborni1 = new ArrayList<>();
+    ArrayList<Predmet> izborni2 = new ArrayList<>();
+
 
     Student s1 = new Student("Kenan", "Fejzic", "18903");
     Student s2 = new Student("Mujo", "Mujic", "12345");
-    List<Student> studenti = Arrays.asList(s1, s2);
+    ArrayList<Student> studenti = new ArrayList<>();
 
 
     Semestar semestar1 = new Semestar(1, obavezni1, izborni1, Ciklusi.Bachelor);
     Semestar semestar2 = new Semestar(2, obavezni2, izborni2, Ciklusi.Bachelor);
-    List<Semestar> semestri = Arrays.asList(semestar1, semestar2);
+    ArrayList<Semestar> semestri = new ArrayList<>();
+
+    @BeforeEach
+    void init(){
+        profesori.add(profesor1);
+        profesori.add(profesor2);
+        profesori.add(profesor3);
+        profesori.add(profesor4);
+        profesori.add(profesor5);
+
+        //Problem dubokih kopija, potrebno je poslati plitku kopiju u arrayListu profesori, ili koristiti listu
+
+        Predmet predmet1 = new Predmet("Razvoj programskih rješenja", 7, 100, profesori.get(0));
+        Predmet predmet2 = new Predmet("Diskretna matematika", 7, 100, profesori.get(1));
+        Predmet predmet3 = new Predmet("Logički dizajn", 5, 90, profesori.get(2));
+        Predmet predmet4 = new Predmet("Osnove baza podataka", 5, 90, profesori.get(3));
+        Predmet predmet5 = new Predmet("Sistemsko programiranje", 5, 50, profesori.get(4));
+        Predmet predmet6 = new Predmet("Random izborni predmet", 4, 40, profesori.get(4));
+        Predmet predmet7 = new Predmet("Razvoj mobilnih aplikacija", 4, 40, profesori.get(3));
+        Predmet predmet8 = new Predmet("CAD/CAM inženjering", 5, 80, profesori.get(1));
+
+        obavezni1.add(predmet1);
+        obavezni1.add(predmet2);
+        obavezni2.add(predmet3);
+        obavezni2.add(predmet4);
+
+        izborni1.add(predmet5);
+        izborni1.add(predmet6);
+        izborni2.add(predmet7);
+        izborni2.add(predmet8);
+
+        studenti.add(s1);
+        studenti.add(s2);
+
+        semestri.add(semestar1);
+        semestri.add(semestar2);
+    }
+
+    @Test
+    void testDodajProfesoraIStudenta(){
+        Fakultet fakultet = new Fakultet("ETF Sarajevo", profesori, studenti, semestri);
+
+        assertAll(
+                () -> {
+                    try{
+                        fakultet.dodajStudenta(s1);
+                        fail();
+                    }catch (IllegalArgumentException e){
+                        assertEquals("Student je vec upisan na ovaj fakultet!", e.getMessage());
+                    }
+                },
+                () ->{
+                    try{
+                        fakultet.dodajProfesora(profesor2);
+                        fail();
+                    }catch (IllegalArgumentException e){
+                        assertEquals("Profesor vec radi na ovom fakultetu!", e.getMessage());
+                    }
+                }
+        );
+    }
 
     @Test
     void izlistajProfesoreKojiNemajuNormu() {

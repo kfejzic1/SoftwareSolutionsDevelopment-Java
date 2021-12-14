@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Fakultet {
-    private List<Profesor> profesori;
-    private List<Student> studenti;
-    private List<Semestar> semestri;
+    private ArrayList<Profesor> profesori;
+    private ArrayList<Student> studenti;
+    private ArrayList<Semestar> semestri;
     private String naziv;
 
     public Fakultet(String naziv) {
@@ -16,7 +16,7 @@ public class Fakultet {
         this.semestri = new ArrayList<>();
     }
 
-    public Fakultet(String naziv, List<Profesor> profesori, List<Student> studenti, List<Semestar> semestri) {
+    public Fakultet(String naziv, ArrayList<Profesor> profesori, ArrayList<Student> studenti, ArrayList<Semestar> semestri) {
         this.profesori = profesori;
         this.studenti = studenti;
         this.naziv = naziv;
@@ -56,12 +56,15 @@ public class Fakultet {
     }
 
     public void dodajProfesora(Profesor profesor) {
+        if(profesori.contains(profesor))
+            throw new IllegalArgumentException("Profesor vec radi na ovom fakultetu!");
+
         this.profesori.add(profesor);
     }
 
     public void dodajStudenta(Student student) {
         if (studenti.contains(student))
-            throw new IllegalArgumentException("ba.unsa.etf.rpr.Student je vec upisan na ovaj fakultet!");
+            throw new IllegalArgumentException("Student je vec upisan na ovaj fakultet!");
 
         this.studenti.add(student);
     }
