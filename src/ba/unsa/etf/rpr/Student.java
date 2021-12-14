@@ -104,15 +104,6 @@ public class Student extends Osoba {
         return s;
     }
 
-    public HashSet<Profesor> dajProfesoreKojiPredajuStudentu(){
-        HashSet<Profesor> profesori = new HashSet<>();
-
-        for(Predmet p : upisaniPredmeti)
-            profesori.add(p.getProfesor());
-
-        return profesori;
-    }
-
     public Map<Predmet, Integer> getOcjene() {
         return ocjene;
     }

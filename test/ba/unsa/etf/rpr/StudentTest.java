@@ -134,6 +134,6 @@ class StudentTest {
     @Test
     void testToString() {
         Student s = new Student("Kenan", "Fejzić", "18903");
-        assertEquals(s.toString(), "Kenan Fejzić\nBroj indeksa: 18903");
+        assertEquals(s.toString(), "Kenan Fejzić\n\tBroj indeksa: 18903");
     }
 }
