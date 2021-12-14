@@ -3,10 +3,11 @@ package ba.unsa.etf.rpr;
 import java.util.Objects;
 
 public class Predmet {
-    private String naziv;
-    private int ects, brojCasova;
+    private final String naziv;
+    private final int ects;
+    private final int brojCasova;
     private boolean daLiJeUpisan;
-    private Profesor profesor;
+    private final Profesor profesor;
 
     public boolean daLiJeUpisan() {
         return daLiJeUpisan;
@@ -40,31 +41,15 @@ public class Predmet {
         return Objects.hash(naziv);
     }
 
-    public void setNaziv(String naziv) {
-        this.naziv = naziv;
-    }
-
     public int getEcts() {
         return ects;
-    }
-
-    public void setEcts(int ects) {
-        this.ects = ects;
     }
 
     public int getBrojCasova() {
         return brojCasova;
     }
 
-    public void setBrojCasova(int brojCasova) {
-        this.brojCasova = brojCasova;
-    }
-
     public Profesor getProfesor() {
         return profesor;
-    }
-
-    public void setProfesor(Profesor profesor) {
-        this.profesor = profesor;
     }
 }
