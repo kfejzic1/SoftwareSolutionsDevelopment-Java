@@ -52,4 +52,9 @@ public class Predmet {
     public Profesor getProfesor() {
         return profesor;
     }
+
+    @Override
+    public String toString() {
+        return naziv + ", " + ects + " ECTS, " + brojCasova + " časova.\n\tProfesor: " + profesor;
+    }
 }
