@@ -70,4 +70,22 @@ public class Semestar {
     public int hashCode() {
         return Objects.hash(redniBroj, ciklus);
     }
+
+    @Override
+    public String toString() {
+        String temp = redniBroj + ". semestar:\nObavezni predmeti:\n";
+        for(Predmet p : obavezniPredmeti)
+            temp += p + "\n";
+
+        if(izborniPredmeti.size()==0){
+            temp += "U ovom semestru nema izbornih predmeta.\n";
+            return temp;
+        }
+
+        temp += "Izborni predmeti:\n";
+        for(Predmet p : izborniPredmeti)
+            temp += p + "\n";
+
+        return temp;
+    }
 }
