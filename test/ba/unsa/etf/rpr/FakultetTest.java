@@ -24,6 +24,7 @@ class FakultetTest {
 
     Student s1 = new Student("Kenan", "Fejzic", "18903");
     Student s2 = new Student("Mujo", "Mujic", "12345");
+    Student s3 = new Student("Suljo", "Suljic", "19000");
     ArrayList<Student> studenti = new ArrayList<>();
 
 
@@ -62,6 +63,7 @@ class FakultetTest {
 
         studenti.add(s1);
         studenti.add(s2);
+        studenti.add(s3);
 
         semestri.add(semestar1);
         semestri.add(semestar2);
@@ -126,5 +128,29 @@ class FakultetTest {
         fakultet.getStudenti().get(1).upisiIzborniPredmet(fakultet.getStudenti().get(1).getUpisaniSemestar().getIzborniPredmeti().get(1));
 
         assertEquals(fakultet.izlistajProfesoreKojiRadePrekoNorme(), "Željko Jurić, norma: 180\n");
+    }
+
+    @Test
+    void dajBrojStudenataKojimaPredajeProfesor() {
+        Fakultet fakultet = new Fakultet("ETF Sarajevo", profesori, studenti, semestri);
+
+        fakultet.upisiStudentaNaSemestar(fakultet.getStudenti().get(0), fakultet.getSemestri().get(0)); //Predaju Vedran i Željko
+        fakultet.upisiStudentaNaSemestar(fakultet.getStudenti().get(1), fakultet.getSemestri().get(1)); //Predaju Novica i Emir
+        fakultet.upisiStudentaNaSemestar(fakultet.getStudenti().get(2), fakultet.getSemestri().get(0)); //Predaju Vedran i Željko
+
+        fakultet.getStudenti().get(0).upisiIzborniPredmet(fakultet.getStudenti().get(0).getUpisaniSemestar().getIzborniPredmeti().get(0));  //Predaje Samir
+        fakultet.getStudenti().get(0).upisiIzborniPredmet(fakultet.getStudenti().get(0).getUpisaniSemestar().getIzborniPredmeti().get(1));  //Predaje Samir
+
+        fakultet.getStudenti().get(1).upisiIzborniPredmet(fakultet.getStudenti().get(1).getUpisaniSemestar().getIzborniPredmeti().get(0));  //Predaje Željko
+        fakultet.getStudenti().get(1).upisiIzborniPredmet(fakultet.getStudenti().get(1).getUpisaniSemestar().getIzborniPredmeti().get(1));  //Predaje Emir
+
+        //Maksimalno imaju 3 studenta, Vedran 2, Željko 2, Novica i Emir 1, Samir 1
+
+
+        assertAll(
+                () -> assertEquals(fakultet.dajBrojStudenataKojimaPredajeProfesor(profesori.get(0)), 2),
+                () -> assertEquals(fakultet.dajBrojStudenataKojimaPredajeProfesor(profesori.get(1)),3),
+                () -> assertEquals(fakultet.dajBrojStudenataKojimaPredajeProfesor(profesori.get(4)), 1)
+        );
     }
 }

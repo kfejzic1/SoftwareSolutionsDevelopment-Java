@@ -4,17 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Fakultet {
-    private ArrayList<Profesor> profesori;
-    private ArrayList<Student> studenti;
-    private ArrayList<Semestar> semestri;
-    private String naziv;
-
-    public Fakultet(String naziv) {
-        this.naziv = naziv;
-        this.profesori = new ArrayList<>();
-        this.studenti = new ArrayList<>();
-        this.semestri = new ArrayList<>();
-    }
+    private final ArrayList<Profesor> profesori;
+    private final ArrayList<Student> studenti;
+    private final ArrayList<Semestar> semestri;
+    private final String naziv;
 
     public Fakultet(String naziv, ArrayList<Profesor> profesori, ArrayList<Student> studenti, ArrayList<Semestar> semestri) {
         this.profesori = profesori;
@@ -23,36 +16,13 @@ public class Fakultet {
         this.semestri = semestri;
     }
 
-    public List<Profesor> getProfesori() {
-        return this.profesori;
-    }
-
     public List<Semestar> getSemestri() {
         return semestri;
     }
 
-    public void setSemestri(ArrayList<Semestar> semestri) {
-        this.semestri = semestri;
-    }
-
-    public void setProfesori(ArrayList<Profesor> profesori) {
-        this.profesori = profesori;
-    }
 
     public List<Student> getStudenti() {
         return studenti;
-    }
-
-    public void setStudenti(ArrayList<Student> studenti) {
-        this.studenti = studenti;
-    }
-
-    public String getNaziv() {
-        return naziv;
-    }
-
-    public void setNaziv(String naziv) {
-        this.naziv = naziv;
     }
 
     public void dodajProfesora(Profesor profesor) {
@@ -92,5 +62,20 @@ public class Fakultet {
         }
 
         return temp;
+    }
+
+    public String getNaziv() {
+        return naziv;
+    }
+
+    public int dajBrojStudenataKojimaPredajeProfesor(Profesor profesor){
+        int i = 0;
+
+        for(Student student : studenti){
+            if(student.dajProfesoreKojiPredajuStudentu().contains(profesor))
+                i++;
+        }
+
+        return i;
     }
 }
