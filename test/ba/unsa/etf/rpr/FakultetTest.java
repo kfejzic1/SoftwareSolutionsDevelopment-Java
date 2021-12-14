@@ -70,31 +70,29 @@ class FakultetTest {
     }
 
     @Test
-    void testDodajProfesoraIStudenta(){
+    void testDodajProfesora(){
         Fakultet fakultet = new Fakultet("ETF Sarajevo", profesori, studenti, semestri);
-
-        assertAll(
-                () -> {
-                    try{
-                        fakultet.dodajStudenta(s1);
-                        fail();
-                    }catch (IllegalArgumentException e){
-                        assertEquals("Student je vec upisan na ovaj fakultet!", e.getMessage());
-                    }
-                },
-                () ->{
-                    try{
-                        fakultet.dodajProfesora(profesor2);
-                        fail();
-                    }catch (IllegalArgumentException e){
-                        assertEquals("Profesor vec radi na ovom fakultetu!", e.getMessage());
-                    }
-                }
-        );
+        try{
+            fakultet.dodajProfesora(profesor2);
+            fail();
+        }catch (IllegalArgumentException e){
+            assertEquals("Profesor vec radi na ovom fakultetu!", e.getMessage());
+        }
     }
 
     @Test
-    void izlistajProfesoreKojiNemajuNormu() {
+    void testDodajStudenta() {
+        Fakultet fakultet = new Fakultet("ETF Sarajevo", profesori, studenti, semestri);
+        try{
+            fakultet.dodajStudenta(s1);
+            fail();
+        }catch (IllegalArgumentException e){
+            assertEquals("Student je vec upisan na ovaj fakultet!", e.getMessage());
+        }
+    }
+
+    @Test
+    void dajProfesoreKojiNemajuNormu() {
         Fakultet fakultet = new Fakultet("ETF Sarajevo", profesori, studenti, semestri);
 
         fakultet.upisiStudentaNaSemestar(fakultet.getStudenti().get(0), fakultet.getSemestri().get(0));
@@ -115,7 +113,7 @@ class FakultetTest {
     }
 
     @Test
-    void izlistajProfesoreKojiRadePrekoNorme() {
+    void dajProfesoreKojiRadePrekoNorme() {
         Fakultet fakultet = new Fakultet("ETF Sarajevo", profesori, studenti, semestri);
 
         fakultet.upisiStudentaNaSemestar(fakultet.getStudenti().get(0), fakultet.getSemestri().get(0));
@@ -131,7 +129,7 @@ class FakultetTest {
     }
 
     @Test
-    void dajBrojStudenataKojimaPredajeProfesor() {
+    void dajProfesoreSortiranePoNormi() {
         Fakultet fakultet = new Fakultet("ETF Sarajevo", profesori, studenti, semestri);
 
         fakultet.upisiStudentaNaSemestar(fakultet.getStudenti().get(0), fakultet.getSemestri().get(0)); //Predaju Vedran i Željko
@@ -146,11 +144,60 @@ class FakultetTest {
 
         //Maksimalno imaju 3 studenta, Vedran 2, Željko 2, Novica i Emir 1, Samir 1
 
+        assertEquals("""
+                Novica Nosović, norma: 90
+                Samir Ribić, norma: 90
+                Emir Buza, norma: 130
+                Vedran Ljubović, norma: 200
+                Željko Jurić, norma: 280
+                """, fakultet.dajProfesoreSortiranePoNormi());
+    }
 
-        assertAll(
-                () -> assertEquals(fakultet.dajBrojStudenataKojimaPredajeProfesor(profesori.get(0)), 2),
-                () -> assertEquals(fakultet.dajBrojStudenataKojimaPredajeProfesor(profesori.get(1)),3),
-                () -> assertEquals(fakultet.dajBrojStudenataKojimaPredajeProfesor(profesori.get(4)), 1)
-        );
+    @Test
+    void dajProfesoreSortiranePoBrojuStudenata() {
+        Fakultet fakultet = new Fakultet("ETF Sarajevo", profesori, studenti, semestri);
+
+        fakultet.upisiStudentaNaSemestar(fakultet.getStudenti().get(0), fakultet.getSemestri().get(0)); //Predaju Vedran i Željko
+        fakultet.upisiStudentaNaSemestar(fakultet.getStudenti().get(1), fakultet.getSemestri().get(1)); //Predaju Novica i Emir
+        fakultet.upisiStudentaNaSemestar(fakultet.getStudenti().get(2), fakultet.getSemestri().get(0)); //Predaju Vedran i Željko
+
+        fakultet.getStudenti().get(0).upisiIzborniPredmet(fakultet.getStudenti().get(0).getUpisaniSemestar().getIzborniPredmeti().get(0));  //Predaje Samir
+        fakultet.getStudenti().get(0).upisiIzborniPredmet(fakultet.getStudenti().get(0).getUpisaniSemestar().getIzborniPredmeti().get(1));  //Predaje Samir
+
+        fakultet.getStudenti().get(1).upisiIzborniPredmet(fakultet.getStudenti().get(1).getUpisaniSemestar().getIzborniPredmeti().get(0));  //Predaje Željko
+        fakultet.getStudenti().get(1).upisiIzborniPredmet(fakultet.getStudenti().get(1).getUpisaniSemestar().getIzborniPredmeti().get(1));  //Predaje Emir
+
+        assertEquals("""
+                Novica Nosović, broj studenata: 1
+                Emir Buza, broj studenata: 1
+                Samir Ribić, broj studenata: 1
+                Vedran Ljubović, broj studenata: 2
+                Željko Jurić, broj studenata: 3
+                """, fakultet.dajProfesoreSortiranePoBrojuStudenata());
+    }
+
+    @Test
+    void testDajStudentaSaBrojemIndeksa() {
+        Fakultet fakultet = new Fakultet("ETF Sarajevo", profesori, studenti, semestri);
+        fakultet.upisiStudentaNaSemestar(fakultet.getStudenti().get(0), fakultet.getSemestri().get(0));
+
+        assertThrows(IllegalArgumentException.class, () -> fakultet.dajStudentaSaBrojemIndeksa("18904"),"Ne postoji student sa datim brojem indeksa!");
+        assertEquals(fakultet.getStudenti().get(0), fakultet.dajStudentaSaBrojemIndeksa("18903"));
+    }
+
+    @Test
+    void testDajPrepisOcjenaStudentaSaBrojemIndeksa() {
+        Fakultet fakultet = new Fakultet("ETF Sarajevo", profesori, studenti, semestri);
+
+        Student s = fakultet.getStudenti().get(0);
+        fakultet.upisiStudentaNaSemestar(s, fakultet.getSemestri().get(0));
+        s.upisiOcjenuIzPredmeta(s.getUpisaniPredmeti().get(0), 8);
+        s.upisiOcjenuIzPredmeta(s.getUpisaniPredmeti().get(1), 9);
+
+        assertThrows(IllegalArgumentException.class, () -> fakultet.dajPrepisOcjenaStudentaSaBrojemIndeksa("18904"), "Ne postoji student sa datim brojem indeksa!");
+        assertEquals("""
+                Razvoj programskih rješenja (7 ECTS) - 8
+                Diskretna matematika (7 ECTS) - 9
+                """, fakultet.dajPrepisOcjenaStudentaSaBrojemIndeksa("18903"));
     }
 }

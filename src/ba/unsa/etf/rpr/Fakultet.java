@@ -85,7 +85,7 @@ public class Fakultet {
 
         for (Profesor p : profesori) {
             if (p.getNorma() < 120)
-                temp += p + "\n";
+                temp += p + ", norma: " + p.getNorma() + "\n";
         }
 
         return temp;
@@ -95,7 +95,7 @@ public class Fakultet {
         String temp = "";
         for (Profesor p : profesori) {
             if (p.getNorma() > 150)
-                temp += p + "\n";
+                temp += p + ", norma: " + p.getNorma() + "\n";
         }
 
         return temp;
@@ -103,17 +103,6 @@ public class Fakultet {
 
     public String getNaziv() {
         return naziv;
-    }
-
-    public int dajBrojStudenataKojimaPredajeProfesor(Profesor profesor){
-        int i = 0;
-
-        for(Student student : studenti){
-            if(student.dajProfesoreKojiPredajuStudentu().contains(profesor))
-                i++;
-        }
-
-        return i;
     }
 
     public Student dajStudentaSaBrojemIndeksa(String brojIndeksa){
