@@ -8,7 +8,9 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 class FakultetTest {
-
+    String naziv = "ETF Sarajevo";
+    String neuspjeh = "Neuspješno!";
+    
     Profesor profesor1 = new Profesor("Vedran", "Ljubović");
     Profesor profesor2 = new Profesor("Željko", "Jurić");
     Profesor profesor3 = new Profesor("Novica", "Nosović");
@@ -71,28 +73,28 @@ class FakultetTest {
 
     @Test
     void testDodajProfesora(){
-        Fakultet fakultet = new Fakultet("ETF Sarajevo", profesori, studenti, semestri);
+        Fakultet fakultet = new Fakultet(naziv, profesori, studenti, semestri);
         try{
             fakultet.dodajProfesora(profesor2);
         }catch (IllegalArgumentException e){
-            assertEquals("Profesor vec radi na ovom fakultetu!", e.getMessage(), "Neuspješno!");
+            assertEquals("Profesor vec radi na ovom fakultetu!", e.getMessage(), neuspjeh);
         }
     }
 
     @Test
     void testDodajStudenta() {
-        Fakultet fakultet = new Fakultet("ETF Sarajevo", profesori, studenti, semestri);
+        Fakultet fakultet = new Fakultet(naziv, profesori, studenti, semestri);
         try{
             fakultet.dodajStudenta(s1);
-            fail("Neuspješno!");
+            fail(neuspjeh);
         }catch (IllegalArgumentException e){
-            assertEquals("Student je vec upisan na ovaj fakultet!", e.getMessage(), "Neuspješno!");
+            assertEquals("Student je vec upisan na ovaj fakultet!", e.getMessage(), neuspjeh);
         }
     }
 
     @Test
     void dajProfesoreKojiNemajuNormu() {
-        Fakultet fakultet = new Fakultet("ETF Sarajevo", profesori, studenti, semestri);
+        Fakultet fakultet = new Fakultet(naziv, profesori, studenti, semestri);
 
         fakultet.upisiStudentaNaSemestar(fakultet.getStudenti().get(0), fakultet.getSemestri().get(0));
         fakultet.upisiStudentaNaSemestar(fakultet.getStudenti().get(1), fakultet.getSemestri().get(1));
@@ -108,12 +110,12 @@ class FakultetTest {
                         Vedran Ljubović, norma: 100
                         Novica Nosović, norma: 90
                         Samir Ribić, norma: 90
-                        """, "Neuspješno!");
+                        """, neuspjeh);
     }
 
     @Test
     void dajProfesoreKojiRadePrekoNorme() {
-        Fakultet fakultet = new Fakultet("ETF Sarajevo", profesori, studenti, semestri);
+        Fakultet fakultet = new Fakultet(naziv, profesori, studenti, semestri);
 
         fakultet.upisiStudentaNaSemestar(fakultet.getStudenti().get(0), fakultet.getSemestri().get(0));
         fakultet.upisiStudentaNaSemestar(fakultet.getStudenti().get(1), fakultet.getSemestri().get(1));
@@ -124,12 +126,12 @@ class FakultetTest {
         fakultet.getStudenti().get(1).upisiIzborniPredmet(fakultet.getStudenti().get(1).getUpisaniSemestar().getIzborniPredmeti().get(0));
         fakultet.getStudenti().get(1).upisiIzborniPredmet(fakultet.getStudenti().get(1).getUpisaniSemestar().getIzborniPredmeti().get(1));
 
-        assertEquals(fakultet.dajProfesoreKojiRadePrekoNorme(), "Željko Jurić, norma: 180\n", "Neuspješno!");
+        assertEquals(fakultet.dajProfesoreKojiRadePrekoNorme(), "Željko Jurić, norma: 180\n", neuspjeh);
     }
 
     @Test
     void dajProfesoreSortiranePoNormi() {
-        Fakultet fakultet = new Fakultet("ETF Sarajevo", profesori, studenti, semestri);
+        Fakultet fakultet = new Fakultet(naziv, profesori, studenti, semestri);
 
         fakultet.upisiStudentaNaSemestar(fakultet.getStudenti().get(0), fakultet.getSemestri().get(0)); //Predaju Vedran i Željko
         fakultet.upisiStudentaNaSemestar(fakultet.getStudenti().get(1), fakultet.getSemestri().get(1)); //Predaju Novica i Emir
@@ -149,12 +151,12 @@ class FakultetTest {
                 Emir Buza, norma: 130
                 Vedran Ljubović, norma: 200
                 Željko Jurić, norma: 280
-                """, fakultet.dajProfesoreSortiranePoNormi(), "Neuspješno!");
+                """, fakultet.dajProfesoreSortiranePoNormi(), neuspjeh);
     }
 
     @Test
     void dajProfesoreSortiranePoBrojuStudenata() {
-        Fakultet fakultet = new Fakultet("ETF Sarajevo", profesori, studenti, semestri);
+        Fakultet fakultet = new Fakultet(naziv, profesori, studenti, semestri);
 
         fakultet.upisiStudentaNaSemestar(fakultet.getStudenti().get(0), fakultet.getSemestri().get(0)); //Predaju Vedran i Željko
         fakultet.upisiStudentaNaSemestar(fakultet.getStudenti().get(1), fakultet.getSemestri().get(1)); //Predaju Novica i Emir
@@ -172,21 +174,21 @@ class FakultetTest {
                 Samir Ribić, broj studenata: 1
                 Vedran Ljubović, broj studenata: 2
                 Željko Jurić, broj studenata: 3
-                """, fakultet.dajProfesoreSortiranePoBrojuStudenata(), "Neuspješno!");
+                """, fakultet.dajProfesoreSortiranePoBrojuStudenata(), neuspjeh);
     }
 
     @Test
     void testDajStudentaSaBrojemIndeksa() {
-        Fakultet fakultet = new Fakultet("ETF Sarajevo", profesori, studenti, semestri);
+        Fakultet fakultet = new Fakultet(naziv, profesori, studenti, semestri);
         fakultet.upisiStudentaNaSemestar(fakultet.getStudenti().get(0), fakultet.getSemestri().get(0));
 
         assertThrows(IllegalArgumentException.class, () -> fakultet.dajStudentaSaBrojemIndeksa("18904"),"Ne postoji student sa datim brojem indeksa!");
-        assertEquals(fakultet.getStudenti().get(0), fakultet.dajStudentaSaBrojemIndeksa("18903"), "Neuspješno!");
+        assertEquals(fakultet.getStudenti().get(0), fakultet.dajStudentaSaBrojemIndeksa("18903"), neuspjeh);
     }
 
     @Test
     void testDajPrepisOcjenaStudentaSaBrojemIndeksa() {
-        Fakultet fakultet = new Fakultet("ETF Sarajevo", profesori, studenti, semestri);
+        Fakultet fakultet = new Fakultet(naziv, profesori, studenti, semestri);
 
         Student s = fakultet.getStudenti().get(0);
         fakultet.upisiStudentaNaSemestar(s, fakultet.getSemestri().get(0));
@@ -197,6 +199,6 @@ class FakultetTest {
         assertEquals("""
                 Razvoj programskih rješenja (7 ECTS) - 8
                 Diskretna matematika (7 ECTS) - 9
-                """, fakultet.dajPrepisOcjenaStudentaSaBrojemIndeksa("18903"), "Neuspješno!");
+                """, fakultet.dajPrepisOcjenaStudentaSaBrojemIndeksa("18903"), neuspjeh);
     }
 }

@@ -32,9 +32,9 @@ public class Student extends Osoba {
         for(Predmet p : predmeti){
             Profesor profesor = p.getProfesor();
 
-            profesor.setBrojStudenataKojimaPredaje(profesor.getBrojStudenataKojimaPredaje()+1);
+            profesor.povecajBrojStudenataKojimaPredaje();
             if(!p.daLiJeUpisan()){
-                profesor.setNorma(p.getProfesor().getNorma()+p.getBrojCasova());
+                profesor.povecajNormuZa(p.getBrojCasova());
             }
         }
 
@@ -84,13 +84,13 @@ public class Student extends Osoba {
         }
 
         if(!predajeProfesor)    //Ako ne predaje, povećati broj studenata kojima taj profesor predaje
-            predmet.getProfesor().setBrojStudenataKojimaPredaje(predmet.getProfesor().getBrojStudenataKojimaPredaje()+1);
+            predmet.getProfesor().povecajBrojStudenataKojimaPredaje();
 
         upisaniPredmeti.add(predmet);
 
         if (!predmet.daLiJeUpisan()) {     //Potrebno je odraditi update norme profesora jer se predmet prvi put upisuje
-            predmet.getProfesor().setNorma(predmet.getProfesor().getNorma() + predmet.getBrojCasova());
-            predmet.setDaLiJeUpisan(true);
+            predmet.getProfesor().povecajNormuZa(predmet.getBrojCasova());
+            predmet.setJesteUpisan(true);
         }
     }
 

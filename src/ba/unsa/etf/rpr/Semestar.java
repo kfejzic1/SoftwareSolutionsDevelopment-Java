@@ -12,9 +12,8 @@ public class Semestar {
 
     private void updateNormeProfesora(Predmet predmet) {     //Povecava normu profesora za zadani predmet jednom
         if (!predmet.daLiJeUpisan()) {
-            Profesor profesor = predmet.getProfesor();
-            profesor.setNorma(profesor.getNorma() + predmet.getBrojCasova());
-            predmet.setDaLiJeUpisan(true);
+            predmet.getProfesor().povecajNormuZa(predmet.getBrojCasova());
+            predmet.setJesteUpisan(true);
         }
     }
 

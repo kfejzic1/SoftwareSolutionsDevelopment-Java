@@ -34,6 +34,10 @@ public class Profesor extends Osoba {
         this.norma = norma;
     }
 
+    public void povecajNormuZa(int norma){ this.norma += norma; }
+
+    public void povecajBrojStudenataKojimaPredaje() { this.brojStudenataKojimaPredaje += 1; }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

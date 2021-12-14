@@ -6,15 +6,15 @@ public class Predmet {
     private final String naziv;
     private final int ects;
     private final int brojCasova;
-    private boolean daLiJeUpisan;
+    private boolean jesteUpisan;
     private final Profesor profesor;
 
     public boolean daLiJeUpisan() {
-        return daLiJeUpisan;
+        return jesteUpisan;
     }
 
-    public void setDaLiJeUpisan(boolean daLiJeUpisan) {
-        this.daLiJeUpisan = daLiJeUpisan;
+    public void setJesteUpisan(boolean jesteUpisan) {
+        this.jesteUpisan = jesteUpisan;
     }
 
     public Predmet(String naziv, int ects, int brojCasova, Profesor profesor) {
@@ -22,7 +22,7 @@ public class Predmet {
         this.ects = ects;
         this.brojCasova = brojCasova;
         this.profesor = profesor;
-        this.daLiJeUpisan = false;
+        this.jesteUpisan = false;
     }
 
     public String getNaziv() {

@@ -47,7 +47,7 @@ public class Fakultet {
         this.studenti.add(student);
     }
 
-    public void upisiStudentaNaSemestar(Student student, Semestar semestar) throws IllegalArgumentException {
+    public void upisiStudentaNaSemestar(Student student, Semestar semestar) {
         student.upisiSemestar(semestar);
     }
 
@@ -64,8 +64,12 @@ public class Fakultet {
         return temp;
     }
 
+    public ArrayList<Profesor> getProfesori() {
+        return profesori;
+    }
+
     public String dajProfesoreSortiranePoNormi() {
-        ArrayList<Profesor> tempProfesori = this.profesori;
+        ArrayList<Profesor> tempProfesori = getProfesori();
 
         tempProfesori.sort(Comparator.comparing(Profesor::getNorma));
 
@@ -83,8 +87,9 @@ public class Fakultet {
     public String dajProfesoreKojiNemajuNormu() {
         String temp = "";
 
+        final int donjaGranica = 120;
         for (Profesor p : profesori) {
-            if (p.getNorma() < 120)
+            if (p.getNorma() < donjaGranica)
                 temp += p + ", norma: " + p.getNorma() + "\n";
         }
 
@@ -93,8 +98,10 @@ public class Fakultet {
 
     public String dajProfesoreKojiRadePrekoNorme() {
         String temp = "";
+
+        final int gornjaGranica = 150;
         for (Profesor p : profesori) {
-            if (p.getNorma() > 150)
+            if (p.getNorma() > gornjaGranica)
                 temp += p + ", norma: " + p.getNorma() + "\n";
         }
 

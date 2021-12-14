@@ -1,16 +1,13 @@
 package ba.unsa.etf.rpr;
 
-import ba.unsa.etf.rpr.Ciklusi;
-import ba.unsa.etf.rpr.Predmet;
-import ba.unsa.etf.rpr.Profesor;
-import ba.unsa.etf.rpr.Semestar;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class SemestarTest {
+    String neuspjeh = "Neuspješno!";
 
-    @Test   //Testovi su banalni
+    @Test
     void dodajObavezniPredmet() {
         Semestar semestar = new Semestar(1, Ciklusi.Bachelor);
         Predmet p1 = new Predmet("Razvoj programskih rješenja", 7, 70, new Profesor("Vedran", "Ljubović"));
@@ -21,9 +18,9 @@ class SemestarTest {
                 () -> {
                     try {
                         semestar.dodajObavezniPredmet(p1);
-                        fail("Neuspješno!");
-                    } catch (Exception e) {
-                        assertEquals("Predmet se već nalazi u semestru!", e.getMessage(), "Neuspješno!");
+                        fail(neuspjeh);
+                    } catch (IllegalArgumentException e) {
+                        assertEquals("Predmet se već nalazi u semestru!", e.getMessage(), neuspjeh);
                     }
                 }
         );
@@ -41,9 +38,9 @@ class SemestarTest {
                 () -> {
                     try {
                         semestar.dodajIzborniPredmet(p2);
-                        fail("Neuspješno!");
-                    } catch (Exception e) {
-                        assertEquals("Predmet se već nalazi u semestru!", e.getMessage(), "Neuspješno!");
+                        fail(neuspjeh);
+                    } catch (IllegalArgumentException e) {
+                        assertEquals("Predmet se već nalazi u semestru!", e.getMessage(), neuspjeh);
                     }
                 }
         );
@@ -55,7 +52,7 @@ class SemestarTest {
         Semestar s2 = new Semestar(2, Ciklusi.PhD);
         Semestar s3 = new Semestar(1, Ciklusi.Bachelor);
 
-        assertEquals(s1, s3, "Neuspješno!");
-        assertNotEquals(s1, s2, "Neuspješno!");
+        assertEquals(s1, s3, neuspjeh);
+        assertNotEquals(s1, s2, neuspjeh);
     }
 }
