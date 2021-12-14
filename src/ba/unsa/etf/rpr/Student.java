@@ -23,15 +23,18 @@ public class Student extends Osoba {
         this.upisaniPredmeti = new ArrayList<>();
     }
 
-    public void upisiSemestar(Semestar semestar) { //Upisuje određeni semestar i odmah upisuje obavezne predmete
+    public void upisiSemestar(Semestar semestar) {      //Upisuje određeni semestar
         if (!Objects.isNull(this.upisaniSemestar))
             throw new IllegalArgumentException("Student je vec upisan na neki od semestara!");
         this.upisaniSemestar = semestar;
 
         ArrayList<Predmet> predmeti = (ArrayList<Predmet>) semestar.getObavezniPredmeti();
         for(Predmet p : predmeti){
+            Profesor profesor = p.getProfesor();
+
+            profesor.setBrojStudenataKojimaPredaje(profesor.getBrojStudenataKojimaPredaje()+1);
             if(!p.daLiJeUpisan()){
-                p.getProfesor().setNorma(p.getProfesor().getNorma()+p.getBrojCasova());
+                profesor.setNorma(p.getProfesor().getNorma()+p.getBrojCasova());
             }
         }
 
@@ -41,6 +44,8 @@ public class Student extends Osoba {
     public void upisiOcjenuIzPredmeta(Predmet predmet, int ocjena) {
         if (ocjene.containsKey(predmet))
             throw new IllegalArgumentException("Ocjena iz predmeta je vec upisana!");
+        if(ocjena<6 || ocjena>10)
+            throw new IllegalArgumentException("Ocjena mora biti između 6 i 10");
 
         ocjene.put(predmet, ocjena);
     }
@@ -71,6 +76,7 @@ public class Student extends Osoba {
             throw new IllegalArgumentException("Nije moguće imati više od 30 ECTS poena po semestru!");
 
         upisaniPredmeti.add(predmet);
+        predmet.getProfesor().setBrojStudenataKojimaPredaje(predmet.getProfesor().getBrojStudenataKojimaPredaje()+1);
         if (!predmet.daLiJeUpisan()) {     //Potrebno je odraditi update norme profesora jer se predmet prvi put upisuje
             predmet.getProfesor().setNorma(predmet.getProfesor().getNorma() + predmet.getBrojCasova());
             predmet.setDaLiJeUpisan(true);
@@ -96,8 +102,16 @@ public class Student extends Osoba {
         return profesori;
     }
 
+    public Map<Predmet, Integer> getOcjene() {
+        return ocjene;
+    }
+
+    public String getIndeks() {
+        return indeks;
+    }
+
     @Override
     public String toString() {
-        return this.getIme() + " " + this.getPrezime() + "\nBroj indeksa: " + this.indeks;
+        return this.getIme() + " " + this.getPrezime() + "\n\tBroj indeksa: " + this.indeks;
     }
 }
