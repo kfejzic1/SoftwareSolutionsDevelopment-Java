@@ -18,23 +18,13 @@ class SemestarTest {
 
         semestar.dodajObavezniPredmet(p1);
         assertAll(
-                () -> assertEquals(semestar.getObavezniPredmeti().get(0), p1),
                 () -> assertThrows(IllegalArgumentException.class, () -> semestar.dodajObavezniPredmet(p1)),
                 () -> {
                     try {
                         semestar.dodajObavezniPredmet(p1);
                         fail();
                     } catch (Exception e) {
-                        assertEquals("ba.unsa.etf.rpr.Predmet se već nalazi u semestru!", e.getMessage());
-                    }
-                },
-                () -> assertThrows(IllegalArgumentException.class, () -> semestar.dodajObavezniPredmet(p2)),
-                () -> {
-                    try {
-                        semestar.dodajObavezniPredmet(p2);
-                        fail();
-                    } catch (Exception e) {
-                        assertEquals("ba.unsa.etf.rpr.Predmet nije obavezan!", e.getMessage());
+                        assertEquals("Predmet se već nalazi u semestru!", e.getMessage());
                     }
                 }
         );
@@ -49,23 +39,13 @@ class SemestarTest {
         semestar.dodajIzborniPredmet(p2);
 
         assertAll(
-                () -> assertEquals(semestar.getIzborniPredmeti().get(0), p2),
                 () -> assertThrows(IllegalArgumentException.class, () -> semestar.dodajIzborniPredmet(p2)),
                 () -> {
                     try {
                         semestar.dodajIzborniPredmet(p2);
                         fail();
                     } catch (Exception e) {
-                        assertEquals("ba.unsa.etf.rpr.Predmet se već nalazi u semestru!", e.getMessage());
-                    }
-                },
-                () -> assertThrows(IllegalArgumentException.class, () -> semestar.dodajIzborniPredmet(p2)),
-                () -> {
-                    try {
-                        semestar.dodajIzborniPredmet(p1);
-                        fail();
-                    } catch (Exception e) {
-                        assertEquals("ba.unsa.etf.rpr.Predmet nije izborni!", e.getMessage());
+                        assertEquals("Predmet se već nalazi u semestru!", e.getMessage());
                     }
                 }
         );
