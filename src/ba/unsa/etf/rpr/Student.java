@@ -40,8 +40,15 @@ public class Student extends Osoba {
 
     public void upisiSemestar(Semestar semestar) { //Upisuje određeni semestar i odmah upisuje obavezne predmete
         if (!Objects.isNull(this.upisaniSemestar))
-            throw new IllegalArgumentException("ba.unsa.etf.rpr.Student je vec upisan na neki od semestara!");
+            throw new IllegalArgumentException("Student je vec upisan na neki od semestara!");
         this.upisaniSemestar = semestar;
+
+        ArrayList<Predmet> predmeti = (ArrayList<Predmet>) semestar.getObavezniPredmeti();
+        for(Predmet p : predmeti){
+            if(!p.daLiJeUpisan()){
+                p.getProfesor().setNorma(p.getProfesor().getNorma()+p.getBrojCasova());
+            }
+        }
 
         upisaniPredmeti.addAll(semestar.getObavezniPredmeti());
     }
@@ -55,7 +62,7 @@ public class Student extends Osoba {
 
     public int dajOcjenuIzPredmeta(Predmet predmet) {
         if (!this.upisaniPredmeti.contains(predmet))
-            throw new IllegalArgumentException("ba.unsa.etf.rpr.Student ne pohađa taj predmet!");
+            throw new IllegalArgumentException("Student ne pohađa taj predmet!");
         if (Objects.isNull(this.ocjene.get(predmet)))
             return 5;
 
@@ -72,9 +79,9 @@ public class Student extends Osoba {
 
     public void upisiIzborniPredmet(Predmet predmet) {
         if (!this.upisaniSemestar.getIzborniPredmeti().contains(predmet))
-            throw new IllegalArgumentException("ba.unsa.etf.rpr.Predmet nije izborni u upisanom semestru!");
+            throw new IllegalArgumentException("Predmet nije izborni u upisanom semestru!");
         if (this.upisaniPredmeti.contains(predmet))
-            throw new IllegalArgumentException("ba.unsa.etf.rpr.Student je već upisan na ovaj predmet!");
+            throw new IllegalArgumentException("Student je već upisan na ovaj predmet!");
         if (dajUkupanBrojECTSPoena() + predmet.getEcts() > 30)
             throw new IllegalArgumentException("Nije moguće imati više od 30 ECTS poena po semestru!");
 
