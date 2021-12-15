@@ -2,16 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bd662424-5e64-492e-84a1-9be571d102f6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/openjfx.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/JavaFXApp.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/JavaFXApp.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpr-t5.iml" beforeDir="false" afterPath="$PROJECT_DIR$/rpr20-tutorijal6.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/tutorijal05/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/tutorijal06/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/tutorijal05/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/tutorijal06/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/tutorijal05/digitron.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/fxml/digitron.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/ba/unsa/etf/rpr/tutorijal05/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ba/unsa/etf/rpr/tutorijal06/MainTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/javafx.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/fxml/DigitronStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/b/0b66ab8a568b1b14aa1c4e3e53b16bbc510a3d81" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/5/75e9a901e70fb1396f91acf56bdb782e4f6828ee" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fxml/digitron.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/fxml/digitron.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpr20-tutorijal6.iml" beforeDir="false" afterPath="$PROJECT_DIR$/rpr20-tutorijal6.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/tutorijal06/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/tutorijal06/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/tutorijal06/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/tutorijal06/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ba/unsa/etf/rpr/tutorijal06/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ba/unsa/etf/rpr/tutorijal06/MainTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +32,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -37,8 +41,107 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Korisnik\IdeaProjects\rpr21-tutorijal6-kfejzic1\resources\fxml" />
       <recent name="$PROJECT_DIR$/resources/fxml" />
     </key>
+  </component>
+  <component name="RunManager" selected="JUnit.MainTest">
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rpr.tutorijal06.Main" />
+      <module name="rpr20-tutorijal6" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Program Files\Java1\javafx-sdk-17.0.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="rpr20-tutorijal6" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ba.unsa.etf.rpr.tutorijal06.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ba.unsa.etf.rpr.tutorijal06" />
+      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rpr.tutorijal06.MainTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainTest.number123Plus456Equals" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="rpr20-tutorijal6" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ba.unsa.etf.rpr.tutorijal06.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ba.unsa.etf.rpr.tutorijal06" />
+      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rpr.tutorijal06.MainTest" />
+      <option name="METHOD_NAME" value="number123Plus456Equals(org.testfx.api.FxRobot)" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainTest.startWithZero" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="rpr20-tutorijal6" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ba.unsa.etf.rpr.tutorijal06.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ba.unsa.etf.rpr.tutorijal06" />
+      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rpr.tutorijal06.MainTest" />
+      <option name="METHOD_NAME" value="startWithZero(org.testfx.api.FxRobot)" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainTest.zeroBtn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="rpr20-tutorijal6" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ba.unsa.etf.rpr.tutorijal06.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ba.unsa.etf.rpr.tutorijal06" />
+      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rpr.tutorijal06.MainTest" />
+      <option name="METHOD_NAME" value="zeroBtn(org.testfx.api.FxRobot)" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainTest.zeroBtn2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="rpr20-tutorijal6" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ba.unsa.etf.rpr.tutorijal06.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ba.unsa.etf.rpr.tutorijal06" />
+      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rpr.tutorijal06.MainTest" />
+      <option name="METHOD_NAME" value="zeroBtn2(org.testfx.api.FxRobot)" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.MainTest" />
+        <item itemvalue="JUnit.MainTest.number123Plus456Equals" />
+        <item itemvalue="JUnit.MainTest.zeroBtn" />
+        <item itemvalue="JUnit.MainTest.zeroBtn2" />
+        <item itemvalue="JUnit.MainTest.startWithZero" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -50,6 +153,9 @@
       <updated>1606464726124</updated>
     </task>
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -67,31 +173,5 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="2024" y="183" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606465030379">
-      <screen x="1600" y="0" width="1920" height="1080" />
-    </state>
-    <state x="2024" y="183" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1600.900/1600.0.1920.1080@1600.0.1920.1080" timestamp="1606465030379" />
-    <state width="1878" height="278" key="GridCell.Tab.0.bottom" timestamp="1606464993875">
-      <screen x="1600" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1878" height="278" key="GridCell.Tab.0.bottom/0.0.1600.900/1600.0.1920.1080@1600.0.1920.1080" timestamp="1606464993875" />
-    <state width="1878" height="278" key="GridCell.Tab.0.center" timestamp="1606464993874">
-      <screen x="1600" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1878" height="278" key="GridCell.Tab.0.center/0.0.1600.900/1600.0.1920.1080@1600.0.1920.1080" timestamp="1606464993874" />
-    <state width="1878" height="278" key="GridCell.Tab.0.left" timestamp="1606464993874">
-      <screen x="1600" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1878" height="278" key="GridCell.Tab.0.left/0.0.1600.900/1600.0.1920.1080@1600.0.1920.1080" timestamp="1606464993874" />
-    <state width="1878" height="278" key="GridCell.Tab.0.right" timestamp="1606464993875">
-      <screen x="1600" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1878" height="278" key="GridCell.Tab.0.right/0.0.1600.900/1600.0.1920.1080@1600.0.1920.1080" timestamp="1606464993875" />
-    <state x="2048" y="103" key="SettingsEditor" timestamp="1606465022924">
-      <screen x="1600" y="0" width="1920" height="1080" />
-    </state>
-    <state x="2048" y="103" key="SettingsEditor/0.0.1600.900/1600.0.1920.1080@1600.0.1920.1080" timestamp="1606465022924" />
   </component>
 </project>

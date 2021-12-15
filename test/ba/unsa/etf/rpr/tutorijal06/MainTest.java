@@ -20,7 +20,7 @@ class MainTest {
 
     @Start
     public void start (Stage stage) throws Exception {
-        Parent mainNode = FXMLLoader.load(Main.class.getResource("digitron.fxml"));
+        Parent mainNode = FXMLLoader.load(Main.class.getResource("/fxml/digitron.fxml"));
         stage.setScene(new Scene(mainNode));
         stage.show();
         stage.toFront();
