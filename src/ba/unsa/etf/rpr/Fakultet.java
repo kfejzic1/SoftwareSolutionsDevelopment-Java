@@ -2,7 +2,6 @@ package ba.unsa.etf.rpr;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.List;
 
 public class Fakultet {
     private final ArrayList<Profesor> profesori;
@@ -24,12 +23,12 @@ public class Fakultet {
         this.studenti = new ArrayList<>();
     }
 
-    public List<Semestar> getSemestri() {
+    public ArrayList<Semestar> getSemestri() {
         return semestri;
     }
 
 
-    public List<Student> getStudenti() {
+    public ArrayList<Student> getStudenti() {
         return studenti;
     }
 
