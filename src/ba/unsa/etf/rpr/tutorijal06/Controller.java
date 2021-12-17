@@ -76,7 +76,7 @@ public class Controller {
                 break;
             case "%":
                 if(daLiJeDoubleInteger(prviBroj) && daLiJeDoubleInteger(drugiBroj)){
-                    rezultat = (double) (prviBroj.intValue() % drugiBroj.intValue());
+                    rezultat = (prviBroj.intValue() % drugiBroj.intValue());
                     display.setText(Integer.toString((int) rezultat));
                 }else
                     display.setText("Nemoguće");
