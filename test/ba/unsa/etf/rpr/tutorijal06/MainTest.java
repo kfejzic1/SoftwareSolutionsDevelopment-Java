@@ -106,4 +106,71 @@ class MainTest {
         robot.clickOn("#btn0");
         assertEquals("10", display.getText());
     }
+
+    @Test
+    public void number123minus24(FxRobot robot) {
+        display = robot.lookup("#display").queryAs(Label.class);
+        robot.clickOn("#btn1");
+        robot.clickOn("#btn2");
+        robot.clickOn("#btn3");
+        robot.clickOn("#minusBtn");
+        robot.clickOn("#btn2");
+        robot.clickOn("#btn4");
+        robot.clickOn("#equalsBtn");
+        assertEquals("99.0", display.getText());
+    }
+
+    @Test
+    public void number74times32(FxRobot robot) {
+        display = robot.lookup("#display").queryAs(Label.class);
+        robot.clickOn("#btn7");
+        robot.clickOn("#btn4");
+        robot.clickOn("#timesBtn");
+        robot.clickOn("#btn2");
+        robot.clickOn("#btn4");
+        robot.clickOn("#equalsBtn");
+        assertEquals("1776.0", display.getText());
+    }
+
+    @Test
+    public void number80divide2(FxRobot robot) {
+        display = robot.lookup("#display").queryAs(Label.class);
+        robot.clickOn("#btn8");
+        robot.clickOn("#btn0");
+        robot.clickOn("#divideBtn");
+        robot.clickOn("#btn2");
+        robot.clickOn("#equalsBtn");
+        assertEquals("40.0", display.getText());
+    }
+
+    @Test
+    public void number1divide8(FxRobot robot) {
+        display = robot.lookup("#display").queryAs(Label.class);
+        robot.clickOn("#btn1");
+        robot.clickOn("#divideBtn");
+        robot.clickOn("#btn8");
+        robot.clickOn("#equalsBtn");
+        assertEquals("0.125", display.getText());
+    }
+
+    @Test
+    public void number5modulo8(FxRobot robot) {
+        display = robot.lookup("#display").queryAs(Label.class);
+        robot.clickOn("#btn5");
+        robot.clickOn("#moduloBtn");
+        robot.clickOn("#btn8");
+        robot.clickOn("#equalsBtn");
+        assertEquals("5", display.getText());
+    }
+
+    @Test
+    public void number71modulo3(FxRobot robot) {
+        display = robot.lookup("#display").queryAs(Label.class);
+        robot.clickOn("#btn7");
+        robot.clickOn("#btn1");
+        robot.clickOn("#moduloBtn");
+        robot.clickOn("#btn3");
+        robot.clickOn("#equalsBtn");
+        assertEquals("2", display.getText());
+    }
 }
