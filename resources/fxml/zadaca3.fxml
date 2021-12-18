@@ -8,15 +8,15 @@
    <children>
       <HBox alignment="TOP_CENTER" spacing="5.0" VBox.vgrow="NEVER">
          <children>
-            <TextField fx:id="fldText" editable="false" maxHeight="26.0" maxWidth="64.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="64.0" />
+            <TextField fx:id="fldText" editable="false" mouseTransparent="true" focusTraversable="false" maxHeight="26.0" maxWidth="64.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="64.0" text="${controller.idNumber}"/>
             <Slider fx:id="sliderStudents" max="15.0" min="5.0" showTickLabels="true" showTickMarks="true" value="5.0" />
-            <ChoiceBox fx:id="choiceColor" prefWidth="150.0" />
+            <ChoiceBox prefWidth="150.0" />
             <Button mnemonicParsing="false" text="Unos studenta" />
          </children>
       </HBox>
       <HBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
          <children>
-            <ListView fx:id="lvStudents" minHeight="350.0" minWidth="350.0" prefHeight="350.0" prefWidth="350.0" HBox.hgrow="ALWAYS" />
+            <ListView minHeight="350.0" minWidth="350.0" prefHeight="350.0" prefWidth="350.0" HBox.hgrow="ALWAYS" />
             <GridPane alignment="TOP_CENTER" hgap="3.0" vgap="3.0">
               <columnConstraints>
                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="60.0" minWidth="60.0" prefWidth="60.0" />
@@ -30,16 +30,16 @@
                   <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button minWidth="60.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" text="7" />
-                  <Button maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="60.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" text="8" GridPane.columnIndex="1" />
-                  <Button maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="60.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" text="4" GridPane.rowIndex="1" />
-                  <Button maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="60.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Button maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="60.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" text="1" GridPane.rowIndex="2" />
-                  <Button maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="60.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" text="2" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Button maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="60.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" text="9" GridPane.columnIndex="2" />
-                  <Button maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="60.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" text="6" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <Button maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="60.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" text="3" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                  <Button maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="60.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Button fx:id="btn7" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="60.0" mnemonicParsing="false" onAction="#getNumber" prefHeight="60.0" prefWidth="60.0" text="7" />
+                  <Button fx:id="btn8" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="60.0" mnemonicParsing="false" onAction="#getNumber" prefHeight="60.0" prefWidth="60.0" text="8" GridPane.columnIndex="1" />
+                  <Button fx:id="btn4" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="60.0" mnemonicParsing="false" onAction="#getNumber" prefHeight="60.0" prefWidth="60.0" text="4" GridPane.rowIndex="1" />
+                  <Button fx:id="btn5" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="60.0" mnemonicParsing="false" onAction="#getNumber" prefHeight="60.0" prefWidth="60.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button fx:id="btn1" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="60.0" mnemonicParsing="false" onAction="#getNumber" prefHeight="60.0" prefWidth="60.0" text="1" GridPane.rowIndex="2" />
+                  <Button fx:id="btn2" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="60.0" mnemonicParsing="false" onAction="#getNumber" prefHeight="60.0" prefWidth="60.0" text="2" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button fx:id="btn9" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="60.0" mnemonicParsing="false" onAction="#getNumber" prefHeight="60.0" prefWidth="60.0" text="9" GridPane.columnIndex="2" />
+                  <Button fx:id="btn6" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="60.0" mnemonicParsing="false" onAction="#getNumber" prefHeight="60.0" prefWidth="60.0" text="6" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Button fx:id="btn3" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="60.0" mnemonicParsing="false" onAction="#getNumber" prefHeight="60.0" prefWidth="60.0" text="3" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Button fx:id="btn0" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="60.0" mnemonicParsing="false" onAction="#getNumber" prefHeight="60.0" prefWidth="60.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                </children>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
