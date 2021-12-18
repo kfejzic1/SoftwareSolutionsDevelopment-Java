@@ -2,6 +2,7 @@
   <library name="lib">
     <CLASSES>
       <root url="file:///usr/share/openjfx/lib" />
+      <root url="file://$PROJECT_DIR$/../../../../Program Files/Java1/javafx-sdk-17.0.0.1/lib" />
     </CLASSES>
     <JAVADOC />
     <NATIVE>
@@ -11,6 +12,7 @@
       <root url="file:///usr/share/openjfx/lib" />
     </SOURCES>
     <jarDirectory url="file:///usr/share/openjfx/lib" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../../../../Program Files/Java1/javafx-sdk-17.0.0.1/lib" recursive="false" />
     <jarDirectory url="file:///usr/share/openjfx/lib" recursive="false" type="SOURCES" />
   </library>
 </component>
