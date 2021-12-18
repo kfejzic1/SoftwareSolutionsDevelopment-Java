@@ -14,6 +14,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/zadaca3.fxml"));
         primaryStage.setTitle("Studenti");
         primaryStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+
         primaryStage.show();
 
         primaryStage.setMinWidth(590);
