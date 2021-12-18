@@ -8,7 +8,6 @@ public class Student {
     public Student(String imeIPrezime) {
         if(imeIPrezime.length()<10)
             throw new IllegalArgumentException("Ime studenta treba biti najmanje 10 karaktera dugačko");
-
         this.imeIPrezime = new SimpleStringProperty(imeIPrezime);
     }
 
@@ -21,6 +20,8 @@ public class Student {
     }
 
     public void setImeIPrezime(String imeIPrezime) {
+        if(imeIPrezime.length()<10)
+            throw new IllegalArgumentException("Ime studenta treba biti najmanje 10 karaktera dugačko");
         this.imeIPrezime.set(imeIPrezime);
     }
 

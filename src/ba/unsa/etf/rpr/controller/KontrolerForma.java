@@ -22,14 +22,14 @@ public class KontrolerForma {
     private StudentiModel studenti;
     public ListView<Student> lvStudents;
 
-//    public KontrolerForma(StudentiModel studenti) {
-//        this.studenti = studenti;
-//    }
+    public KontrolerForma(StudentiModel studenti) {
+        this.studenti = studenti;
+    }
 
-//    @FXML
-//    public void initialize() {
-//        lvStudents.setItems(studenti.getStudenti());
-//    }
+    @FXML
+    public void initialize() {
+        lvStudents.setItems(studenti.getStudenti());
+    }
 
     @FXML
     public void getNumber(ActionEvent actionEvent) {
@@ -40,10 +40,16 @@ public class KontrolerForma {
 
     public void buttonClickUnosStudenta(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/novi.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/novi.fxml"));
+        Parent root = loader.load();
+
+        KontrolerUnos kontrolerUnos = loader.getController();
+        kontrolerUnos.setListaStudenata(lvStudents);
+
         stage.setTitle("Unos studenta");
         stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         stage.show();
         stage.setResizable(false);
+
     }
 }

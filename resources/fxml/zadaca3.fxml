@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="420.0" minWidth="570.0" prefHeight="420.0" prefWidth="570.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controller.KontrolerForma">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="420.0" minWidth="570.0" prefHeight="420.0" prefWidth="570.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox alignment="TOP_CENTER" spacing="5.0" VBox.vgrow="NEVER">
          <children>
