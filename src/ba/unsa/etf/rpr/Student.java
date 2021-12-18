@@ -1,19 +1,26 @@
 package ba.unsa.etf.rpr;
 
+import javafx.beans.property.SimpleStringProperty;
+
 public class Student {
-    private String imeIPrezime;
+    private SimpleStringProperty imeIPrezime;
 
     public Student(String imeIPrezime) {
         if(imeIPrezime.length()<10)
             throw new IllegalArgumentException("Ime studenta treba biti najmanje 10 karaktera dugačko");
-        this.imeIPrezime = imeIPrezime;
+
+        this.imeIPrezime = new SimpleStringProperty(imeIPrezime);
     }
 
     public String getImeIPrezime() {
+        return imeIPrezime.get();
+    }
+
+    public SimpleStringProperty imeIPrezimeProperty() {
         return imeIPrezime;
     }
 
     public void setImeIPrezime(String imeIPrezime) {
-        this.imeIPrezime = imeIPrezime;
+        this.imeIPrezime.set(imeIPrezime);
     }
 }
