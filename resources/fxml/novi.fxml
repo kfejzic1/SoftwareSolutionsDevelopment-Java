@@ -22,7 +22,7 @@
       <TextField fx:id="txtFieldImePrezime" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="2">
          <children>
-            <ProgressBar prefWidth="200.0" progress="0.0" />
+            <ProgressBar fx:id="progressBar" prefWidth="200.0" progress="0.0" />
          </children>
       </HBox>
       <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3">

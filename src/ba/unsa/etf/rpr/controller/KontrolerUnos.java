@@ -1,23 +1,34 @@
 package ba.unsa.etf.rpr.controller;
 
 import ba.unsa.etf.rpr.beans.Student;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class KontrolerUnos {
+    @FXML
+    private TextField txtFieldImePrezime;
+    @FXML
+    private ProgressBar progressBar;
     public ListView<Student> listaStudenata;
+
+    @FXML
+    public void initialize() {
+        txtFieldImePrezime.textProperty().addListener(
+                (observableValue, s, t1) ->
+                        progressBar.progressProperty().bind(new SimpleDoubleProperty(txtFieldImePrezime.getText().length()/10.))
+        );
+    }
 
     public void setListaStudenata(ListView<Student> listaStudenata) {
         this.listaStudenata = listaStudenata;
     }
-
-    @FXML
-    private TextField txtFieldImePrezime;
 
     private void zatvori(ActionEvent actionEvent) {
         Node n = (Node) actionEvent.getSource();
@@ -25,6 +36,7 @@ public class KontrolerUnos {
         stage.close();
     }
 
+    @FXML
     public void buttonClickOk(ActionEvent actionEvent) {
         //Potrebno je proslijediti string iz textfielda u list view
         try{
@@ -41,6 +53,7 @@ public class KontrolerUnos {
         }
     }
 
+    @FXML
     public void buttonClickCancel(ActionEvent actionEvent) {
         zatvori(actionEvent);
     }
