@@ -44,5 +44,6 @@ public class KontrolerForma {
         stage.setTitle("Unos studenta");
         stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         stage.show();
+        stage.setResizable(false);
     }
 }
