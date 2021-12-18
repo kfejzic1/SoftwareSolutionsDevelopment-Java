@@ -23,4 +23,9 @@ public class Student {
     public void setImeIPrezime(String imeIPrezime) {
         this.imeIPrezime.set(imeIPrezime);
     }
+
+    @Override
+    public String toString() {
+        return imeIPrezime.get();
+    }
 }
