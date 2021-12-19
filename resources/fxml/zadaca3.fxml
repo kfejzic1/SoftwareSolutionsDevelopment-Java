@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.collections.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<?import java.lang.String?>
-<?import javafx.collections.FXCollections?>
+<?import java.net.URL?>
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="420.0" minWidth="570.0" prefHeight="420.0" prefWidth="570.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+    <stylesheets>
+        <URL value="@../css/Forma.css" />
+    </stylesheets>
    <children>
       <HBox alignment="TOP_CENTER" spacing="5.0" VBox.vgrow="NEVER">
          <children>
@@ -28,7 +32,7 @@
       <HBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
          <children>
             <ListView fx:id="lvStudents" minHeight="350.0" minWidth="350.0" prefHeight="350.0" prefWidth="350.0" HBox.hgrow="ALWAYS" />
-            <GridPane alignment="TOP_CENTER" hgap="3.0" vgap="3.0">
+            <GridPane fx:id="gridPane" alignment="TOP_CENTER" hgap="3.0" vgap="3.0">
               <columnConstraints>
                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="60.0" minWidth="60.0" prefWidth="60.0" />
                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="60.0" minWidth="60.0" prefWidth="60.0" />
