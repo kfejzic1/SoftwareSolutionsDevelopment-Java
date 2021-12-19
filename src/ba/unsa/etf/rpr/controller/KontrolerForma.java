@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -19,6 +20,8 @@ import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 public class KontrolerForma {
     @FXML
     private TextField fldText;
+    @FXML
+    private ChoiceBox choiceColor;
     private StudentiModel studenti;
     public ListView<Student> lvStudents;
 

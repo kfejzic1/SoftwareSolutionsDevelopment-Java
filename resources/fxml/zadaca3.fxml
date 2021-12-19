@@ -4,13 +4,24 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="420.0" minWidth="570.0" prefHeight="420.0" prefWidth="570.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox alignment="TOP_CENTER" spacing="5.0" VBox.vgrow="NEVER">
          <children>
             <TextField fx:id="fldText" alignment="CENTER_RIGHT" editable="false" maxHeight="26.0" maxWidth="64.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="64.0" />
             <Slider fx:id="sliderStudents" max="15.0" min="5.0" showTickLabels="true" showTickMarks="true" value="5.0" />
-            <ChoiceBox prefWidth="150.0" />
+            <ChoiceBox fx:id="choiceColor" prefWidth="150.0" value="Default">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Default" />
+                            <String fx:value="Crvena" />
+                            <String fx:value="Zelena" />
+                            <String fx:value="Plava" />
+                        </FXCollections>
+                    </items>
+             </ChoiceBox>
             <Button fx:id="btnUnosStudenta" mnemonicParsing="false" onAction="#buttonClickUnosStudenta" text="Unos studenta" />
          </children>
       </HBox>
