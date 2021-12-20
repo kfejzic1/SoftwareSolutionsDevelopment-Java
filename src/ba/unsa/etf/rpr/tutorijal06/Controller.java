@@ -31,6 +31,13 @@ public class Controller {
         model.napuni();
         listaKorisnika.setItems(model.getKorisnici());
 
+        txtIme.textProperty().addListener((observable, oldValue, newValue) -> {
+            listaKorisnika.refresh();
+        });
+        txtPrezime.textProperty().addListener((observable, oldValue, newValue) -> {
+            listaKorisnika.refresh();
+        });
+
         model.trenutniKorisnikProperty().addListener(
                 ((observableValue, oldValue, newValue) -> {
                     if(oldValue != null) {
