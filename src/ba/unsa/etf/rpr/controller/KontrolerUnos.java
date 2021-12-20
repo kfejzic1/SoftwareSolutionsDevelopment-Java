@@ -1,6 +1,6 @@
 package ba.unsa.etf.rpr.controller;
 
-import ba.unsa.etf.rpr.beans.Student;
+import ba.unsa.etf.rpr.beans.String;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,23 +13,38 @@ import javafx.stage.Stage;
 
 public class KontrolerUnos {
     @FXML
-    private TextField txtFieldImePrezime;
+    private TextField fldIme;
     @FXML
     private ProgressBar progressBar;
-    public ListView<Student> listaStudenata;
+
+    public ListView<String> listaStudenata;
+
+    private TextField uneseniBroj;
 
     @FXML
     public void initialize() {
-        txtFieldImePrezime.textProperty().addListener(
-                (observableValue, s, t1) ->
-                        progressBar.progressProperty().bind(new SimpleDoubleProperty(txtFieldImePrezime.getText().length()/10.))
+        fldIme.textProperty().addListener(
+                (observableValue, s, t1) -> {
+                    progressBar.progressProperty().bind(new SimpleDoubleProperty(fldIme.getText().length()/10.));
+                    if(progressBar.getProgress() >= 1) {
+                        progressBar.getStyleClass().removeAll("crveniProgress");
+                        progressBar.getStyleClass().add("zeleniProgress");
+                    }
+                    else {
+                        progressBar.getStyleClass().removeAll("zeleniProgress");
+                        progressBar.getStyleClass().add("crveniProgress");
+                    }
+                }
         );
     }
 
-    public void setListaStudenata(ListView<Student> listaStudenata) {
+    public void setListaStudenata(ListView<String> listaStudenata) {
         this.listaStudenata = listaStudenata;
     }
 
+    public void setUneseniBroj(TextField uneseniBroj) {
+        this.uneseniBroj = uneseniBroj;
+    }
     private void zatvori(ActionEvent actionEvent) {
         Node n = (Node) actionEvent.getSource();
         Stage stage  = (Stage) n.getScene().getWindow();
@@ -40,8 +55,12 @@ public class KontrolerUnos {
     public void buttonClickOk(ActionEvent actionEvent) {
         //Potrebno je proslijediti string iz textfielda u list view
         try{
-            listaStudenata.getItems().add(new Student(txtFieldImePrezime.getText()));
-            listaStudenata.refresh();
+            String s = new String(fldIme.getText());
+//            Student student = new Student(fldIme.getText() + uneseniBroj.getText());
+//            listaStudenata.getItems().add(student);
+//            listaStudenata.refresh();
+//            uneseniBroj.setText(""); //Da li je potrebno ocistiti fldText u KontrolerForma nakon unosa studenta
+
             zatvori(actionEvent);
         }catch (IllegalArgumentException e) {
             //Izbaci alert
