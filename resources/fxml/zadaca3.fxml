@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 
 <?import java.net.URL?>
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="420.0" minWidth="570.0" prefHeight="420.0" prefWidth="570.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="420.0" minWidth="570.0" prefHeight="420.0" prefWidth="570.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controller.KontrolerForma">
     <stylesheets>
         <URL value="@../css/Forma.css" />
     </stylesheets>

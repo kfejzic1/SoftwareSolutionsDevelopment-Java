@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
 <?import java.net.URL?>
-<GridPane hgap="5.0" vgap="5.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controller.KontrolerUnos">
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane hgap="5.0" vgap="5.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controller.KontrolerUnos">
     <stylesheets>
         <URL value="@../css/Unos.css" />
     </stylesheets>
@@ -23,7 +30,7 @@
    <children>
       <Label text="Unesite ime i prezime studenta (minimalno 10 karaktera): " GridPane.columnSpan="3" />
       <Label text="Ime i prezime:" GridPane.rowIndex="1" />
-      <TextField fx:id="txtFieldImePrezime" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+      <TextField fx:id="fldIme" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="2">
          <children>
             <ProgressBar fx:id="progressBar" prefWidth="200.0" progress="0.0" />
@@ -31,8 +38,8 @@
       </HBox>
       <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3">
         <buttons>
-          <Button fx:id="btnOk" mnemonicParsing="false" onAction="#buttonClickOk" text="Ok" />
-            <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#buttonClickCancel" text="Cancel" />
+          <Button fx:id="btnOk" defaultButton="true" mnemonicParsing="false" onAction="#buttonClickOk" text="Ok" />
+            <Button fx:id="btnCancel" cancelButton="true" mnemonicParsing="false" onAction="#buttonClickCancel" text="Cancel" />
         </buttons>
       </ButtonBar>
    </children>
