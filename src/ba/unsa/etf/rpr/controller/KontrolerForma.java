@@ -103,6 +103,7 @@ public class KontrolerForma {
         KontrolerUnos kontrolerUnos = loader.getController();
         kontrolerUnos.setListaStudenata(lvStudents);
         kontrolerUnos.setUneseniBroj(fldText);
+        kontrolerUnos.setStudenti(studenti);    //Pokusaj
 
         stage.setTitle("Unos studenta");
         stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));

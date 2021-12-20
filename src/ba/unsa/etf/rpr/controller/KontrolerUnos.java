@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr.controller;
 
+import ba.unsa.etf.rpr.model.StudentiModel;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,9 +17,9 @@ public class KontrolerUnos {
     @FXML
     private ProgressBar progressBar;
 
-    public ListView<String> listaStudenata;
-
-    private TextField uneseniBroj;
+    ListView<String> listaStudenata;
+    TextField uneseniBroj;
+    StudentiModel studenti;
 
     @FXML
     public void initialize() {
@@ -40,10 +41,11 @@ public class KontrolerUnos {
     public void setListaStudenata(ListView<String> listaStudenata) {
         this.listaStudenata = listaStudenata;
     }
-
     public void setUneseniBroj(TextField uneseniBroj) {
         this.uneseniBroj = uneseniBroj;
     }
+    public void setStudenti(StudentiModel studenti) { this.studenti = studenti; }
+
     private void zatvori(ActionEvent actionEvent) {
         Node n = (Node) actionEvent.getSource();
         Stage stage  = (Stage) n.getScene().getWindow();
@@ -52,22 +54,19 @@ public class KontrolerUnos {
 
     @FXML
     public void buttonClickOk(ActionEvent actionEvent) {
-        //Potrebno je proslijediti string iz textfielda u list view
-        try{
-            String s = new String(fldIme.getText());
-//            Student student = new Student(fldIme.getText() + uneseniBroj.getText());
-//            listaStudenata.getItems().add(student);
-//            listaStudenata.refresh();
-//            uneseniBroj.setText(""); //Da li je potrebno ocistiti fldText u KontrolerForma nakon unosa studenta
-
-            zatvori(actionEvent);
-        }catch (IllegalArgumentException e) {
-            //Izbaci alert
+        if(fldIme.getText().length()<10) {      //Izbaci alert
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Neispravno ime");
             alert.setHeaderText("Neispravno ime studenta");
-            alert.setContentText(e.getMessage());
+            alert.setContentText("Ime studenta treba biti najmanje 10 karaktera dugačko");
             alert.showAndWait();
+        } else {
+            String noviStudent = fldIme.getText()+uneseniBroj.getText();
+            listaStudenata.getItems().add(noviStudent);
+            studenti.getStudenti().add(noviStudent);
+            listaStudenata.refresh();
+
+            zatvori(actionEvent);
         }
     }
 
