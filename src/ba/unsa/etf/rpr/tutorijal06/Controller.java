@@ -66,6 +66,7 @@ public class Controller {
     @FXML
     public void klikNaKorisnika(javafx.scene.input.MouseEvent mouseEvent) {
         model.setTrenutniKorisnik(listaKorisnika.getSelectionModel().getSelectedItem());
+        System.out.println("Trenutni je: " + model.getTrenutniKorisnik());
     }
 
     @FXML
@@ -84,5 +85,10 @@ public class Controller {
             //Zatvori alert
             alert.close();
         }
+    }
+
+    public void btnClickDodaj(ActionEvent actionEvent) {
+        model.getKorisnici().add(new Korisnik(txtIme.getText(), txtPrezime.getText(), txtEmail.getText(), txtKorisnickoIme.getText(), txtLozinka.getText()));
+        model.setTrenutniKorisnik(model.getKorisnici().get(model.getKorisnici().size()-1));
     }
 }
