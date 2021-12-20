@@ -77,6 +77,20 @@ public class KontrolerForma {
         });
     }
 
+    private void dodajListenerNaTextField() {
+        fldText.textProperty().addListener((observable, oldValue, newValue) -> {
+            int posljednjiIndeks = studenti.getStudenti().size()-1;
+
+            String zadnjiItem = studenti.getStudenti().get(posljednjiIndeks);
+            studenti.getStudenti().remove(posljednjiIndeks);
+
+            zadnjiItem = zadnjiItem.replaceAll("\\d", "");
+            zadnjiItem = zadnjiItem + newValue;
+
+            studenti.getStudenti().add(zadnjiItem);
+        });
+    }
+
     @FXML
     public void initialize() {
         studenti.napuni();
@@ -86,6 +100,7 @@ public class KontrolerForma {
         lvStudents.setItems(FXCollections.observableArrayList(studenti.getStudenti().subList(0, (int)sliderStudents.getMin())));
 
         dodajListenerNaChoiceBox();
+        dodajListenerNaTextField();
     }
 
     @FXML
