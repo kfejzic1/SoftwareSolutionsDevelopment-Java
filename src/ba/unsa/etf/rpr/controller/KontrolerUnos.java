@@ -1,6 +1,5 @@
 package ba.unsa.etf.rpr.controller;
 
-import ba.unsa.etf.rpr.beans.String;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
