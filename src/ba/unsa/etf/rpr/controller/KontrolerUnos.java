@@ -62,9 +62,11 @@ public class KontrolerUnos {
             alert.showAndWait();
         } else {
             String noviStudent = fldIme.getText()+uneseniBroj.getText();
-            listaStudenata.getItems().add(noviStudent);
             studenti.getStudenti().add(noviStudent);
-            listaStudenata.refresh();
+            if(studenti.getStudenti().size()>15) {
+                listaStudenata.getItems().add(noviStudent);
+                listaStudenata.refresh();
+            }
 
             zatvori(actionEvent);
         }
