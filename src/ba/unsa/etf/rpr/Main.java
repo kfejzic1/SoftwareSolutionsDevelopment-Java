@@ -1,7 +1,5 @@
 package ba.unsa.etf.rpr;
 
-import ba.unsa.etf.rpr.controller.KontrolerForma;
-import ba.unsa.etf.rpr.model.StudentiModel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,14 +11,7 @@ import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
-        StudentiModel model = new StudentiModel();
-        model.napuni();
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/zadaca3.fxml"));
-        loader.setController(new KontrolerForma(model));
-        Parent root = loader.load();
-
-//        Parent root = FXMLLoader.load(getClass().getResource("/fxml/zadaca3.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/zadaca3.fxml"));
 
         primaryStage.setTitle("Studenti");
         primaryStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));

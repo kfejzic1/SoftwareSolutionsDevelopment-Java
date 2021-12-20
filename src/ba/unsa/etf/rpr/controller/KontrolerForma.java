@@ -1,6 +1,7 @@
 package ba.unsa.etf.rpr.controller;
 
 import ba.unsa.etf.rpr.model.StudentiModel;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,34 +27,23 @@ public class KontrolerForma {
     @FXML
     private ListView<String> lvStudents;
 
-    private StudentiModel studenti;
-    private final java.lang.String crvena = "obojiPozadinuUCrveno";
-    private final java.lang.String plava = "obojiPozadinuUPlavo";
-    private final java.lang.String zelena = "obojiPozadinuUZeleno";
+    private StudentiModel studenti = new StudentiModel();
 
+    private static final java.lang.String crvena = "obojiPozadinuUCrveno";
+    private static final java.lang.String plava = "obojiPozadinuUPlavo";
+    private static final java.lang.String zelena = "obojiPozadinuUZeleno";
 
-    //public KontrolerForma(StudentiModel studenti) {
-//        this.studenti = studenti;
-//    }
+    private void obojiUBoju(java.lang.String boja) {
+        if(boja.equals("default"))
+            gridPane.getChildren().forEach(child -> child.getStyleClass().removeAll(crvena, plava, zelena));
+        else
+            gridPane.getChildren().forEach(child -> {
+                child.getStyleClass().removeAll(crvena, plava, zelena);
+                child.getStyleClass().add(boja);
+            });
+    }
 
-    /*
-    -----------
-    -----------
-    -----------
-    KADA SE OBRISE CONTROLLER IZ FXML-A NIJE MOGUCE POKRENUTI TESTOVE!
-    DA LI U NAZIVU STUDENTA "STUDENTX", BROJ X PREDSTAVLJA REDNI BROJ U LISTI
-    ILI JE TO BROJ KOJI JE UNESEN SA BUTTONA?
-    STUDENTI SE MOGU ČUVATI U MAPI GDJE JE KEY STUDENT A VALUE BROJ KOJI JE UNESEN
-    PITATI TUTORA
-    -----------
-    -----------
-    -----------
-     */
-
-    @FXML
-    public void initialize() {
-//        lvStudents.setItems(studenti.getStudenti());
-
+    private void dodajListenerNaChoiceBox() {   //Dodaje Listener na choiceColor
         choiceColor.getSelectionModel().selectedIndexProperty().addListener((observableValue, number, t1) -> {
             java.lang.String value = choiceColor.getItems().get((Integer) t1);
             switch (value){
@@ -75,16 +65,27 @@ public class KontrolerForma {
         });
     }
 
-    private void obojiUBoju(java.lang.String boja) {
-        if(boja.equals("default"))
-            gridPane.getChildren().forEach(child -> {
-                child.getStyleClass().removeAll("obojiPozadinuUCrveno", "obojiPozadinuUPlavo", "obojiPozadinuUZeleno");
-            });
-        else
-            gridPane.getChildren().forEach(child -> {
-                child.getStyleClass().removeAll("obojiPozadinuUCrveno", "obojiPozadinuUPlavo", "obojiPozadinuUZeleno");
-                child.getStyleClass().add(boja);
-            });
+    private void dodajListenerNaSlider() {
+        sliderStudents.valueProperty().addListener((observableValue, number, t1) -> {
+            StudentiModel temp = new StudentiModel();
+            for(int i=0; i<t1.intValue(); i++) {
+                if(i>=studenti.getStudenti().size())
+                    break;
+                temp.getStudenti().add(studenti.getStudenti().get(i));
+            }
+            lvStudents.setItems(temp.getStudenti());
+        });
+    }
+
+    @FXML
+    public void initialize() {
+        studenti.napuni();
+        dodajListenerNaSlider();
+
+        //Postavlja početne vrijednosti listViewa na minimalnu vrijednost slidera
+        lvStudents.setItems(FXCollections.observableArrayList(studenti.getStudenti().subList(0, (int)sliderStudents.getMin())));
+
+        dodajListenerNaChoiceBox();
     }
 
     @FXML
@@ -97,7 +98,6 @@ public class KontrolerForma {
     public void buttonClickUnosStudenta(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/novi.fxml"));
-        //loader.setController(new KontrolerUnos());
         Parent root = loader.load();
 
         KontrolerUnos kontrolerUnos = loader.getController();
