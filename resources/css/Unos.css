@@ -1,3 +1,7 @@
-#progressBar {
+.crveniProgress {
     -fx-accent: red;
+}
+
+.zeleniProgress {
+    -fx-accent: green;
 }
