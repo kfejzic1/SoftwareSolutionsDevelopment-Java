@@ -1,14 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9d85ee91-6ced-49f3-98c6-5586dfd0c22b" name="Default Changelist" comment="" />
+    <list default="true" id="9d85ee91-6ced-49f3-98c6-5586dfd0c22b" name="Default Changelist" comment="Implementirana metoda ucitajGradove">
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/un.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mjerenja.txt" beforeDir="false" afterPath="$PROJECT_DIR$/mjerenja.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/tutorijal8/Grad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/tutorijal8/Grad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/tutorijal8/Tutorijal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/tutorijal8/Tutorijal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/tutorijal8/UN.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/tutorijal8/UN.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorijal-8.iml" beforeDir="false" afterPath="$PROJECT_DIR$/tutorijal-8.iml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1UsEx7XwPAlQZgwW1SbAQQr1Lm2" />
   <component name="ProjectView">
@@ -66,16 +91,30 @@
       </pane>
     </panes>
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/XML-1.0-SNAPSHOT.jar" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rpr.tutorijal8.Main" />
+      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rpr.tutorijal8.Tutorijal" />
       <module name="tutorijal-8" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <RunnerSettings RunnerId="Run" />
@@ -84,6 +123,45 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TutorijalTest.daLiSeXMLUcitaKorektno" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="tutorijal-8" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ba.unsa.etf.rpr.tutorijal8.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ba.unsa.etf.rpr.tutorijal8" />
+      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rpr.tutorijal8.TutorijalTest" />
+      <option name="METHOD_NAME" value="daLiSeXMLUcitaKorektno" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TutorijalTest.daLiUcitavaGradoveKorektno" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="tutorijal-8" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ba.unsa.etf.rpr.tutorijal8.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ba.unsa.etf.rpr.tutorijal8" />
+      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rpr.tutorijal8.TutorijalTest" />
+      <option name="METHOD_NAME" value="daLiUcitavaGradoveKorektno" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.TutorijalTest.daLiSeXMLUcitaKorektno" />
+        <item itemvalue="JUnit.TutorijalTest.daLiUcitavaGradoveKorektno" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -97,6 +175,7 @@
       </list>
     </option>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -108,15 +187,81 @@
       <option name="presentableId" value="Default" />
       <updated>1576137145217</updated>
     </task>
+    <task id="LOCAL-00001" summary="Kreirana klasa Grad">
+      <created>1640555207594</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1640555207594</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Kreirana klasa Drzava">
+      <created>1640555287170</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1640555287170</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Kreirana klasa UN">
+      <created>1640555327896</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1640555327896</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Refactor Main klase">
+      <created>1640555402554</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1640555402554</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Dodani geteri, seteri i konstruktor u klasu Grad">
+      <created>1640555663211</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1640555663211</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Dodani geteri, seteri i konstruktor u klasu Grad, Drzava i UN">
+      <created>1640562374889</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1640562374889</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Implementirana metoda ucitajGradove">
+      <created>1640605183985</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1640605183985</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="1214" y="259" width="442" height="596" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1576137199940">
-      <screen x="0" y="27" width="1920" height="1053" />
-    </state>
-    <state x="1214" y="259" width="442" height="596" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1576137199940" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Kreirana klasa Grad" />
+    <MESSAGE value="Kreirana klasa Drzava" />
+    <MESSAGE value="Kreirana klasa UN" />
+    <MESSAGE value="Refactor Main klase" />
+    <MESSAGE value="Dodani geteri, seteri i konstruktor u klasu Grad" />
+    <MESSAGE value="Dodani geteri, seteri i konstruktor u klasu Grad, Drzava i UN" />
+    <MESSAGE value="Implementirana metoda ucitajGradove" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementirana metoda ucitajGradove" />
   </component>
 </project>

@@ -3,7 +3,7 @@ package ba.unsa.etf.rpr.tutorijal8;
 import java.util.ArrayList;
 
 public class UN {
-    ArrayList<Drzava> drzave;
+    ArrayList<Drzava> drzave = new ArrayList<>();
 
     public ArrayList<Drzava> getDrzave() {
         return drzave;

@@ -1,5 +1,7 @@
 package ba.unsa.etf.rpr.tutorijal8;
 
+import java.util.Arrays;
+
 public class Grad {
     private String naziv;
     private int brojStanovnika;
@@ -13,6 +15,11 @@ public class Grad {
     public Grad() {
         naziv = "";
         brojStanovnika = 0;
+    }
+
+    public Grad(String naziv, int brojStanovnika) {
+        this.naziv = naziv;
+        this.brojStanovnika = brojStanovnika;
     }
 
     public String getNaziv() {
@@ -37,10 +44,5 @@ public class Grad {
 
     public void setTemperature(double[] temperature) {
         this.temperature = temperature;
-    }
-
-    public void postaviTemperatureNaPocetne() {
-        for(int i=0; i< temperature.length; i++)
-            temperature[i] = 0;
     }
 }
