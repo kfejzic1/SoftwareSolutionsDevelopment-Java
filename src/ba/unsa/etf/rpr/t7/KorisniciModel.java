@@ -14,11 +14,12 @@ public class KorisniciModel {
     private SimpleObjectProperty<Korisnik> trenutniKorisnik = new SimpleObjectProperty<>();
 
     private Connection conn;
-    private PreparedStatement stmt;
+    private PreparedStatement stmt, izmjenaUpit;
 
     public KorisniciModel() {
         try {
             conn = DriverManager.getConnection("jdbc:sqlite:korisnici.db");
+            izmjenaUpit = conn.prepareStatement("UPDATE korisnik SET Ime=?, Prezime=?, Email=?, Username=?, Password=? WHERE Id=?");
         } catch(SQLException e) {
             System.out.println("Neuspješno čitanje iz baze: " + e.getMessage());
         }
@@ -54,20 +55,22 @@ public class KorisniciModel {
         korisnici.clear();
 
         try {
-            stmt = conn.prepareStatement("SELECT Ime, Prezime, Email, Username, Password FROM korisnik");
+            stmt = conn.prepareStatement("SELECT * FROM korisnik");
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-                Korisnik k = new Korisnik(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+                Korisnik k = new Korisnik(rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
+                k.setId(rs.getInt(1));
                 korisnici.add(k);
                 if (trenutniKorisnik == null) trenutniKorisnik = new SimpleObjectProperty<>(k);
             }
         } catch(SQLException e) {
             regenerisiBazu();
             try {
-                stmt = conn.prepareStatement("SELECT Ime, Prezime, Email, Username, Password FROM korisnik");
+                stmt = conn.prepareStatement("SELECT * FROM korisnik");
                 ResultSet rs = stmt.executeQuery();
                 while (rs.next()) {
-                    Korisnik k = new Korisnik(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+                    Korisnik k = new Korisnik(rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
+                    k.setId(rs.getInt(1));
                     korisnici.add(k);
                     if (trenutniKorisnik == null) trenutniKorisnik = new SimpleObjectProperty<>(k);
                 }
@@ -118,5 +121,19 @@ public class KorisniciModel {
 
     public void setTrenutniKorisnik(int i) {
         this.trenutniKorisnik.set(korisnici.get(i));
+    }
+
+    public void izmijeniKorisnika(Korisnik korisnik) {
+        try {
+            izmjenaUpit.setString(1, korisnik.getIme());
+            izmjenaUpit.setString(2, korisnik.getPrezime());
+            izmjenaUpit.setString(3, korisnik.getEmail());
+            izmjenaUpit.setString(4, korisnik.getUsername());
+            izmjenaUpit.setString(5, korisnik.getPassword());
+            izmjenaUpit.setInt(6, korisnik.getId());
+            izmjenaUpit.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 }

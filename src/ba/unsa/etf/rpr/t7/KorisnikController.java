@@ -35,6 +35,7 @@ public class KorisnikController {
                 fldEmail.textProperty().unbindBidirectional(oldKorisnik.emailProperty() );
                 fldUsername.textProperty().unbindBidirectional(oldKorisnik.usernameProperty() );
                 fldPassword.textProperty().unbindBidirectional(oldKorisnik.passwordProperty() );
+                model.izmijeniKorisnika(oldKorisnik);   //Moze se dodati i na button kraj
             }
             if (newKorisnik == null) {
                 fldIme.setText("");
@@ -108,7 +109,5 @@ public class KorisnikController {
         listKorisnici.getSelectionModel().selectLast();
     }
 
-    public void krajAction(ActionEvent actionEvent) {
-        System.exit(0);
-    }
+    public void krajAction(ActionEvent actionEvent) { System.exit(0); }
 }
