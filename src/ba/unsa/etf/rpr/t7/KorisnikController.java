@@ -6,6 +6,8 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import java.util.concurrent.atomic.AtomicReference;
+
 public class KorisnikController {
     public TextField fldIme;
     public TextField fldPrezime;
@@ -35,7 +37,6 @@ public class KorisnikController {
                 fldEmail.textProperty().unbindBidirectional(oldKorisnik.emailProperty() );
                 fldUsername.textProperty().unbindBidirectional(oldKorisnik.usernameProperty() );
                 fldPassword.textProperty().unbindBidirectional(oldKorisnik.passwordProperty() );
-                model.izmijeniKorisnika(oldKorisnik);   //Moze se dodati i na button kraj
             }
             if (newKorisnik == null) {
                 fldIme.setText("");
@@ -61,6 +62,9 @@ public class KorisnikController {
                 fldIme.getStyleClass().removeAll("poljeIspravno");
                 fldIme.getStyleClass().add("poljeNijeIspravno");
             }
+
+            if(!oldIme.isEmpty() && !oldIme.equals(newIme))
+                model.getTrenutniKorisnik().setPromijenjen(true);
         });
 
         fldPrezime.textProperty().addListener((obs, oldIme, newIme) -> {
@@ -71,6 +75,9 @@ public class KorisnikController {
                 fldPrezime.getStyleClass().removeAll("poljeIspravno");
                 fldPrezime.getStyleClass().add("poljeNijeIspravno");
             }
+
+            if(!oldIme.isEmpty() && !oldIme.equals(newIme))
+                model.getTrenutniKorisnik().setPromijenjen(true);
         });
 
         fldEmail.textProperty().addListener((obs, oldIme, newIme) -> {
@@ -81,6 +88,9 @@ public class KorisnikController {
                 fldEmail.getStyleClass().removeAll("poljeIspravno");
                 fldEmail.getStyleClass().add("poljeNijeIspravno");
             }
+
+            if(!oldIme.isEmpty() && !oldIme.equals(newIme))
+                model.getTrenutniKorisnik().setPromijenjen(true);
         });
 
         fldUsername.textProperty().addListener((obs, oldIme, newIme) -> {
@@ -91,6 +101,9 @@ public class KorisnikController {
                 fldUsername.getStyleClass().removeAll("poljeIspravno");
                 fldUsername.getStyleClass().add("poljeNijeIspravno");
             }
+
+            if(!oldIme.isEmpty() && !oldIme.equals(newIme))
+                model.getTrenutniKorisnik().setPromijenjen(true);
         });
 
         fldPassword.textProperty().addListener((obs, oldIme, newIme) -> {
@@ -101,6 +114,9 @@ public class KorisnikController {
                 fldPassword.getStyleClass().removeAll("poljeIspravno");
                 fldPassword.getStyleClass().add("poljeNijeIspravno");
             }
+
+            if(!oldIme.isEmpty() && !oldIme.equals(newIme))
+                model.getTrenutniKorisnik().setPromijenjen(true);
         });
     }
 
@@ -109,5 +125,11 @@ public class KorisnikController {
         listKorisnici.getSelectionModel().selectLast();
     }
 
-    public void krajAction(ActionEvent actionEvent) { System.exit(0); }
+    public void krajAction(ActionEvent actionEvent) {
+        for(Korisnik k : model.getKorisnici()) {
+            if(k.isPromijenjen())
+                model.izmijeniKorisnika(k);
+        }
+        System.exit(0);
+    }
 }
