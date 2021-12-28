@@ -4,6 +4,7 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class Korisnik {
     private SimpleStringProperty ime, prezime, email, username, password;
+    private int id;
 
     public Korisnik(String ime, String prezime, String email, String username, String password) {
         this.ime = new SimpleStringProperty(ime);
@@ -78,5 +79,11 @@ public class Korisnik {
         this.password.set(password);
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 
+    public int getId() {
+        return id;
+    }
 }
