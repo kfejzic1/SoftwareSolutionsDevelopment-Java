@@ -89,7 +89,11 @@ public class KorisniciModel {
     }
 
     public void diskonektuj() {
-
+        try {
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public ObservableList<Korisnik> getKorisnici() {
