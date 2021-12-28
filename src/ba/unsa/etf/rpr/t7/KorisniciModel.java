@@ -13,8 +13,6 @@ public class KorisniciModel {
     private ObservableList<Korisnik> korisnici = FXCollections.observableArrayList();
     private SimpleObjectProperty<Korisnik> trenutniKorisnik = new SimpleObjectProperty<>();
 
-    private static KorisniciModel instanca = null;  //možda nije potrebno
-
     private Connection conn;
     private PreparedStatement stmt;
 
@@ -36,8 +34,8 @@ public class KorisniciModel {
                 sqlUpit += ulaz.nextLine();
                 if ( sqlUpit.length() > 1 && sqlUpit.charAt( sqlUpit.length()-1 ) == ';') {
                     try {
-                        Statement stmt = conn.createStatement();
-                        stmt.execute(sqlUpit);
+                        Statement st = conn.createStatement();
+                        st.execute(sqlUpit);
                         sqlUpit = "";
                     } catch (SQLException e) {
                         e.printStackTrace();
@@ -81,9 +79,13 @@ public class KorisniciModel {
     }
 
     public void vratiNaDefault() {
-        // Dodali smo metodu vratiNaDefault koja trenutno ne radi ništa, a kada prebacite Model na DAO onda
-        // implementirajte ovu metodu
-        // Razlog za ovo je da polazni testovi ne bi padali nakon što dodate bazu
+        try {
+            Statement st = conn.createStatement();
+            st.executeUpdate("DELETE FROM korisnik");
+            regenerisiBazu();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void diskonektuj() {
