@@ -5,6 +5,7 @@ import javafx.beans.property.SimpleStringProperty;
 public class Korisnik {
     private SimpleStringProperty ime, prezime, email, username, password;
     private int id;
+    boolean promijenjen = false;
 
     public Korisnik(String ime, String prezime, String email, String username, String password) {
         this.ime = new SimpleStringProperty(ime);
@@ -85,5 +86,13 @@ public class Korisnik {
 
     public int getId() {
         return id;
+    }
+
+    public boolean isPromijenjen() {
+        return promijenjen;
+    }
+
+    public void setPromijenjen(boolean promijenjen) {
+        this.promijenjen = promijenjen;
     }
 }
