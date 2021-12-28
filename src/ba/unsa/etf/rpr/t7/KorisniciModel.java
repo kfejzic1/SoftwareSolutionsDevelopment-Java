@@ -92,7 +92,10 @@ public class KorisniciModel {
     }
 
     public void diskonektuj() {
+        //Potrebno update baze prije zatvaranja
         try {
+            for(Korisnik k : korisnici)
+                izmijeniKorisnika(k);
             conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
