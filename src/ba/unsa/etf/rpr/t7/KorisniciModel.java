@@ -14,12 +14,15 @@ public class KorisniciModel {
     private SimpleObjectProperty<Korisnik> trenutniKorisnik = new SimpleObjectProperty<>();
 
     private Connection conn;
-    private PreparedStatement stmt, izmjenaUpit;
+    private PreparedStatement stmt, izmjenaUpit, dodajUpit, obrisiUpit, dajNoviId;
 
     public KorisniciModel() {
         try {
             conn = DriverManager.getConnection("jdbc:sqlite:korisnici.db");
             izmjenaUpit = conn.prepareStatement("UPDATE korisnik SET Ime=?, Prezime=?, Email=?, Username=?, Password=? WHERE Id=?");
+            dodajUpit = conn.prepareStatement("INSERT INTO korisnik VALUES (?,?,?,?,?,?)");
+            dajNoviId = conn.prepareStatement("SELECT MAX(Id)+1 FROM korisnik");
+            obrisiUpit = conn.prepareStatement("DELETE FROM korisnik WHERE Id=?");
         } catch(SQLException e) {
             System.out.println("Neuspješno čitanje iz baze: " + e.getMessage());
         }
@@ -137,6 +140,32 @@ public class KorisniciModel {
             izmjenaUpit.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
+        }
+    }
+
+    public void dodajKorisnika(Korisnik korisnik) {
+        try {
+            ResultSet noviId = dajNoviId.executeQuery();
+            noviId.next();
+
+            dodajUpit.setInt(1,noviId.getInt(1));
+            dodajUpit.setString(2, korisnik.getIme());
+            dodajUpit.setString(3, korisnik.getPrezime());
+            dodajUpit.setString(4, korisnik.getEmail());
+            dodajUpit.setString(5, korisnik.getUsername());
+            dodajUpit.setString(6, korisnik.getPassword());
+            dodajUpit.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+    public void obrisiKorisnika(Korisnik korisnik) {
+        try {
+            obrisiUpit.setInt(1, korisnik.getId());
+            obrisiUpit.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }

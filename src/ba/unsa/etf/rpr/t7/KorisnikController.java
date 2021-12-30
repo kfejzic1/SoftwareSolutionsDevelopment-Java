@@ -6,6 +6,8 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class KorisnikController {
@@ -63,7 +65,7 @@ public class KorisnikController {
                 fldIme.getStyleClass().add("poljeNijeIspravno");
             }
 
-            if(!oldIme.isEmpty() && !oldIme.equals(newIme))
+            if(!oldIme.isEmpty() && !oldIme.equals(newIme) && model.getTrenutniKorisnik() != null)
                 model.getTrenutniKorisnik().setPromijenjen(true);
         });
 
@@ -76,7 +78,7 @@ public class KorisnikController {
                 fldPrezime.getStyleClass().add("poljeNijeIspravno");
             }
 
-            if(!oldIme.isEmpty() && !oldIme.equals(newIme))
+            if(!oldIme.isEmpty() && !oldIme.equals(newIme) && model.getTrenutniKorisnik() != null)
                 model.getTrenutniKorisnik().setPromijenjen(true);
         });
 
@@ -89,7 +91,7 @@ public class KorisnikController {
                 fldEmail.getStyleClass().add("poljeNijeIspravno");
             }
 
-            if(!oldIme.isEmpty() && !oldIme.equals(newIme))
+            if(!oldIme.isEmpty() && !oldIme.equals(newIme) && model.getTrenutniKorisnik() != null)
                 model.getTrenutniKorisnik().setPromijenjen(true);
         });
 
@@ -102,7 +104,7 @@ public class KorisnikController {
                 fldUsername.getStyleClass().add("poljeNijeIspravno");
             }
 
-            if(!oldIme.isEmpty() && !oldIme.equals(newIme))
+            if(!oldIme.isEmpty() && !oldIme.equals(newIme) && model.getTrenutniKorisnik() != null)
                 model.getTrenutniKorisnik().setPromijenjen(true);
         });
 
@@ -115,13 +117,16 @@ public class KorisnikController {
                 fldPassword.getStyleClass().add("poljeNijeIspravno");
             }
 
-            if(!oldIme.isEmpty() && !oldIme.equals(newIme))
+            if(!oldIme.isEmpty() && !oldIme.equals(newIme) && model.getTrenutniKorisnik() != null)
                 model.getTrenutniKorisnik().setPromijenjen(true);
         });
     }
 
     public void dodajAction(ActionEvent actionEvent) {
-        model.getKorisnici().add(new Korisnik("", "", "", "", ""));
+        Korisnik noviKorisnik = new Korisnik(fldIme.getText(), fldPrezime.getText(), fldEmail.getText(), fldUsername.getText(), fldPassword.getText());
+        model.getKorisnici().add(noviKorisnik);
+        model.dodajKorisnika(noviKorisnik);
+
         listKorisnici.getSelectionModel().selectLast();
     }
 
@@ -131,5 +136,11 @@ public class KorisnikController {
                 model.izmijeniKorisnika(k);
         }
         System.exit(0);
+    }
+
+    public void obrisiAction(ActionEvent actionEvent) {
+        Korisnik trenutni = model.getTrenutniKorisnik();
+        model.getKorisnici().remove(trenutni);
+        model.obrisiKorisnika(trenutni);
     }
 }
