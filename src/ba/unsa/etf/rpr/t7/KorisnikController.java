@@ -1,11 +1,21 @@
 package ba.unsa.etf.rpr.t7;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.ListView;
-import javafx.scene.control.PasswordField;
+import javafx.scene.control.*;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 
+import java.awt.*;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.concurrent.atomic.AtomicReference;
@@ -142,5 +152,24 @@ public class KorisnikController {
         Korisnik trenutni = model.getTrenutniKorisnik();
         model.getKorisnici().remove(trenutni);
         model.obrisiKorisnika(trenutni);
+    }
+
+    public void exitMenuItemAction(ActionEvent actionEvent) {
+        System.exit(0);
+    }
+
+    public void aboutMeniItemAction(ActionEvent actionEvent) {
+        //Potrebno otvoriti novi prozor sa opisom stvari
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("O aplikaciji");
+        alert.setHeaderText("Verzija: 1.0.0");
+        alert.setContentText("Github: https://github.com/RPR-2019/rpr21-zadaca4-kfejzic1"); //Kako postaviti clickable link
+
+        Image image = new Image("https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Emojione_1F62D.svg/64px-Emojione_1F62D.svg.png");
+        ImageView imageView = new ImageView(image);
+        alert.setGraphic(imageView);
+        alert.showAndWait();
+
     }
 }
