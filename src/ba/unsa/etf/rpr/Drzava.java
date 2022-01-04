@@ -5,6 +5,17 @@ public class Drzava {
     String naziv;
     Grad glavniGrad;
 
+    public Drzava(int id, String naziv, Grad glavniGrad) {
+        this.id = id;
+        this.naziv = naziv;
+        this.glavniGrad = glavniGrad;
+    }
+
+    public Drzava() {
+        this.glavniGrad = new Grad();
+        this.naziv = "";
+    }
+
     public int getId() {
         return id;
     }
