@@ -5,6 +5,14 @@ public class Grad {
     private String naziv;
     Drzava drzava;
 
+    public Grad(int id, String naziv, int brojStanovnika, int drzava) {
+        this.id = id;
+        this.brojStanovnika = brojStanovnika;
+        this.naziv = naziv;
+        this.drzava = new Drzava(); //Kako izvesti dodavanje drzave u grad i obrnutoK
+        this.drzava.setId(drzava);
+    }
+
     public int getId() {
         return id;
     }
