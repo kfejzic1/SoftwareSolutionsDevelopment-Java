@@ -13,6 +13,11 @@ public class Grad {
         this.drzava.setId(drzava);
     }
 
+    public Grad() {
+        this.naziv = "";
+        this.drzava = new Drzava();
+    }
+
     public int getId() {
         return id;
     }
