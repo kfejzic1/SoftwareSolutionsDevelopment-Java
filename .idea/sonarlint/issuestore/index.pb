@@ -16,3 +16,7 @@ Y
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
+Y
+)test/ba/unsa/etf/rpr/t7/Zadatak2Test.java,0\8\08187ce2036a1cc3e21696cfb21df490916a884d
+^
+.src/ba/unsa/etf/rpr/t7/KorisnikController.java,9\d\9d8def396d4374bd727bc323f9d2f6961a7a79d3
