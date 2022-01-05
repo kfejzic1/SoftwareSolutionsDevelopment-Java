@@ -95,4 +95,8 @@ public class Korisnik {
     public void setPromijenjen(boolean promijenjen) {
         this.promijenjen = promijenjen;
     }
+
+    String noviToString() {
+        return this.getUsername() + ":" + this.getPassword() + ":" + this.id + ":" + this.id + ":" + this.getIme() + " " + this.getPrezime() + "::\n";
+    }
 }
