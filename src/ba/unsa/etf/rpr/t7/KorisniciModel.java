@@ -4,8 +4,10 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.sql.*;
 import java.util.Scanner;
 
@@ -168,4 +170,23 @@ public class KorisniciModel {
             e.printStackTrace();
         }
     }
+
+    public void zapisiDatoteku(File file) {
+        if(file == null)
+            return;
+        String content = "";
+
+        for (Korisnik korisnik : korisnici) {
+            content += korisnik.noviToString();
+        }
+
+        try {
+            PrintWriter writer = new PrintWriter(file);
+            writer.println(content);
+            writer.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
