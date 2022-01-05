@@ -3,19 +3,18 @@ package ba.unsa.etf.rpr;
 public class Grad {
     private int id, brojStanovnika;
     private String naziv;
-    Drzava drzava;
+    private Drzava drzava;
 
-    public Grad(int id, String naziv, int brojStanovnika, int drzava) {
+    public Grad(int id, String naziv, int brojStanovnika) {
         this.id = id;
         this.brojStanovnika = brojStanovnika;
         this.naziv = naziv;
         this.drzava = new Drzava(); //Kako izvesti dodavanje drzave u grad i obrnutoK
-        this.drzava.setId(drzava);
     }
 
     public Grad() {
         this.naziv = "";
-        this.drzava = new Drzava();
+        this.drzava = null;
     }
 
     public int getId() {

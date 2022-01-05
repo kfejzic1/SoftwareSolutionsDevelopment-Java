@@ -11,8 +11,14 @@ public class Drzava {
         this.glavniGrad = glavniGrad;
     }
 
-    public Drzava() {
+    public Drzava(int id, String naziv) {
+        this.id = id;
+        this.naziv = naziv;
         this.glavniGrad = new Grad();
+    }
+
+    public Drzava() {
+        this.glavniGrad = null;
         this.naziv = "";
     }
 
