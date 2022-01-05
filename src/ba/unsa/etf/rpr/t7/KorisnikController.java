@@ -1,24 +1,16 @@
 package ba.unsa.etf.rpr.t7;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ListView;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebView;
+import javafx.stage.FileChooser;
 
-import java.awt.*;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.concurrent.atomic.AtomicReference;
+import java.io.File;
 
 public class KorisnikController {
     public TextField fldIme;
@@ -171,5 +163,16 @@ public class KorisnikController {
         alert.setGraphic(imageView);
         alert.showAndWait();
 
+    }
+
+    public void saveMeniItemAction (ActionEvent actionEvent) {
+        FileChooser izbornik = new FileChooser();
+        izbornik.getExtensionFilters().add(new FileChooser.ExtensionFilter("Tekstualna datoteka: ", "*.txt"));
+
+        File file = izbornik.showSaveDialog(fldIme.getScene().getWindow());
+
+        if(file!=null) {
+            model.zapisiDatoteku(file);
+        }
     }
 }
