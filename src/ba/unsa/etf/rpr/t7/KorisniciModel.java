@@ -171,6 +171,10 @@ public class KorisniciModel {
         }
     }
 
+    public Connection getConn() {
+        return conn;
+    }
+
     public void zapisiDatoteku(File file) {
         if(file == null)
             return;
