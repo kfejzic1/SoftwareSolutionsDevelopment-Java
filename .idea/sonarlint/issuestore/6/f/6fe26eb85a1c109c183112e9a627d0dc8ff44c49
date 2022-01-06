@@ -1,0 +1,18 @@
+
+[
+java:S1659"FDeclare "dodajUpit" and all following declarations on a separate line.(êÀÎ\
+N	java:S106M"9Replace this use of System.out or System.err by a logger.(„Å”Å
+I
+java:S1068"-Remove this unused "dajNoviId" private field.(êÀÎ\8Üâ…ã/
+P
+java:S1141B"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
+7
+java:S1643@"Use a StringBuilder instead.(¥…ˆÇşÿÿÿÿ
+8
+java:S1643½"Use a StringBuilder instead.(–Ã¤Ğùÿÿÿÿ
+b
+java:S2095C"GUse try-with-resources or close this "Statement" in a "finally" clause.(ìï‡Àûÿÿÿÿ
+e
+java:S2095X"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ûáÅŠ
+]
+java:S2095g"GUse try-with-resources or close this "Statement" in a "finally" clause.(Êë‹
