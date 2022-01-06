@@ -131,10 +131,10 @@ public class KorisnikController {
     }
 
     public void dodajAction(ActionEvent actionEvent) {
-        Korisnik noviKorisnik = new Korisnik(fldIme.getText(), fldPrezime.getText(), fldEmail.getText(), fldUsername.getText(), fldPassword.getText());
-        model.getKorisnici().add(noviKorisnik);
-        model.dodajKorisnika(noviKorisnik);
+        Korisnik noviKorisnik = new Korisnik("", "", "", "", "");
 
+        model.dodajKorisnika(noviKorisnik);
+        listKorisnici.setItems(model.getKorisnici());
         listKorisnici.getSelectionModel().selectLast();
     }
 
