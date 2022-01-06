@@ -1,31 +1,33 @@
 package ba.unsa.etf.rpr.t7;
 
+import at.mukprojects.giphy4j.Giphy;
+import at.mukprojects.giphy4j.entity.search.SearchFeed;
+import at.mukprojects.giphy4j.exception.GiphyException;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.TilePane;
 import javafx.stage.Stage;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
-import org.json.JSONObject;
+
+import java.io.File;
+import java.util.concurrent.atomic.AtomicReference;
+
 
 public class SlikeController {
     KorisniciModel model = KorisniciModel.getInstance();
     public Button btnCancel;
-    public Button btnSearch;
     public Button btnOk;
     public TextField fldPretraga = null;
     public Button btnOdabranaSlika = null;
     public TilePane tilePaneSlike;
     public ScrollPane scrollPane;
 
-    private String slikaURL = "resources/img/face-smile.png";
+    private String odabranaSlikaURL = "resources/img/face-smile.png";
 
     final private String apiKey="ZbscMMjQmLP76J2zsaqKzGKKHiM7vKUO";
 
@@ -38,34 +40,56 @@ public class SlikeController {
         stage.close();
     }
 
+    private ImageView dajImageView() {
+        File file = new File("resources/img/loading.gif");
+        return new ImageView(new Image(file.toURI().toString()));
+    }
+
     public void searchSlikeAction(ActionEvent actionEvent) {
-        scrollPane.setFitToWidth(true);
-        Platform.runLater(()-> tilePaneSlike.getChildren().removeAll());
-        String adr = "https://api.giphy.com/v1/gifs/search?api_key="  + apiKey  + "&q=" + fldPretraga.getText().replaceAll("[\\s]", "+");
-        try {
-            URL url = new URL(adr);
-            BufferedReader ulaz = new BufferedReader(new InputStreamReader(url.openStream(), StandardCharsets.UTF_8));
-            String json = "", line = null;
-            while ((line = ulaz.readLine()) != null)
-                json = json + line;
-            JSONObject obj = new JSONObject(json);
-            int n = obj.getJSONArray("data").length();
-            for(int i=0; i<n; i++){
-                String imageURL = "http://i.giphy.com/media/" + obj.getJSONArray("data").getJSONObject(i).getString("id") + "/giphy_s.gif";
+        ImageView image = dajImageView();
+
+        tilePaneSlike.getChildren().clear();
+        new Thread(() -> {
+            Giphy giphy = new Giphy(apiKey);
+            Platform.runLater(() -> tilePaneSlike.getChildren().add(image));
+            AtomicReference<SearchFeed> feed = new AtomicReference<>(new SearchFeed());
+            try {
+                feed.set(giphy.search(fldPretraga.getText(), 25, 0));
+            } catch (GiphyException e) {
+                e.printStackTrace();
+            }
+
+            for (int i = 0; i < feed.get().getDataList().size(); i++) {
+                Platform.runLater(() -> {
+                    if(!tilePaneSlike.getChildren().contains(image))
+                        tilePaneSlike.getChildren().add(image);
+                });
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                String imageURL = "https://i.giphy.com/media/" + feed.get().getDataList().get(i).getId() + "/giphy_s.gif";
                 Button button = new Button();
-                //button.setGraphic();
-                button.setStyle("-fx-background-image: url(" + imageURL + ");  -fx-background-size: 150; -fx-min-width: 128; -fx-min-height: 128");
+                button.setMaxHeight(135);
+                button.setMaxWidth(135);
+                button.setMinHeight(135);
+                button.setMaxWidth(135);
+                ImageView view = new ImageView(new Image(imageURL, true));
+                view.setFitHeight(128);
+                view.setFitWidth(128);
+                view.setPreserveRatio(false);
+                button.setGraphic(view);
                 button.setOnAction(actionEvent1 -> {
                     btnOdabranaSlika = button;
-                    slikaURL = imageURL;
+                    odabranaSlikaURL = imageURL;
                 });
-                Platform.runLater(()-> tilePaneSlike.getChildren().add(button));
+                Platform.runLater(() -> {
+                    tilePaneSlike.getChildren().remove(image);
+                    tilePaneSlike.getChildren().add(button);
+                });
             }
-            ulaz.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        }).start();
     }
 
     public void okSlikeAction(ActionEvent actionEvent){
@@ -77,9 +101,8 @@ public class SlikeController {
             alert.setContentText("Unesite a zatim izaberite sliku ili klinite na cancel");
             alert.showAndWait();
         } else {
-            //Postavljamo izabranu sliku u bazu za trennutnog korinika
             Korisnik k = model.getTrenutniKorisnik();
-            k.setSlika(slikaURL);
+            k.setSlika(odabranaSlikaURL);
             model.izmijeniKorisnika();
             Stage stage = (Stage) btnOk.getScene().getWindow();
             stage.close();
