@@ -54,22 +54,22 @@
       </ButtonBar>
       <MenuBar GridPane.columnSpan="3">
         <menus>
-          <Menu text="%file">
+          <Menu text="%_file">
             <items>
-              <MenuItem onAction="#saveMeniItemAction" text="%save" />
-                  <MenuItem onAction="#printMeniItemAction" text="%print" />
-                  <Menu text="%language">
+              <MenuItem onAction="#saveMeniItemAction" text="%_save" />
+                  <MenuItem onAction="#printMeniItemAction" text="%_print" />
+                  <Menu text="%_language">
                     <items>
-                      <MenuItem onAction="#bosanskiMeniItemAction" text="%bosanski" />
-                        <MenuItem onAction="#engleskiMeniItemAction" text="%engleski" />
+                      <MenuItem onAction="#bosanskiMeniItemAction" text="%_bosanski" />
+                        <MenuItem onAction="#engleskiMeniItemAction" text="%_engleski" />
                     </items>
                   </Menu>
-                  <MenuItem fx:id="exitMenuItem" onAction="#exitMenuItemAction" text="%exit" />
+                  <MenuItem fx:id="exitMenuItem" onAction="#exitMenuItemAction" text="%e_xit" />
             </items>
           </Menu>
-          <Menu text="%help">
+          <Menu text="%_help">
             <items>
-              <MenuItem fx:id="aboutMeniItem" onAction="#aboutMeniItemAction" text="%about" />
+              <MenuItem fx:id="aboutMeniItem" onAction="#aboutMeniItemAction" text="%_about" />
             </items>
           </Menu>
         </menus>
