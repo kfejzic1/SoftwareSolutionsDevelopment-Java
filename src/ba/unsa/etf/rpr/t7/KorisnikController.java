@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
+import net.sf.jasperreports.engine.JRException;
 
 import java.io.File;
 
@@ -173,6 +174,14 @@ public class KorisnikController {
 
         if(file!=null) {
             model.zapisiDatoteku(file);
+        }
+    }
+
+    public void printMeniItemAction (ActionEvent actionEvent) {
+        try {
+            new PrintReport().showReport(model.getConn());
+        } catch (JRException e) {
+            e.printStackTrace();
         }
     }
 }
