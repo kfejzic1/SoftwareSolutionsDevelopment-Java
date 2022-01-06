@@ -2,6 +2,8 @@ package ba.unsa.etf.rpr.t7;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
 import javafx.scene.control.PasswordField;
@@ -12,6 +14,9 @@ import javafx.stage.FileChooser;
 import net.sf.jasperreports.engine.JRException;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class KorisnikController {
     public TextField fldIme;
@@ -183,5 +188,31 @@ public class KorisnikController {
         } catch (JRException e) {
             e.printStackTrace();
         }
+    }
+
+    private void reload() {
+        ResourceBundle bundle = ResourceBundle.getBundle("Translation");
+        Scene scene  = fldIme.getScene();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/korisnici.fxml"), bundle);
+        loader.setController(this);
+
+        try {
+            scene.setRoot(loader.load());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void bosanskiMeniItemAction (ActionEvent actionEvent) {
+        Locale.setDefault(new Locale("bs", "BA"));
+        ResourceBundle bundle = ResourceBundle.getBundle("Translation");
+        reload();
+    }
+
+    public void engleskiMeniItemAction (ActionEvent actionEvent) {
+        Locale.setDefault(new Locale("en", "US"));
+        ResourceBundle bundle = ResourceBundle.getBundle("Translation");
+        reload();
     }
 }
