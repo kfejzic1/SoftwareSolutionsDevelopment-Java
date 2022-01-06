@@ -3,7 +3,7 @@ package ba.unsa.etf.rpr.t7;
 import javafx.beans.property.SimpleStringProperty;
 
 public class Korisnik {
-    private SimpleStringProperty ime, prezime, email, username, password;
+    private SimpleStringProperty ime, prezime, email, username, password, slika;
     private int id;
     boolean promijenjen = false;
 
@@ -13,6 +13,7 @@ public class Korisnik {
         this.email = new SimpleStringProperty(email);
         this.username = new SimpleStringProperty(username);
         this.password = new SimpleStringProperty(password);
+        this.slika = new SimpleStringProperty("resources/img/face-smile.png");
     }
 
     public Korisnik(int id, String ime, String prezime, String email, String username, String password) {
@@ -22,6 +23,29 @@ public class Korisnik {
         this.email = new SimpleStringProperty(email);
         this.username = new SimpleStringProperty(username);
         this.password = new SimpleStringProperty(password);
+        this.slika = new SimpleStringProperty("resources/img/face-smile.png");
+    }
+
+    public String getSlika() {
+        return slika.get();
+    }
+
+    public SimpleStringProperty slikaProperty() {
+        return slika;
+    }
+
+    public void setSlika(String slika) {
+        this.slika.set(slika);
+    }
+
+    public Korisnik(int id, String ime, String prezime, String email, String username, String password, String slika) {
+        this.id = id;
+        this.ime = new SimpleStringProperty(ime);
+        this.prezime = new SimpleStringProperty(prezime);
+        this.email = new SimpleStringProperty(email);
+        this.username = new SimpleStringProperty(username);
+        this.password = new SimpleStringProperty(password);
+        this.slika = new SimpleStringProperty(slika);
     }
 
     @Override
