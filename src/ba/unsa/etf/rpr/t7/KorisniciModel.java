@@ -150,13 +150,16 @@ public class KorisniciModel {
             ResultSet noviId = dajNoviId.executeQuery();
             noviId.next();
 
-            dodajUpit.setInt(1,noviId.getInt(1));
+            int id = noviId.getInt(1);
+            dodajUpit.setInt(1,id);
             dodajUpit.setString(2, korisnik.getIme());
             dodajUpit.setString(3, korisnik.getPrezime());
             dodajUpit.setString(4, korisnik.getEmail());
             dodajUpit.setString(5, korisnik.getUsername());
             dodajUpit.setString(6, korisnik.getPassword());
             dodajUpit.executeUpdate();
+
+            korisnici.add(new Korisnik(id, korisnik.getIme(), korisnik.getPrezime(), korisnik.getEmail(), korisnik.getUsername(), korisnik.getPassword()));
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
