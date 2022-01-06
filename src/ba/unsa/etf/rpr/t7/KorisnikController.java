@@ -3,6 +3,7 @@ package ba.unsa.etf.rpr.t7;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
@@ -11,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import net.sf.jasperreports.engine.JRException;
 
 import java.io.File;
@@ -195,5 +197,26 @@ public class KorisnikController {
         Locale.setDefault(new Locale("en", "US"));
         ResourceBundle bundle = ResourceBundle.getBundle("Translation");
         reload();
+    }
+
+    public void btnSlikaAction (ActionEvent actionEvent) {
+        System.out.println("Kliknuto!");
+        if(model.getTrenutniKorisnik()!=null){
+            try {
+                SlikeController ctrl = new SlikeController(model);
+                ResourceBundle bundle = ResourceBundle.getBundle("Translation");
+                FXMLLoader loader = new FXMLLoader( getClass().getResource("/fxml/slike.fxml" ), bundle);
+                loader.setController(ctrl);
+                Parent root = loader.load();
+
+                Stage stage = new Stage();
+                stage.setTitle("Pretraga slika");
+                stage.setScene(new Scene(root));
+                stage.show();
+                stage.toFront();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
