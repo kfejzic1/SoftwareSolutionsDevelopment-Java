@@ -57,7 +57,7 @@
           <Menu text="_File">
             <items>
               <MenuItem onAction="#saveMeniItemAction" text="_Save" />
-                  <MenuItem text="_Print" />
+                  <MenuItem onAction="#printMeniItemAction" text="_Print" />
                   <Menu text="_Language">
                     <items>
                       <MenuItem text="_Bosanski" />
