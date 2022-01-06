@@ -15,6 +15,15 @@ public class Korisnik {
         this.password = new SimpleStringProperty(password);
     }
 
+    public Korisnik(int id, String ime, String prezime, String email, String username, String password) {
+        this.id = id;
+        this.ime = new SimpleStringProperty(ime);
+        this.prezime = new SimpleStringProperty(prezime);
+        this.email = new SimpleStringProperty(email);
+        this.username = new SimpleStringProperty(username);
+        this.password = new SimpleStringProperty(password);
+    }
+
     @Override
     public String toString() {
         return prezime.get() + " " + ime.get();
