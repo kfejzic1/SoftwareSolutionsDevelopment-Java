@@ -12,11 +12,12 @@ import java.sql.*;
 import java.util.Scanner;
 
 public class KorisniciModel {
+    private static KorisniciModel instance = null;
     private ObservableList<Korisnik> korisnici = FXCollections.observableArrayList();
     private SimpleObjectProperty<Korisnik> trenutniKorisnik = new SimpleObjectProperty<>();
 
     private Connection conn;
-    private PreparedStatement stmt, izmjenaUpit, dodajUpit, obrisiUpit, dajNoviId;
+    private PreparedStatement izmjenaUpit, dodajUpit, obrisiUpit, dajNoviId;
 
     public KorisniciModel() {
         try {
@@ -39,17 +40,32 @@ public class KorisniciModel {
         if (trenutniKorisnik == null) trenutniKorisnik = new SimpleObjectProperty<>();
     }
 
+    public static KorisniciModel getInstance() {
+        if (instance == null) instance = new KorisniciModel();
+        return instance;
+    }
+
+    public static void removeInstance() {
+        if (instance != null) {
+            try {
+                instance.conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public void regenerisiBazu() {
         Scanner ulaz = null;
         try {
             ulaz = new Scanner(new FileInputStream("korisnik.sql"));
             String sqlUpit = "";
-            while (ulaz.hasNext()) {
-                sqlUpit += ulaz.nextLine();
-                if ( sqlUpit.length() > 1 && sqlUpit.charAt( sqlUpit.length()-1 ) == ';') {
+            while(ulaz.hasNext()){
+                sqlUpit+=ulaz.nextLine();
+                if(sqlUpit.length()>1 && sqlUpit.charAt(sqlUpit.length()-1)==';'){
                     try {
-                        Statement st = conn.createStatement();
-                        st.execute(sqlUpit);
+                        Statement stmt=conn.createStatement();
+                        stmt.execute(sqlUpit);
                         sqlUpit = "";
                     } catch (SQLException e) {
                         e.printStackTrace();
@@ -58,57 +74,42 @@ public class KorisniciModel {
             }
             ulaz.close();
         } catch (FileNotFoundException e) {
-            System.out.println("Ne postoji SQL datoteka... nastavljam sa praznom bazom");
+            System.out.println("Ne postoji SQL datoteka, nastavljam sa praznom bazom");
+            e.printStackTrace();
         }
     }
 
     public void napuni() {
         // Ako je lista već bila napunjena, praznimo je
         // Na taj način se metoda napuni() može pozivati više puta u testovima
+
         korisnici.clear();
-
         try {
-            stmt = conn.prepareStatement("SELECT * FROM korisnik");
+            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM korisnik");
             ResultSet rs = stmt.executeQuery();
-            while (rs.next()) {
-                Korisnik k = new Korisnik(rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
-                k.setId(rs.getInt(1));
+            while(rs.next()){
+                Korisnik k = new Korisnik(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7));
                 korisnici.add(k);
-                if (trenutniKorisnik == null) trenutniKorisnik = new SimpleObjectProperty<>(k);
             }
-        } catch(SQLException e) {
-            regenerisiBazu();
-            try {
-                stmt = conn.prepareStatement("SELECT * FROM korisnik");
-                ResultSet rs = stmt.executeQuery();
-                while (rs.next()) {
-                    Korisnik k = new Korisnik(rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
-                    k.setId(rs.getInt(1));
-                    korisnici.add(k);
-                    if (trenutniKorisnik == null) trenutniKorisnik = new SimpleObjectProperty<>(k);
-                }
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
-        }
-        if (trenutniKorisnik == null) trenutniKorisnik = new SimpleObjectProperty<>();
-    }
-
-    public void vratiNaDefault() {
-        try {
-            Statement st = conn.createStatement();
-            st.executeUpdate("DELETE FROM korisnik");
-            regenerisiBazu();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        trenutniKorisnik.set(null);
+    }
+
+    public void vratiNaDefault() {
+        Statement stmt = null;
+        try {
+            stmt = conn.createStatement();
+            stmt.executeUpdate("DELETE FROM korisnik");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        regenerisiBazu();
     }
 
     public void diskonektuj() {
-        //Potrebno update baze prije zatvaranja
         try {
-            for(Korisnik k : korisnici)
-                izmijeniKorisnika(k);
             conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -132,54 +133,44 @@ public class KorisniciModel {
     }
 
     public void setTrenutniKorisnik(Korisnik trenutniKorisnik) {
+        if(this.getTrenutniKorisnik() != null)
+            izmijeniKorisnika();
         this.trenutniKorisnik.set(trenutniKorisnik);
     }
 
     public void setTrenutniKorisnik(int i) {
+        if(this.getTrenutniKorisnik() != null)
+            izmijeniKorisnika();
         this.trenutniKorisnik.set(korisnici.get(i));
     }
 
-    public void izmijeniKorisnika(Korisnik korisnik) {
+    public void izmijeniKorisnika() {
         try {
-            izmjenaUpit.setString(1, korisnik.getIme());
-            izmjenaUpit.setString(2, korisnik.getPrezime());
-            izmjenaUpit.setString(3, korisnik.getEmail());
-            izmjenaUpit.setString(4, korisnik.getUsername());
-            izmjenaUpit.setString(5, korisnik.getPassword());
-            izmjenaUpit.setString(6, korisnik.getSlika());
-            izmjenaUpit.setInt(7, korisnik.getId());
+            izmjenaUpit.setString(1, this.getTrenutniKorisnik().getIme());
+            izmjenaUpit.setString(2, this.getTrenutniKorisnik().getPrezime());
+            izmjenaUpit.setString(3, this.getTrenutniKorisnik().getEmail());
+            izmjenaUpit.setString(4, this.getTrenutniKorisnik().getUsername());
+            izmjenaUpit.setString(5, this.getTrenutniKorisnik().getPassword());
+            izmjenaUpit.setString(6, this.getTrenutniKorisnik().getSlika());
+            izmjenaUpit.setInt(7, this.getTrenutniKorisnik().getId());
             izmjenaUpit.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
     }
 
-    public void dodajKorisnika(Korisnik korisnik) {
+    public void dodajKorisnika() {
         try {
-            ResultSet noviId = dajNoviId.executeQuery();
-            noviId.next();
-
-            int id = noviId.getInt(1);
-            dodajUpit.setInt(1,id);
-            dodajUpit.setString(2, korisnik.getIme());
-            dodajUpit.setString(3, korisnik.getPrezime());
-            dodajUpit.setString(4, korisnik.getEmail());
-            dodajUpit.setString(5, korisnik.getUsername());
-            dodajUpit.setString(6, korisnik.getPassword());
-            dodajUpit.setString(7, korisnik.getSlika());
             dodajUpit.executeUpdate();
-
-            korisnici.add(new Korisnik(id, korisnik.getIme(), korisnik.getPrezime(), korisnik.getEmail(), korisnik.getUsername(), korisnik.getPassword(), korisnik.getSlika()));
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
     }
 
-    public void obrisiKorisnika(Korisnik korisnik) {
+    public void obrisiKorisnika() {
         try {
-            obrisiUpit.setInt(1, korisnik.getId());
+            obrisiUpit.setInt(1, this.getTrenutniKorisnik().getId());
             obrisiUpit.executeUpdate();
-            korisnici.remove(korisnik);
         } catch (SQLException e) {
             e.printStackTrace();
         }
