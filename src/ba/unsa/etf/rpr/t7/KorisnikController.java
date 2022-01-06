@@ -27,6 +27,7 @@ public class KorisnikController {
     public TextField fldUsername;
     public ListView<Korisnik> listKorisnici;
     public PasswordField fldPassword;
+    public ImageView imgViewSlike;
 
     private KorisniciModel model;
 
@@ -36,10 +37,30 @@ public class KorisnikController {
 
     @FXML
     public void initialize() {
+        File file = new File("resources/img/face-smile.png");
+        Image image = new Image(file.toURI().toString());
+        imgViewSlike.setImage(image);
+
         listKorisnici.setItems(model.getKorisnici());
 
         listKorisnici.getSelectionModel().selectedItemProperty().addListener((obs, oldKorisnik, newKorisnik) -> {
             model.setTrenutniKorisnik(newKorisnik);
+
+            String imageUrl = model.getTrenutniKorisnik().getSlika();
+            if(imageUrl.equals("resources/img/face-smile.png")) {
+                File file1 = new File(imageUrl);
+                Image image1 = new Image(file1.toURI().toString());
+                imgViewSlike.setImage(image1);
+            }
+            else {
+                Image image1 = new Image(imageUrl);
+                imgViewSlike.setImage(image1);
+            }
+            imgViewSlike.maxWidth(128);
+            imgViewSlike.minHeight(128);
+            imgViewSlike.setFitHeight(128);
+            imgViewSlike.setFitWidth(128);
+
             listKorisnici.refresh();
         });
 
@@ -201,7 +222,6 @@ public class KorisnikController {
 
     public void btnSlikaAction (ActionEvent actionEvent) {
         System.out.println("Kliknuto!");
-        if(model.getTrenutniKorisnik()!=null){
             try {
                 SlikeController ctrl = new SlikeController(model);
                 ResourceBundle bundle = ResourceBundle.getBundle("Translation");
@@ -217,6 +237,5 @@ public class KorisnikController {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
     }
 }
