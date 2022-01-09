@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Initial import">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fxml/glavna.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/javafx.xml" beforeDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Izmjena fxml fajlova">
+      <change afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/GradController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpr20-tutorijal10.iml" beforeDir="false" afterPath="$PROJECT_DIR$/rpr20-tutorijal10.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/ba/unsa/etf/rpr/DrzavaControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ba/unsa/etf/rpr/DrzavaControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/ba/unsa/etf/rpr/GeografijaDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ba/unsa/etf/rpr/GeografijaDAOTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/ba/unsa/etf/rpr/GlavnaControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ba/unsa/etf/rpr/GlavnaControllerTest.java" afterDir="false" />
@@ -62,6 +58,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -73,6 +70,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectId" id="1R1EkMKSKWJgUKWqyFIvaMGKpKP" />
@@ -263,7 +268,119 @@
       <option name="project" value="LOCAL" />
       <updated>1641761973126</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Implementiran glavna.fxml">
+      <created>1641767134236</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1641767134236</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Pokretanje glavna.fxml iz Main-a">
+      <created>1641767157795</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1641767157795</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Options commit">
+      <created>1641767170864</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1641767170864</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Out u gitignore">
+      <created>1641767192699</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1641767192699</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Implementirana drzava.fxml">
+      <created>1641768128890</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1641768128890</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Implementiran grad.fxml">
+      <created>1641768137891</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1641768137891</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Dodani handleri">
+      <created>1641768642698</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1641768642698</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Implementirana GlavnaController">
+      <created>1641768669004</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1641768669004</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Dodan kontroler i handleri">
+      <created>1641768818424</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1641768818424</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Dodan css stylesheet fajl">
+      <created>1641769513239</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1641769513239</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Dodan stylesheet fajl">
+      <created>1641769524265</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1641769524265</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Implementiran DrzavaController">
+      <created>1641769542494</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1641769542494</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Dodani handleri za btnIzmijeniGrad">
+      <created>1641769684003</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1641769684003</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Dodan kontroler, handleri i stylesheet">
+      <created>1641769826085</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1641769826085</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Izbrisan sout">
+      <created>1641769952795</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1641769952795</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Izmjena fxml fajlova">
+      <created>1641770033238</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1641770033238</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -290,7 +407,24 @@
     </ignored-roots>
     <MESSAGE value="Rename projekta" />
     <MESSAGE value="Initial import" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial import" />
+    <MESSAGE value="Implementiran glavna.fxml" />
+    <MESSAGE value="Pokretanje glavna.fxml iz Main-a" />
+    <MESSAGE value="Options commit" />
+    <MESSAGE value="Out u gitignore" />
+    <MESSAGE value="Implementirana drzava.fxml" />
+    <MESSAGE value="Implementiran grad.fxml" />
+    <MESSAGE value="Dodani handleri" />
+    <MESSAGE value="Implementirana DrzavaController" />
+    <MESSAGE value="Implementirana GlavnaController" />
+    <MESSAGE value="Dodan kontroler i handleri" />
+    <MESSAGE value="Dodan css stylesheet fajl" />
+    <MESSAGE value="Dodan stylesheet fajl" />
+    <MESSAGE value="Implementiran DrzavaController" />
+    <MESSAGE value="Dodani handleri za btnIzmijeniGrad" />
+    <MESSAGE value="Dodan kontroler, handleri i stylesheet" />
+    <MESSAGE value="Izbrisan sout" />
+    <MESSAGE value="Izmjena fxml fajlova" />
+    <option name="LAST_COMMIT_MESSAGE" value="Izmjena fxml fajlova" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
