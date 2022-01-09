@@ -5,16 +5,16 @@ public class Grad {
     private String naziv;
     private Drzava drzava;
 
-    public Grad(int id, String naziv, int brojStanovnika) {
-        this.id = id;
-        this.brojStanovnika = brojStanovnika;
-        this.naziv = naziv;
-        this.drzava = new Drzava(); //Kako izvesti dodavanje drzave u grad i obrnutoK
-    }
-
     public Grad() {
         this.naziv = "";
         this.drzava = null;
+    }
+
+    public Grad(int id, String naziv, int brojStanovnika, Drzava drzava) {
+        this.id = id;
+        this.brojStanovnika = brojStanovnika;
+        this.naziv = naziv;
+        this.drzava = drzava;
     }
 
     public int getId() {
