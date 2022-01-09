@@ -20,7 +20,7 @@ public class GlavnaController {
             e.printStackTrace();
         }
         Stage stage  = new Stage();
-        stage.setTitle("Grad");
+        stage.setTitle("Država");
         stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         stage.setResizable(false);
         stage.show();
@@ -34,7 +34,7 @@ public class GlavnaController {
             e.printStackTrace();
         }
         Stage stage  = new Stage();
-        stage.setTitle("Država");
+        stage.setTitle("Grad");
         stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         stage.setResizable(false);
         stage.show();
@@ -48,7 +48,7 @@ public class GlavnaController {
             e.printStackTrace();
         }
         Stage stage  = new Stage();
-        stage.setTitle("Država");
+        stage.setTitle("Grad");
         stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         stage.setResizable(false);
         stage.show();
