@@ -1,9 +1,17 @@
 package ba.unsa.etf.rpr;
 
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main {
+import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
+
+public class Main extends Application {
     private static GeografijaDAO data = GeografijaDAO.getInstance();
 
     public static String ispisiGradove() {
@@ -37,7 +45,21 @@ public class Main {
         System.out.println("Glavni grad države " + drzava + " je " + grad.getNaziv() + ".");
     }
 
+    @Override
+    public void start (Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/glavna.fxml"));
+
+        primaryStage.setTitle("Gradovi svijeta");
+        primaryStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+
+        primaryStage.show();
+
+        primaryStage.setMinWidth(550);
+        primaryStage.setMinHeight(500);
+    }
+
     public static void main(String[] args) {
         //System.out.println("Gradovi su:\n" + ispisiGradove());
+        launch(args);
     }
 }
