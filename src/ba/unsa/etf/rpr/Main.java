@@ -47,13 +47,14 @@ public class Main extends Application {
 
     @Override
     public void start (Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/glavna.fxml"));
+        GlavnaController ctrl = new GlavnaController();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/glavna.fxml"));
+        loader.setController(ctrl);
+        Parent root = loader.load();
 
         primaryStage.setTitle("Gradovi svijeta");
         primaryStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-
         primaryStage.show();
-
         primaryStage.setMinWidth(550);
         primaryStage.setMinHeight(500);
     }
