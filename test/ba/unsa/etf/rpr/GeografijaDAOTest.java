@@ -46,7 +46,7 @@ class GeografijaDAOTest {
         assertEquals("Austrija", gradovi.get(2).getDrzava().getNaziv());
     }
 
-    /*@Test
+    @Test
     void obrisiDrzavu2() {
         GeografijaDAO.removeInstance();
         File dbfile = new File("baza.db");
@@ -117,5 +117,5 @@ class GeografijaDAOTest {
 
         ArrayList<Grad> gradovi = dao.gradovi();
         assertEquals("Vienna", gradovi.get(2).getNaziv());
-    }*/
+    }
 }
