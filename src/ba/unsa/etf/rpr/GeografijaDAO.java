@@ -84,6 +84,18 @@ public class GeografijaDAO {
         }
     }
 
+    public void vratiNaDefault() {
+        try {
+            Statement stmt = conn.createStatement();
+            stmt.executeUpdate("DELETE FROM grad");
+            stmt.executeUpdate("DELETE FROM drzava");
+            regenerisiBazu();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
     public static GeografijaDAO getInstance() {
         if(instance == null) instance = new GeografijaDAO();
         return instance;
