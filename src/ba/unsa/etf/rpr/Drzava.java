@@ -5,21 +5,15 @@ public class Drzava {
     String naziv;
     Grad glavniGrad;
 
+    public Drzava() {
+        this.glavniGrad = null;
+        this.naziv = "";
+    }
+
     public Drzava(int id, String naziv, Grad glavniGrad) {
         this.id = id;
         this.naziv = naziv;
         this.glavniGrad = glavniGrad;
-    }
-
-    public Drzava(int id, String naziv) {
-        this.id = id;
-        this.naziv = naziv;
-        this.glavniGrad = new Grad();
-    }
-
-    public Drzava() {
-        this.glavniGrad = null;
-        this.naziv = "";
     }
 
     public int getId() {
