@@ -15,7 +15,7 @@ public class GlavnaController {
     public void dodajDrzavuAction(ActionEvent actionEvent) {
         Parent root = null;
         try {
-            root = FXMLLoader.load(getClass().getResource("/fxml/grad.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/fxml/drzava.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -29,7 +29,7 @@ public class GlavnaController {
     public void dodajGradAction(ActionEvent actionEvent) {
         Parent root = null;
         try {
-            root = FXMLLoader.load(getClass().getResource("/fxml/drzava.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/fxml/grad.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -43,7 +43,7 @@ public class GlavnaController {
     public void izmijeniGradAction(ActionEvent actionEvent) {
         Parent root = null;
         try {
-            root = FXMLLoader.load(getClass().getResource("/fxml/drzava.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/fxml/grad.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }
