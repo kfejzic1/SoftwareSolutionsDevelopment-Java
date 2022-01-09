@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Izmjena fxml fajlova">
-      <change afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/GradController.java" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="msg">
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fxml/drzava.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/fxml/drzava.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fxml/glavna.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/fxml/glavna.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/fxml/grad.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/fxml/grad.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpr20-tutorijal10.iml" beforeDir="false" afterPath="$PROJECT_DIR$/rpr20-tutorijal10.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/GlavnaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/GlavnaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/ba/unsa/etf/rpr/DrzavaControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ba/unsa/etf/rpr/DrzavaControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/ba/unsa/etf/rpr/GeografijaDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ba/unsa/etf/rpr/GeografijaDAOTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/ba/unsa/etf/rpr/GlavnaControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ba/unsa/etf/rpr/GlavnaControllerTest.java" afterDir="false" />
@@ -380,7 +386,28 @@
       <option name="project" value="LOCAL" />
       <updated>1641770033238</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Ispravljen title novih stage-ova">
+      <created>1641770153431</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1641770153431</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Implementiran kontroler GradController">
+      <created>1641770213661</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1641770213661</updated>
+    </task>
+    <task id="LOCAL-00030" summary="msg">
+      <created>1641770228722</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1641770228722</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -396,6 +423,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
@@ -424,7 +452,10 @@
     <MESSAGE value="Dodan kontroler, handleri i stylesheet" />
     <MESSAGE value="Izbrisan sout" />
     <MESSAGE value="Izmjena fxml fajlova" />
-    <option name="LAST_COMMIT_MESSAGE" value="Izmjena fxml fajlova" />
+    <MESSAGE value="Ispravljen title novih stage-ova" />
+    <MESSAGE value="Implementiran kontroler GradController" />
+    <MESSAGE value="msg" />
+    <option name="LAST_COMMIT_MESSAGE" value="msg" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
