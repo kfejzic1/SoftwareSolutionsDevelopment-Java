@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0eaccec1-f4bf-430a-98ce-4778e8504652" name="Changes" comment="Dodan konstruktor u klasu država">
+    <list default="true" id="0eaccec1-f4bf-430a-98ce-4778e8504652" name="Changes" comment="Izbrisani komentari">
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/baza.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/Drzava.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/Drzava.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/GeografijaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/GeografijaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/Grad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/Grad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/baza.sql" beforeDir="false" afterPath="$PROJECT_DIR$/baza.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/ba/unsa/etf/rpr/GeografijaDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ba/unsa/etf/rpr/GeografijaDAOTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/ba/unsa/etf/rpr/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ba/unsa/etf/rpr/MainTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,8 +50,8 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="JUnit.GeografijaDAOTest.obrisiDrzavu">
-    <configuration name="GeografijaDAOTest.glavniGrad" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.MainTest">
+    <configuration name="GeografijaDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="rpr-t9" />
       <extension name="coverage">
         <pattern>
@@ -64,13 +61,28 @@
       </extension>
       <option name="PACKAGE_NAME" value="ba.unsa.etf.rpr" />
       <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rpr.GeografijaDAOTest" />
-      <option name="METHOD_NAME" value="glavniGrad" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GeografijaDAOTest.dodajDrzavu" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="rpr-t9" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ba.unsa.etf.rpr.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ba.unsa.etf.rpr" />
+      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rpr.GeografijaDAOTest" />
+      <option name="METHOD_NAME" value="dodajDrzavu" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GeografijaDAOTest.obrisiDrzavu" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GeografijaDAOTest.dodajGrad" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="rpr-t9" />
       <extension name="coverage">
         <pattern>
@@ -80,13 +92,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="ba.unsa.etf.rpr" />
       <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rpr.GeografijaDAOTest" />
-      <option name="METHOD_NAME" value="obrisiDrzavu" />
+      <option name="METHOD_NAME" value="dodajGrad" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GeografijaDAOTest.regenerateFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GeografijaDAOTest.izmijeniGrad" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="rpr-t9" />
       <extension name="coverage">
         <pattern>
@@ -96,17 +108,34 @@
       </extension>
       <option name="PACKAGE_NAME" value="ba.unsa.etf.rpr" />
       <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rpr.GeografijaDAOTest" />
-      <option name="METHOD_NAME" value="regenerateFile" />
+      <option name="METHOD_NAME" value="izmijeniGrad" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="rpr-t9" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ba.unsa.etf.rpr.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ba.unsa.etf.rpr" />
+      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rpr.MainTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.GeografijaDAOTest.obrisiDrzavu" />
-        <item itemvalue="JUnit.GeografijaDAOTest.glavniGrad" />
-        <item itemvalue="JUnit.GeografijaDAOTest.regenerateFile" />
+        <item itemvalue="JUnit.MainTest" />
+        <item itemvalue="JUnit.GeografijaDAOTest" />
+        <item itemvalue="JUnit.GeografijaDAOTest.dodajDrzavu" />
+        <item itemvalue="JUnit.GeografijaDAOTest.izmijeniGrad" />
+        <item itemvalue="JUnit.GeografijaDAOTest.dodajGrad" />
       </list>
     </recent_temporary>
   </component>
@@ -175,7 +204,49 @@
       <option name="project" value="LOCAL" />
       <updated>1641305274036</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Implementirana klasa GeografijaDao">
+      <created>1641400468868</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1641400468868</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Ispravljena baza">
+      <created>1641400500235</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1641400500235</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Obrisan konstruktor">
+      <created>1641754344594</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1641754344594</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Dodan konstruktor">
+      <created>1641754422154</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1641754422154</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Implementirana čitava GeografijaDAO">
+      <created>1641759613799</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1641759613799</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Izbrisani komentari">
+      <created>1641759625394</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1641759625394</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -198,6 +269,12 @@
     <MESSAGE value="Dodana klasa GeografijaDAO" />
     <MESSAGE value="Dodan konstruktor u klasu grad" />
     <MESSAGE value="Dodan konstruktor u klasu država" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dodan konstruktor u klasu država" />
+    <MESSAGE value="Implementirana klasa GeografijaDao" />
+    <MESSAGE value="Ispravljena baza" />
+    <MESSAGE value="Obrisan konstruktor" />
+    <MESSAGE value="Dodan konstruktor" />
+    <MESSAGE value="Implementirana čitava GeografijaDAO" />
+    <MESSAGE value="Izbrisani komentari" />
+    <option name="LAST_COMMIT_MESSAGE" value="Izbrisani komentari" />
   </component>
 </project>
