@@ -17,7 +17,6 @@ public class DrzavaController {
             fieldNaziv.getStyleClass().removeAll("poljeNijeValidno");
             fieldNaziv.getStyleClass().add("poljeValidno");
         }
-        System.out.println("Kliknuto!");
     }
 
     public void btnCancelAction(ActionEvent actionEvent) {
