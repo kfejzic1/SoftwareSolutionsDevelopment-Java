@@ -21,11 +21,19 @@ public class GradController {
     private ChoiceBox<Drzava> choiceDrzava;
 
 
-    public GradController(ArrayList<Drzava> spisakDrzava) {this.drzave=spisakDrzava;}
+    public GradController(ArrayList<Drzava> spisakDrzava, Grad grad) {
+        this.drzave=spisakDrzava;
+        this.grad = grad;
+    }
 
     @FXML
     private void initialize() {
         choiceDrzava.setItems(FXCollections.observableArrayList(drzave));
+        if(grad != null) {
+            fieldNaziv.setText(grad.getNaziv());
+            fieldBrojStanovnika.setText(String.valueOf(grad.getBrojStanovnika()));
+            choiceDrzava.getSelectionModel().select(grad.getDrzava());
+        }
     }
 
     public void okAction(ActionEvent actionEvent) {
@@ -45,8 +53,9 @@ public class GradController {
             fieldBrojStanovnika.getStyleClass().add("poljeValidno");
         }
 
-        if(!fieldNaziv.getText().isEmpty() && !fieldBrojStanovnika.getText().isEmpty()) {   //Polje je validno
-            grad = new Grad();
+        if(!fieldNaziv.getText().isEmpty() && !fieldBrojStanovnika.getText().isEmpty()) {   //Polje je validno i vrsi se unos
+            if(grad == null)
+                grad = new Grad();
             grad.setNaziv(fieldNaziv.getText());
             grad.setBrojStanovnika(Integer.parseInt(fieldBrojStanovnika.getText()));
             grad.setDrzava(choiceDrzava.getSelectionModel().getSelectedItem());
