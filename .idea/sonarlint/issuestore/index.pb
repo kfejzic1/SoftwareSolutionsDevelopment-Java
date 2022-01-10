@@ -10,5 +10,3 @@ G
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
 Y
 )src/ba/unsa/etf/rpr/DrzavaController.java,d\4\d4d69172ce6746cfbf43a98af177a78fa76d12f7
-W
-'src/ba/unsa/etf/rpr/GradController.java,a\5\a54e187ec7488d840538012dd2c73aa0b43e9502

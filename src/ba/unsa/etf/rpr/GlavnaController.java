@@ -55,7 +55,7 @@ public class GlavnaController {
     }
 
     public void dodajGradAction(ActionEvent actionEvent) throws IOException {
-        GradController ctrl = new GradController();
+        GradController ctrl = new GradController(dao.drzave());
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/grad.fxml"));
         loader.setController(ctrl);
         Parent root = loader.load();
@@ -64,11 +64,19 @@ public class GlavnaController {
         stage.setTitle("Grad");
         stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         stage.setResizable(false);
+
+        stage.setOnHiding(windowEvent -> {  //Provjeri da li je dodan validan grad prilikom zatvaranja
+            if(ctrl.getGrad() != null) {
+                dao.dodajGrad(ctrl.getGrad());
+                gradovi.setAll(dao.gradovi());
+            }
+        });
+
         stage.show();
     }
 
     public void izmijeniGradAction(ActionEvent actionEvent) throws IOException {
-        GradController ctrl = new GradController();
+        GradController ctrl = new GradController(dao.drzave());
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/grad.fxml"));
         loader.setController(ctrl);
         Parent root = loader.load();
