@@ -5,6 +5,11 @@ public class Drzava {
     String naziv;
     Grad glavniGrad;
 
+    @Override
+    public String toString() {
+        return naziv;
+    }
+
     public Drzava() {
         this.glavniGrad = null;
         this.naziv = "";

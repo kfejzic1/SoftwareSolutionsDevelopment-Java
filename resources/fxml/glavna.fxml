@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
-<GridPane hgap="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="400.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane hgap="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
     <columnConstraints>
         <ColumnConstraints hgrow="ALWAYS" minWidth="400.0" prefWidth="400.0" />
         <ColumnConstraints fillWidth="false" hgrow="NEVER" minWidth="120.0" prefWidth="120.0" />
@@ -26,10 +31,10 @@
              </VBox>
              <TableView fx:id="tableViewGradovi" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                <columns>
-                 <TableColumn id="colGradId" maxWidth="-1.0" minWidth="50.0" prefWidth="-1.0" text="ID" />
-                 <TableColumn id="colGradNaziv" maxWidth="-1.0" minWidth="100.0" prefWidth="-1.0" text="Naziv" />
-                   <TableColumn id="colGradStanovnika" maxWidth="-1.0" minWidth="100.0" prefWidth="-1.0" text="Stanovnika" />
-                   <TableColumn id="colGradDrzava" maxWidth="-1.0" minWidth="150.0" prefWidth="-1.0" text="Država" />
+                 <TableColumn fx:id="colGradId" maxWidth="-1.0" minWidth="50.0" prefWidth="-1.0" text="ID" />
+                 <TableColumn fx:id="colGradNaziv" maxWidth="-1.0" minWidth="100.0" prefWidth="-1.0" text="Naziv" />
+                   <TableColumn fx:id="colGradStanovnika" maxWidth="-1.0" minWidth="100.0" prefWidth="-1.0" text="Stanovnika" />
+                   <TableColumn fx:id="colGradDrzava" maxWidth="-1.0" minWidth="150.0" prefWidth="-1.0" text="Država" />
                </columns>
              </TableView>
    </children>
