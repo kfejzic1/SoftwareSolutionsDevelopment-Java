@@ -42,7 +42,7 @@ public class GlavnaController {
     }
 
     public void dodajDrzavuAction(ActionEvent actionEvent) throws IOException {
-        DrzavaController ctrl = new DrzavaController();
+        DrzavaController ctrl = new DrzavaController(dao.gradovi());
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/drzava.fxml"));
         loader.setController(ctrl);
         Parent root = loader.load();
@@ -51,6 +51,12 @@ public class GlavnaController {
         stage.setTitle("Država");
         stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         stage.setResizable(false);
+
+        stage.setOnHiding(windowEvent -> {
+            if(ctrl.getDrzava()!=null)
+                dao.dodajDrzavu(ctrl.getDrzava());
+        });
+
         stage.show();
     }
 

@@ -10,6 +10,11 @@ public class Grad {
         this.drzava = null;
     }
 
+    @Override
+    public String toString() {
+        return naziv;
+    }
+
     public Grad(int id, String naziv, int brojStanovnika, Drzava drzava) {
         this.id = id;
         this.brojStanovnika = brojStanovnika;
