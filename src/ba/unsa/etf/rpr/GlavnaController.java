@@ -7,12 +7,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Optional;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
@@ -98,5 +101,20 @@ public class GlavnaController {
         });
 
         stage.show();
+    }
+
+    public void obrisiGradAction (ActionEvent actionEvent) {
+        Grad grad = tableViewGradovi.getSelectionModel().getSelectedItem();
+        if(grad!=null) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Potvrda");
+            alert.setHeaderText("Brisanje: " + grad);
+            alert.setContentText("Da li ste sigurni da želite izvršiti ovu operaciju?");
+            Optional<ButtonType> result = alert.showAndWait();
+            if(result.get() == ButtonType.OK) {
+                dao.obrisiGrad(grad);
+                gradovi.setAll(dao.gradovi());
+            }
+        }
     }
 }

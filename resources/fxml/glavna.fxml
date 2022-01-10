@@ -26,7 +26,7 @@
                    <Button fx:id="btnDodajGrad" maxHeight="25.0" maxWidth="120.0" minHeight="25.0" minWidth="120.0" mnemonicParsing="false" onAction="#dodajGradAction" prefHeight="25.0" prefWidth="120.0" text="Dodaj grad" />
                    <Button fx:id="btnDodajDrzavu" maxHeight="25.0" maxWidth="120.0" minHeight="25.0" minWidth="120.0" mnemonicParsing="false" onAction="#dodajDrzavuAction" prefHeight="25.0" prefWidth="120.0" text="Dodaj državu" />
                    <Button fx:id="btnIzmijeniGrad" maxHeight="25.0" maxWidth="120.0" minHeight="25.0" minWidth="120.0" mnemonicParsing="false" onAction="#izmijeniGradAction" prefHeight="25.0" prefWidth="120.0" text="Izmijeni grad" />
-                   <Button fx:id="btnObrisiGrad" maxHeight="25.0" maxWidth="120.0" minHeight="25.0" minWidth="120.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" text="Obriši grad" />
+                   <Button fx:id="btnObrisiGrad" maxHeight="25.0" maxWidth="120.0" minHeight="25.0" minWidth="120.0" mnemonicParsing="false" onAction="#obrisiGradAction" prefHeight="25.0" prefWidth="120.0" text="Obriši grad" />
                 </children>
              </VBox>
              <TableView fx:id="tableViewGradovi" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
