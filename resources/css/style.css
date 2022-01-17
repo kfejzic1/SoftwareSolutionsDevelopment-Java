@@ -1,0 +1,7 @@
+.poljeNijeValidno {
+    -fx-background-color: lightpink;
+}
+
+.poljeValidno {
+    -fx-background-color: greenyellow;
+}
