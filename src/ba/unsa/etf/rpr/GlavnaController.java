@@ -1,7 +1,5 @@
 package ba.unsa.etf.rpr;
 
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,14 +12,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import net.sf.jasperreports.engine.JRException;
 
-import javax.accessibility.AccessibleIcon;
 import java.io.IOException;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
-import static javax.swing.JComponent.getDefaultLocale;
 
 public class GlavnaController {
     private GeografijaDAO dao = GeografijaDAO.getInstance();
@@ -90,7 +86,6 @@ public class GlavnaController {
 
     public void izmijeniGradAction(ActionEvent actionEvent) throws IOException {
         GradController ctrl = new GradController(tableViewGradovi.getSelectionModel().getSelectedItem(), dao.drzave());
-        ctrl.setIzmjena(true);  //Vrsi se izmjena
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/grad.fxml"), Main.bundle);
         loader.setController(ctrl);
         Parent root = loader.load();
