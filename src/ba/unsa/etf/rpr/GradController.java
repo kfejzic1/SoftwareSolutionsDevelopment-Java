@@ -3,6 +3,9 @@ package ba.unsa.etf.rpr;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
@@ -10,7 +13,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+
+import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 public class GradController {
     private ArrayList<Drzava> drzave;
@@ -84,8 +90,17 @@ public class GradController {
 
     public Grad getGrad() {return grad;}
 
-    public void btnChangeAction (ActionEvent actionEvent) {
-        TextInputDialog inputDialog = new TextInputDialog();
-        inputDialog.show();
+    public void btnChangeAction (ActionEvent actionEvent) throws IOException {
+        PretragaController ctrl = new PretragaController();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/pretraga.fxml"), Main.bundle);
+        loader.setController(ctrl);
+        Parent root = loader.load();
+
+        Stage stage  = new Stage();
+        stage.setTitle(Main.bundle.getString("search"));
+        stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        stage.setResizable(false);
+        stage.show();
+        stage.toFront();
     }
 }
