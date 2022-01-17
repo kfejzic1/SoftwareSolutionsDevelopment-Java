@@ -283,4 +283,8 @@ public class GeografijaDAO {
         }
         return null;
     }
+
+    public Connection getConnection() {
+        return conn;
+    }
 }
