@@ -13,6 +13,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import net.sf.jasperreports.engine.JRException;
 
 import java.io.IOException;
 import java.util.Optional;
@@ -116,6 +117,14 @@ public class GlavnaController {
                 dao.obrisiGrad(grad);
                 gradovi.setAll(dao.gradovi());
             }
+        }
+    }
+
+    public void btnPrintAction (ActionEvent actionEvent) {
+        try {
+            new GradoviReport().showReport(dao.getConnection());
+        } catch (JRException e) {
+            e.printStackTrace();
         }
     }
 }
