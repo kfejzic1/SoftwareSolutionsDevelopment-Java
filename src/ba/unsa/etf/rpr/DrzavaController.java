@@ -18,6 +18,11 @@ public class DrzavaController {
     @FXML
     private ChoiceBox<Grad> choiceGrad;
 
+    public DrzavaController(Drzava drzava, ArrayList<Grad> gradovi) {
+        this.gradovi = gradovi;
+        this.drzava = drzava;
+    }
+
     public DrzavaController(ArrayList<Grad> gradovi) { this.gradovi=gradovi;}
 
     @FXML
@@ -36,6 +41,9 @@ public class DrzavaController {
             drzava = new Drzava();
             drzava.setNaziv(fieldNaziv.getText());
             drzava.setGlavniGrad(choiceGrad.getSelectionModel().getSelectedItem());
+
+            Stage stage = (Stage) fieldNaziv.getScene().getWindow();
+            stage.close();
         }
     }
 
