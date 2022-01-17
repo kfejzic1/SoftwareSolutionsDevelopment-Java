@@ -1,5 +1,7 @@
 package ba.unsa.etf.rpr;
 
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -7,18 +9,19 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import net.sf.jasperreports.engine.JRException;
 
+import javax.accessibility.AccessibleIcon;
 import java.io.IOException;
+import java.util.Locale;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
+import static javax.swing.JComponent.getDefaultLocale;
 
 public class GlavnaController {
     private GeografijaDAO dao = GeografijaDAO.getInstance();
@@ -47,12 +50,12 @@ public class GlavnaController {
 
     public void dodajDrzavuAction(ActionEvent actionEvent) throws IOException {
         DrzavaController ctrl = new DrzavaController(dao.gradovi());
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/drzava.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/drzava.fxml"), Main.bundle);
         loader.setController(ctrl);
         Parent root = loader.load();
 
         Stage stage  = new Stage();
-        stage.setTitle("Država");
+        stage.setTitle(Main.bundle.getString("country"));
         stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         stage.setResizable(false);
 
@@ -66,12 +69,12 @@ public class GlavnaController {
 
     public void dodajGradAction(ActionEvent actionEvent) throws IOException {
         GradController ctrl = new GradController(null, dao.drzave());
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/grad.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/grad.fxml"), Main.bundle);
         loader.setController(ctrl);
         Parent root = loader.load();
 
         Stage stage  = new Stage();
-        stage.setTitle("Grad");
+        stage.setTitle(Main.bundle.getString("titleCity"));
         stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         stage.setResizable(false);
 
@@ -88,18 +91,20 @@ public class GlavnaController {
     public void izmijeniGradAction(ActionEvent actionEvent) throws IOException {
         GradController ctrl = new GradController(tableViewGradovi.getSelectionModel().getSelectedItem(), dao.drzave());
         ctrl.setIzmjena(true);  //Vrsi se izmjena
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/grad.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/grad.fxml"), Main.bundle);
         loader.setController(ctrl);
         Parent root = loader.load();
 
         Stage stage  = new Stage();
-        stage.setTitle("Grad");
+        stage.setTitle(Main.bundle.getString("titleCity"));
         stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         stage.setResizable(false);
 
         stage.setOnHiding(windowEvent -> {
-            dao.izmijeniGrad(ctrl.getGrad());
-            gradovi.setAll(dao.gradovi());
+            if(ctrl.getGrad()!=null) {
+                dao.izmijeniGrad(ctrl.getGrad());
+                gradovi.setAll(dao.gradovi());
+            }
         });
 
         stage.show();
@@ -109,7 +114,7 @@ public class GlavnaController {
         Grad grad = tableViewGradovi.getSelectionModel().getSelectedItem();
         if(grad!=null) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Potvrda");
+            alert.setTitle(Main.bundle.getString("titleConfirm"));
             alert.setHeaderText("Brisanje: " + grad);
             alert.setContentText("Da li ste sigurni da želite izvršiti ovu operaciju?");
             Optional<ButtonType> result = alert.showAndWait();
@@ -125,6 +130,49 @@ public class GlavnaController {
             new GradoviReport().showReport(dao.getConnection());
         } catch (JRException e) {
             e.printStackTrace();
+        }
+    }
+
+    private void reload() {
+        Main.bundle = ResourceBundle.getBundle("Translation");
+        Scene scene  = tableViewGradovi.getScene();
+        tableViewGradovi.getItems().clear();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/glavna.fxml"), Main.bundle);
+        loader.setController(this);
+
+        try {
+            scene.setRoot(loader.load());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void btnLanguageAction (ActionEvent actionEvent) {
+        String bs = Main.bundle.getString("bs");
+        String en = Main.bundle.getString("en");
+        String fr = Main.bundle.getString("fr");
+        String de = Main.bundle.getString("de");
+
+        ChoiceDialog<String> choiceDialog = new ChoiceDialog(bs, bs, en, de, fr);
+        choiceDialog.setTitle(Main.bundle.getString("language"));
+        choiceDialog.setHeaderText(Main.bundle.getString("choiceHeaderText"));
+        choiceDialog.setContentText(Main.bundle.getString("language") + ":");
+        choiceDialog.showAndWait();
+
+        String izabraniJezik = choiceDialog.getSelectedItem();
+        if(izabraniJezik.equals(bs)) {
+            Locale.setDefault(new Locale("bs", "BA"));
+            reload();
+        } else if(izabraniJezik.equals(en)) {
+            Locale.setDefault(new Locale("en", "US"));
+            reload();
+        } else if(izabraniJezik.equals(fr)) {
+            Locale.setDefault(new Locale("fr", "FR"));
+            reload();
+        } else if(izabraniJezik.equals(de)) {
+            Locale.setDefault(new Locale("de", "DE"));
+            reload();
         }
     }
 }
