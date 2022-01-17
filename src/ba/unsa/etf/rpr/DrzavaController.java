@@ -28,6 +28,7 @@ public class DrzavaController {
     @FXML
     private void initialize() {
         choiceGrad.setItems(FXCollections.observableList(gradovi));
+        choiceGrad.setValue(gradovi.get(0));
     }
 
     public void btnOkAction(ActionEvent actionEvent) {

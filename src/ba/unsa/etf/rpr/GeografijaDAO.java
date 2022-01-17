@@ -234,8 +234,8 @@ public class GeografijaDAO {
     public void izmijeniGrad(Grad grad) {
         try {
             promijeniGradUpit.setString(1, grad.getNaziv());
-            promijeniGradUpit.setInt(3, grad.getDrzava().getId());
             promijeniGradUpit.setInt(2, grad.getBrojStanovnika());
+            promijeniGradUpit.setInt(3, grad.getDrzava().getId());
             promijeniGradUpit.setInt(4, grad.getId());
             promijeniGradUpit.executeUpdate();
         } catch (SQLException e) {

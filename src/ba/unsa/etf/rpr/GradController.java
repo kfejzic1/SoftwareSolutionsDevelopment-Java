@@ -12,6 +12,7 @@ import java.util.ArrayList;
 public class GradController {
     private ArrayList<Drzava> drzave;
     private Grad grad = null;
+    private boolean izmjena = false;
 
     @FXML
     private TextField fieldNaziv;
@@ -29,6 +30,7 @@ public class GradController {
     @FXML
     private void initialize() {
         choiceDrzava.setItems(FXCollections.observableArrayList(drzave));
+        choiceDrzava.setValue(drzave.get(0));
         if(grad != null) {
             fieldNaziv.setText(grad.getNaziv());
             fieldBrojStanovnika.setText(String.valueOf(grad.getBrojStanovnika()));
@@ -60,6 +62,17 @@ public class GradController {
             grad.setBrojStanovnika(Integer.parseInt(fieldBrojStanovnika.getText()));
             grad.setDrzava(choiceDrzava.getSelectionModel().getSelectedItem());
         }
+
+        Stage stage = (Stage) fieldNaziv.getScene().getWindow();
+        stage.close();
+    }
+
+    public boolean isIzmjena() {
+        return izmjena;
+    }
+
+    public void setIzmjena(boolean izmjena) {
+        this.izmjena = izmjena;
     }
 
     public void cancelAction(ActionEvent actionEvent) {
