@@ -1,6 +1,8 @@
 package ba.unsa.etf.rpr;
 
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
@@ -10,10 +12,21 @@ import java.io.File;
 
 
 public class PretragaController {
+    private String path = "";
+
     @FXML
     TextField txtField;
     @FXML
     ListView<String> listViewFile;
+
+    public void initialize() {
+        listViewFile.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String oldValue, String newValue) {
+                path = newValue;
+            }
+        });
+    }
 
     public void searchFile(String path, String parameter) {
         File root = new File(path);
@@ -37,5 +50,9 @@ public class PretragaController {
         new Thread(() -> {
             searchFile("c:\\\\", parametar);
         }).start();
+    }
+
+    public String getPath() {
+        return path;
     }
 }

@@ -13,7 +13,7 @@ public class GeografijaDAO {
 
     private PreparedStatement  dajDrzaveUpit, dajGradoveUpit, glavniGradUpit, dajDrzavuUpit, obrisiDrzavuUpit, dajDrzavuNazivom, nadjiDrzavu,
             obrisiGradoveZaDrzavuUpit, dodajGradUpit, odrediIdGradaUpit, dodajDrzavuUpit, promijeniGradUpit, pomDrzavaUpit,
-            obrisiGradUpit, nadjiGradUpit, dajURLSlikeUpit;
+            obrisiGradUpit, nadjiGradUpit, updateSlikaGrada;
 
     private GeografijaDAO() {
         try {
@@ -35,7 +35,7 @@ public class GeografijaDAO {
             nadjiGradUpit = conn.prepareStatement("SELECT g.id, g.naziv, g.broj_stanovnika, g.slika, d.id, d.naziv, d.glavni_grad " +
                     "FROM drzava d, grad g " +
                     "WHERE g.drzava = d.id AND g.naziv=?");
-            dajURLSlikeUpit = conn.prepareStatement("SELECT slika FROM grad WHERE id=?");
+            updateSlikaGrada = conn.prepareStatement("UPDATE grad SET slika=? WHERE id=?");
         } catch (SQLException e) {
             try {
                 regenerisiBazu();
@@ -56,7 +56,7 @@ public class GeografijaDAO {
                 nadjiGradUpit = conn.prepareStatement("SELECT g.id, g.naziv, g.broj_stanovnika, g.slika, d.id, d.naziv, d.glavni_grad " +
                         "FROM drzava d, grad g " +
                         "WHERE g.drzava = d.id AND g.naziv=?");
-                dajURLSlikeUpit = conn.prepareStatement("SELECT slika FROM grad WHERE id=?");
+                updateSlikaGrada = conn.prepareStatement("UPDATE grad SET slika=? WHERE id=?");
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
@@ -298,18 +298,13 @@ public class GeografijaDAO {
         return conn;
     }
 
-    public String getPictureURL (Grad grad) {
-        String url = "";
-
+    public void updateSlikaGrada(Grad grad) {
         try {
-            dajURLSlikeUpit.setInt(1, grad.getId());
-            ResultSet rs = dajURLSlikeUpit.executeQuery();
-
-            if(rs.next())
-                url = rs.getString(1);
+            updateSlikaGrada.setString(1, grad.getSlika());
+            updateSlikaGrada.setInt(2, grad.getId());
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return url;
+
     }
 }

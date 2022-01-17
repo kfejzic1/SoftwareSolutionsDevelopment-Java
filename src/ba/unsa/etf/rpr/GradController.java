@@ -8,7 +8,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TextInputDialog;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -102,5 +101,10 @@ public class GradController {
         stage.setResizable(false);
         stage.show();
         stage.toFront();
+
+        stage.setOnHiding(windowEvent -> {
+            grad.setSlika(ctrl.getPath());
+        }); //Moguce odabrati bilo koji fajl
     }
+
 }
