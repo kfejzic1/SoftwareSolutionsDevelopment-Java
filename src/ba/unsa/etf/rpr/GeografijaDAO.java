@@ -84,7 +84,7 @@ public class GeografijaDAO {
         }
     }
 
-    public void vratiNaDefault() {
+    public void vratiBazuNaDefault() {
         try {
             Statement stmt = conn.createStatement();
             stmt.executeUpdate("DELETE FROM grad");
