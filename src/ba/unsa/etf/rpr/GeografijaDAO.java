@@ -34,7 +34,7 @@ public class GeografijaDAO {
             dajDrzaveUpit = conn.prepareStatement("SELECT d.id, d.naziv, d.glavni_grad, g.id, g.naziv, g.broj_stanovnika, g.drzava FROM drzava d, grad g WHERE d.glavni_grad = g.id");
             nadjiGradUpit = conn.prepareStatement("SELECT g.id, g.naziv, g.broj_stanovnika, g.drzava, d.id, d.naziv, d.glavni_grad " +
                     "FROM drzava d, grad g " +
-                    "WHERE g.id = d.glavni_grad AND g.naziv=?");
+                    "WHERE g.drzava = d.id AND g.naziv=?");
         } catch (SQLException e) {
             try {
                 regenerisiBazu();
@@ -54,7 +54,7 @@ public class GeografijaDAO {
                 dajDrzaveUpit = conn.prepareStatement("SELECT d.id, d.naziv, d.glavni_grad, g.id, g.naziv, g.broj_stanovnika, g.drzava FROM drzava d, grad g WHERE d.glavni_grad = g.id");
                 nadjiGradUpit = conn.prepareStatement("SELECT g.id, g.naziv, g.broj_stanovnika, g.drzava, d.id, d.naziv, d.glavni_grad " +
                         "FROM drzava d, grad g " +
-                        "WHERE g.id = d.glavni_grad AND g.naziv=?");
+                        "WHERE g.drzava = d.id AND g.naziv=?");
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
@@ -270,6 +270,9 @@ public class GeografijaDAO {
     }
     public Grad nadjiGrad(String nazivGrada){
         try {
+            /*  SELECT g.id, g.naziv, g.broj_stanovnika, g.drzava, d.id, d.naziv, d.glavni_grad
+                FROM drzava d, grad g
+                WHERE g.drzava = d.id AND g.naziv=?    */
             nadjiGradUpit.setString(1, nazivGrada);
             ResultSet rs = nadjiGradUpit.executeQuery();
             Drzava d = dajDrzavu(rs.getInt(5), glavniGrad(rs.getString(6)));
