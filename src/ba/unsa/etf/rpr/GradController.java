@@ -22,7 +22,7 @@ public class GradController {
     private ChoiceBox<Drzava> choiceDrzava;
 
 
-    public GradController(ArrayList<Drzava> spisakDrzava, Grad grad) {
+    public GradController(Grad grad, ArrayList<Drzava> spisakDrzava) {
         this.drzave=spisakDrzava;
         this.grad = grad;
     }
@@ -47,7 +47,7 @@ public class GradController {
             fieldNaziv.getStyleClass().add("poljeValidno");
         }
 
-        if(fieldBrojStanovnika.getText().isEmpty()) {
+        if(fieldBrojStanovnika.getText().isEmpty() || Integer.parseInt(fieldBrojStanovnika.getText())<=0) {
             fieldBrojStanovnika.getStyleClass().removeAll("poljeValidno");
             fieldBrojStanovnika.getStyleClass().add("poljeNijeValidno");
         } else {
@@ -55,16 +55,16 @@ public class GradController {
             fieldBrojStanovnika.getStyleClass().add("poljeValidno");
         }
 
-        if(!fieldNaziv.getText().isEmpty() && !fieldBrojStanovnika.getText().isEmpty()) {   //Polje je validno i vrsi se unos
+        if(!fieldNaziv.getText().isEmpty() && !fieldBrojStanovnika.getText().isEmpty() && Integer.parseInt(fieldBrojStanovnika.getText())>0) {   //Polje je validno i vrsi se unos
             if(grad == null)
                 grad = new Grad();
             grad.setNaziv(fieldNaziv.getText());
             grad.setBrojStanovnika(Integer.parseInt(fieldBrojStanovnika.getText()));
             grad.setDrzava(choiceDrzava.getSelectionModel().getSelectedItem());
-        }
 
-        Stage stage = (Stage) fieldNaziv.getScene().getWindow();
-        stage.close();
+            Stage stage = (Stage) fieldNaziv.getScene().getWindow();
+            stage.close();
+        }
     }
 
     public boolean isIzmjena() {

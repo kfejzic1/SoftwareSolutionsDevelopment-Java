@@ -64,7 +64,7 @@ public class GlavnaController {
     }
 
     public void dodajGradAction(ActionEvent actionEvent) throws IOException {
-        GradController ctrl = new GradController(dao.drzave(), null);
+        GradController ctrl = new GradController(null, dao.drzave());
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/grad.fxml"));
         loader.setController(ctrl);
         Parent root = loader.load();
@@ -85,7 +85,7 @@ public class GlavnaController {
     }
 
     public void izmijeniGradAction(ActionEvent actionEvent) throws IOException {
-        GradController ctrl = new GradController(dao.drzave(), tableViewGradovi.getSelectionModel().getSelectedItem());
+        GradController ctrl = new GradController(tableViewGradovi.getSelectionModel().getSelectedItem(), dao.drzave());
         ctrl.setIzmjena(true);  //Vrsi se izmjena
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/grad.fxml"));
         loader.setController(ctrl);
