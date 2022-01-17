@@ -6,3 +6,9 @@ G
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
+M
+src/ba/unsa/etf/rpr/Main.java,b\c\bc4c90a37ac9d1b5ef19ac18f695d26749bb9c3f
+O
+src/ba/unsa/etf/rpr/Drzava.java,c\4\c4b76ed877436a93fc8a575233c4dc5c4ffae767
+M
+src/ba/unsa/etf/rpr/Grad.java,6\7\67bec2df959c9c102dbd85d9afdef6a5c11a1830
