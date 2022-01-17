@@ -23,19 +23,20 @@
    <children>
              <VBox maxWidth="120.0" minWidth="120.0" prefHeight="120.0" prefWidth="120.0" spacing="5.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.valignment="TOP" GridPane.vgrow="NEVER">
                 <children>
-                   <Button fx:id="btnDodajGrad" maxHeight="25.0" maxWidth="120.0" minHeight="25.0" minWidth="120.0" mnemonicParsing="false" onAction="#dodajGradAction" prefHeight="25.0" prefWidth="120.0" text="Dodaj grad" />
-                   <Button fx:id="btnDodajDrzavu" maxHeight="25.0" maxWidth="120.0" minHeight="25.0" minWidth="120.0" mnemonicParsing="false" onAction="#dodajDrzavuAction" prefHeight="25.0" prefWidth="120.0" text="Dodaj državu" />
-                   <Button fx:id="btnIzmijeniGrad" maxHeight="25.0" maxWidth="120.0" minHeight="25.0" minWidth="120.0" mnemonicParsing="false" onAction="#izmijeniGradAction" prefHeight="25.0" prefWidth="120.0" text="Izmijeni grad" />
-                   <Button fx:id="btnObrisiGrad" maxHeight="25.0" maxWidth="120.0" minHeight="25.0" minWidth="120.0" mnemonicParsing="false" onAction="#obrisiGradAction" prefHeight="25.0" prefWidth="120.0" text="Obriši grad" />
-            <Button fx:id="btnPrint" maxHeight="25.0" maxWidth="120.0" minHeight="25.0" minWidth="120.0" mnemonicParsing="false" onAction="#btnPrintAction" prefHeight="25.0" prefWidth="120.0" text="Štampa" />
+                   <Button fx:id="btnDodajGrad" maxHeight="25.0" maxWidth="120.0" minHeight="25.0" minWidth="120.0" mnemonicParsing="false" onAction="#dodajGradAction" prefHeight="25.0" prefWidth="120.0" text="%insertCity" />
+                   <Button fx:id="btnDodajDrzavu" maxHeight="25.0" maxWidth="120.0" minHeight="25.0" minWidth="120.0" mnemonicParsing="false" onAction="#dodajDrzavuAction" prefHeight="25.0" prefWidth="120.0" text="%insertCountry" />
+                   <Button fx:id="btnIzmijeniGrad" maxHeight="25.0" maxWidth="120.0" minHeight="25.0" minWidth="120.0" mnemonicParsing="false" onAction="#izmijeniGradAction" prefHeight="25.0" prefWidth="120.0" text="%editCity" />
+                   <Button fx:id="btnObrisiGrad" maxHeight="25.0" maxWidth="120.0" minHeight="25.0" minWidth="120.0" mnemonicParsing="false" onAction="#obrisiGradAction" prefHeight="25.0" prefWidth="120.0" text="%deleteCity" />
+            <Button fx:id="btnPrint" maxHeight="25.0" maxWidth="120.0" minHeight="25.0" minWidth="120.0" mnemonicParsing="false" onAction="#btnPrintAction" prefHeight="25.0" prefWidth="120.0" text="%print" />
+            <Button fx:id="btnLanguage" maxHeight="25.0" maxWidth="120.0" minHeight="25.0" minWidth="120.0" mnemonicParsing="false" onAction="#btnLanguageAction" prefHeight="25.0" prefWidth="120.0" text="%language" />
                 </children>
              </VBox>
              <TableView fx:id="tableViewGradovi" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                <columns>
                  <TableColumn fx:id="colGradId" maxWidth="-1.0" minWidth="50.0" prefWidth="-1.0" text="ID" />
-                 <TableColumn fx:id="colGradNaziv" maxWidth="-1.0" minWidth="100.0" prefWidth="-1.0" text="Naziv" />
-                   <TableColumn fx:id="colGradStanovnika" maxWidth="-1.0" minWidth="100.0" prefWidth="-1.0" text="Stanovnika" />
-                   <TableColumn fx:id="colGradDrzava" maxWidth="-1.0" minWidth="150.0" prefWidth="-1.0" text="Država" />
+                 <TableColumn fx:id="colGradNaziv" maxWidth="-1.0" minWidth="100.0" prefWidth="-1.0" text="%name" />
+                   <TableColumn fx:id="colGradStanovnika" maxWidth="-1.0" minWidth="100.0" prefWidth="-1.0" text="%population" />
+                   <TableColumn fx:id="colGradDrzava" maxWidth="-1.0" minWidth="150.0" prefWidth="-1.0" text="%country" />
                </columns>
              </TableView>
    </children>

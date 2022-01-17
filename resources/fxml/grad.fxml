@@ -20,16 +20,16 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label text="Naziv:" />
-      <Label text="Broj stanovnika:" GridPane.rowIndex="1" />
-      <Label text="Država:" GridPane.rowIndex="2" />
+      <Label text="%name" />
+      <Label text="%population" GridPane.rowIndex="1" />
+      <Label text="%country" GridPane.rowIndex="2" />
       <TextField fx:id="fieldNaziv" GridPane.columnIndex="1" />
       <TextField fx:id="fieldBrojStanovnika" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <ChoiceBox fx:id="choiceDrzava" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
       <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
         <buttons>
-          <Button fx:id="btnOk" defaultButton="true" mnemonicParsing="false" onAction="#okAction" text="Ok" />
-            <Button fx:id="btnCancel" cancelButton="true" mnemonicParsing="false" onAction="#cancelAction" text="Cancel" />
+          <Button fx:id="btnOk" defaultButton="true" mnemonicParsing="false" onAction="#okAction" text="%ok" />
+            <Button fx:id="btnCancel" cancelButton="true" mnemonicParsing="false" onAction="#cancelAction" text="%cancel" />
         </buttons>
       </ButtonBar>
    </children>

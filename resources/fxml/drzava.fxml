@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<?import java.net.URL?>
 <GridPane maxHeight="100.0" minHeight="100.0" prefHeight="100.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
     <stylesheets>
-        <URL value="@/css/style.css"/>
+        <URL value="@/css/style.css" />
     </stylesheets>
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="100.0" />
@@ -19,14 +19,14 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label text="Naziv:" />
-      <Label text="Glavni grad:" GridPane.rowIndex="1" />
+      <Label text="%name" />
+      <Label text="%capitalCity" GridPane.rowIndex="1" />
       <TextField fx:id="fieldNaziv" GridPane.columnIndex="1" />
       <ChoiceBox fx:id="choiceGrad" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
         <buttons>
-          <Button fx:id="btnOk" defaultButton="true" mnemonicParsing="false" onAction="#btnOkAction" text="Ok" />
-            <Button fx:id="btnCancel" cancelButton="true" mnemonicParsing="false" onAction="#btnCancelAction" text="Cancel" />
+          <Button fx:id="btnOk" defaultButton="true" mnemonicParsing="false" onAction="#btnOkAction" text="%ok" />
+            <Button fx:id="btnCancel" cancelButton="true" mnemonicParsing="false" onAction="#btnCancelAction" text="%cancel" />
         </buttons>
       </ButtonBar>
    </children>
