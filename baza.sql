@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS "grad" (
 	"naziv"	TEXT,
 	"broj_stanovnika"	INTEGER,
 	"drzava"	INTEGER,
+	"slika" TEXT
 	FOREIGN KEY("drzava") REFERENCES "drzava"("id"),
 	PRIMARY KEY("id" AUTOINCREMENT)
 );
