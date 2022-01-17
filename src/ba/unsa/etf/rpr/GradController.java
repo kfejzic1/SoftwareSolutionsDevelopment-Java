@@ -5,14 +5,16 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputDialog;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-
+import java.io.File;
 import java.util.ArrayList;
 
 public class GradController {
     private ArrayList<Drzava> drzave;
     private Grad grad = null;
-    private boolean izmjena = false;
 
     @FXML
     private TextField fieldNaziv;
@@ -20,6 +22,8 @@ public class GradController {
     private TextField fieldBrojStanovnika;
     @FXML
     private ChoiceBox<Drzava> choiceDrzava;
+    @FXML
+    private ImageView imgViewSlika;
 
 
     public GradController(Grad grad, ArrayList<Drzava> spisakDrzava) {
@@ -35,6 +39,12 @@ public class GradController {
             fieldNaziv.setText(grad.getNaziv());
             fieldBrojStanovnika.setText(String.valueOf(grad.getBrojStanovnika()));
             choiceDrzava.getSelectionModel().select(grad.getDrzava());
+
+            if(!grad.getSlika().isEmpty()){
+                File file = new File(grad.getSlika());
+                Image img = new Image(file.toURI().toString());
+                imgViewSlika.setImage(img);
+            }
         }
     }
 
@@ -67,18 +77,15 @@ public class GradController {
         }
     }
 
-    public boolean isIzmjena() {
-        return izmjena;
-    }
-
-    public void setIzmjena(boolean izmjena) {
-        this.izmjena = izmjena;
-    }
-
     public void cancelAction(ActionEvent actionEvent) {
         Stage stage = (Stage) fieldNaziv.getScene().getWindow();
         stage.close();
     }
 
     public Grad getGrad() {return grad;}
+
+    public void btnChangeAction (ActionEvent actionEvent) {
+        TextInputDialog inputDialog = new TextInputDialog();
+        inputDialog.show();
+    }
 }
