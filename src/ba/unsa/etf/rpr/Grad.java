@@ -4,6 +4,15 @@ public class Grad {
     private int id, brojStanovnika;
     private String naziv;
     private Drzava drzava;
+    private String slika = "";
+
+    public String getSlika() {
+        return slika;
+    }
+
+    public void setSlika(String slika) {
+        this.slika = slika;
+    }
 
     public Grad() {
         this.naziv = "";
