@@ -18,42 +18,42 @@ public class GeografijaDAO {
     private GeografijaDAO() {
         try {
             conn = DriverManager.getConnection("jdbc:sqlite:baza.db");
-            glavniGradUpit = conn.prepareStatement("SELECT grad.id, grad.naziv, grad.broj_stanovnika, grad.drzava, grad.slika FROM grad, drzava WHERE grad.drzava = drzava.id AND drzava.naziv = ?");
+            glavniGradUpit = conn.prepareStatement("SELECT grad.id, grad.naziv, grad.broj_stanovnika, grad.drzava, grad.slika, grad.postanski_broj FROM grad, drzava WHERE grad.drzava = drzava.id AND drzava.naziv = ?");
             dajDrzavuUpit = conn.prepareStatement("SELECT * FROM drzava WHERE id=?");
             obrisiDrzavuUpit = conn.prepareStatement("DELETE FROM drzava WHERE naziv=?");
             obrisiGradUpit = conn.prepareStatement("DELETE FROM grad WHERE naziv=?");
-            dajGradoveUpit = conn.prepareStatement( "SELECT g.id, g.naziv, g.broj_stanovnika, g.drzava, g.slika FROM grad g ORDER BY g.broj_stanovnika DESC" );
+            dajGradoveUpit = conn.prepareStatement( "SELECT g.id, g.naziv, g.broj_stanovnika, g.drzava, g.slika, g.postanski_broj FROM grad g ORDER BY g.broj_stanovnika DESC" );
             dajDrzavuNazivom = conn.prepareStatement("SELECT * FROM drzava WHERE naziv=?");
             obrisiGradoveZaDrzavuUpit = conn.prepareStatement("DELETE FROM grad WHERE drzava=?");
-            dodajGradUpit = conn.prepareStatement("INSERT INTO grad VALUES(?,?,?,?,?)");
+            dodajGradUpit = conn.prepareStatement("INSERT INTO grad VALUES(?,?,?,?,?,?)");
             odrediIdGradaUpit = conn.prepareStatement("SELECT max(id)+1 FROM grad");
             dodajDrzavuUpit = conn.prepareStatement("INSERT INTO drzava VALUES(?,?,?)");
-            promijeniGradUpit = conn.prepareStatement("UPDATE grad SET naziv=?, broj_stanovnika=?, drzava=?, slika=? WHERE id=?");
+            promijeniGradUpit = conn.prepareStatement("UPDATE grad SET naziv=?, broj_stanovnika=?, drzava=?, slika=?, postanski_broj=? WHERE id=?");
             nadjiDrzavu = conn.prepareStatement("SELECT d.id, d.naziv, d.glavni_grad, g.id, g.naziv, g.broj_stanovnika, g.drzava FROM drzava d, grad g WHERE g.id = d.glavni_grad AND d.naziv=?");
             pomDrzavaUpit = conn.prepareStatement("SELECT d.id, d.naziv, d.glavni_grad FROM drzava d WHERE d.id = ?");
             dajDrzaveUpit = conn.prepareStatement("SELECT d.id, d.naziv, d.glavni_grad, g.id, g.naziv, g.broj_stanovnika, g.drzava FROM drzava d, grad g WHERE d.glavni_grad = g.id");
-            nadjiGradUpit = conn.prepareStatement("SELECT g.id, g.naziv, g.broj_stanovnika, g.slika, d.id, d.naziv, d.glavni_grad " +
+            nadjiGradUpit = conn.prepareStatement("SELECT g.id, g.naziv, g.broj_stanovnika, g.slika, g.postanski_broj, d.id, d.naziv, d.glavni_grad " +
                     "FROM drzava d, grad g " +
                     "WHERE g.drzava = d.id AND g.naziv=?");
             updateSlikaGrada = conn.prepareStatement("UPDATE grad SET slika=? WHERE id=?");
         } catch (SQLException e) {
             try {
                 regenerisiBazu();
-                glavniGradUpit = conn.prepareStatement("SELECT grad.id, grad.naziv, grad.broj_stanovnika, grad.drzava, grad.slika FROM grad, drzava WHERE grad.drzava = drzava.id AND drzava.naziv = ?");
+                glavniGradUpit = conn.prepareStatement("SELECT grad.id, grad.naziv, grad.broj_stanovnika, grad.drzava, grad.slika, grad.postanski_broj FROM grad, drzava WHERE grad.drzava = drzava.id AND drzava.naziv = ?");
                 dajDrzavuUpit = conn.prepareStatement("SELECT * FROM drzava WHERE id=?");
                 obrisiDrzavuUpit = conn.prepareStatement("DELETE FROM drzava WHERE naziv=?");
                 obrisiGradUpit = conn.prepareStatement("DELETE FROM grad WHERE naziv=?");
-                dajGradoveUpit = conn.prepareStatement( "SELECT g.id, g.naziv, g.broj_stanovnika, g.drzava, g.slika FROM grad g ORDER BY g.broj_stanovnika DESC" );
+                dajGradoveUpit = conn.prepareStatement( "SELECT g.id, g.naziv, g.broj_stanovnika, g.drzava, g.slika, g.postanski_broj FROM grad g ORDER BY g.broj_stanovnika DESC");
                 dajDrzavuNazivom = conn.prepareStatement("SELECT * FROM drzava WHERE naziv=?");
                 obrisiGradoveZaDrzavuUpit = conn.prepareStatement("DELETE FROM grad WHERE drzava=?");
-                dodajGradUpit = conn.prepareStatement("INSERT INTO grad VALUES(?,?,?,?,?)");
+                dodajGradUpit = conn.prepareStatement("INSERT INTO grad VALUES(?,?,?,?,?,?)");
                 odrediIdGradaUpit = conn.prepareStatement("SELECT max(id)+1 FROM grad");
                 dodajDrzavuUpit = conn.prepareStatement("INSERT INTO drzava VALUES(?,?,?)");
-                promijeniGradUpit = conn.prepareStatement("UPDATE grad SET naziv=?, broj_stanovnika=?, drzava=?, slika=? WHERE id=?");
+                promijeniGradUpit = conn.prepareStatement("UPDATE grad SET naziv=?, broj_stanovnika=?, drzava=?, slika=?, postanski_broj=? WHERE id=?");
                 nadjiDrzavu = conn.prepareStatement("SELECT d.id, d.naziv, d.glavni_grad, g.id, g.naziv, g.broj_stanovnika, g.drzava FROM drzava d, grad g WHERE g.id = d.glavni_grad AND d.naziv=?");
                 pomDrzavaUpit = conn.prepareStatement("SELECT d.id, d.naziv, d.glavni_grad FROM drzava d WHERE d.id = ?");
                 dajDrzaveUpit = conn.prepareStatement("SELECT d.id, d.naziv, d.glavni_grad, g.id, g.naziv, g.broj_stanovnika, g.drzava FROM drzava d, grad g WHERE d.glavni_grad = g.id");
-                nadjiGradUpit = conn.prepareStatement("SELECT g.id, g.naziv, g.broj_stanovnika, g.slika, d.id, d.naziv, d.glavni_grad " +
+                nadjiGradUpit = conn.prepareStatement("SELECT g.id, g.naziv, g.broj_stanovnika, g.slika, g.postanski_broj, d.id, d.naziv, d.glavni_grad " +
                         "FROM drzava d, grad g " +
                         "WHERE g.drzava = d.id AND g.naziv=?");
                 updateSlikaGrada = conn.prepareStatement("UPDATE grad SET slika=? WHERE id=?");
@@ -130,6 +130,7 @@ public class GeografijaDAO {
         Grad grad = new Grad(rs.getInt(1), rs.getString(2), rs.getInt(3), null);
         grad.setDrzava(dajDrzavu(rs.getInt(4), grad));
         grad.setSlika(rs.getString(5));
+        grad.setPostanskiBroj(rs.getInt(6));
         return grad;
     }
 
@@ -162,6 +163,7 @@ public class GeografijaDAO {
                 Drzava d = new Drzava(rsDrzava.getInt(1), rsDrzava.getString(2), glavniGrad(rsDrzava.getString(2)));
                 Grad g = new Grad(rs.getInt(1), rs.getString(2), rs.getInt(3), d);
                 g.setSlika(rs.getString(5));
+                g.setPostanskiBroj(rs.getInt(6));
                 rezultat.add(g);
             }
         } catch (SQLException e) {
@@ -220,6 +222,7 @@ public class GeografijaDAO {
             else
                 dodajGradUpit.setInt(4, 1);
             dodajGradUpit.setString(5, grad.getSlika());
+            dodajGradUpit.setInt(6, grad.getPostanskiBroj());
             dodajGradUpit.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -243,7 +246,8 @@ public class GeografijaDAO {
             promijeniGradUpit.setInt(2, grad.getBrojStanovnika());
             promijeniGradUpit.setInt(3, grad.getDrzava().getId());
             promijeniGradUpit.setString(4, grad.getSlika());
-            promijeniGradUpit.setInt(5, grad.getId());
+            promijeniGradUpit.setInt(5, grad.getPostanskiBroj());
+            promijeniGradUpit.setInt(6, grad.getId());
             promijeniGradUpit.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -278,15 +282,16 @@ public class GeografijaDAO {
     public Grad nadjiGrad(String nazivGrada){
         try {
             /*
-            * "SELECT g.id, g.naziv, g.broj_stanovnika, g.slika, d.id, d.naziv, d.glavni_grad " +
+            * "SELECT g.id, g.naziv, g.broj_stanovnika, g.slika, g.postanskiBroj d.id, d.naziv, d.glavni_grad " +
                     "FROM drzava d, grad g " +
                     "WHERE g.drzava = d.id AND g.naziv=?")
             * */
             nadjiGradUpit.setString(1, nazivGrada);
             ResultSet rs = nadjiGradUpit.executeQuery();
-            Drzava d = dajDrzavu(rs.getInt(5), glavniGrad(rs.getString(6)));
+            Drzava d = dajDrzavu(rs.getInt(6), glavniGrad(rs.getString(7)));
             Grad rezultat = new Grad(rs.getInt(1), rs.getString(2), rs.getInt(3), d);
             rezultat.setSlika(rs.getString(4));
+            rezultat.setPostanskiBroj(rs.getInt(5));
             return rezultat;
         } catch (SQLException e) {
             e.printStackTrace();
