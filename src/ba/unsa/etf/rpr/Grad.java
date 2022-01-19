@@ -5,6 +5,15 @@ public class Grad {
     private String naziv;
     private Drzava drzava;
     private String slika = "";
+    private Integer postanskiBroj;
+
+    public Integer getPostanskiBroj() {
+        return postanskiBroj;
+    }
+
+    public void setPostanskiBroj(Integer postanskiBroj) {
+        this.postanskiBroj = postanskiBroj;
+    }
 
     public String getSlika() {
         return slika;
