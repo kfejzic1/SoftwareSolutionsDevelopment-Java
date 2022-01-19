@@ -28,8 +28,7 @@ class GlavnaControllerTest {
 
     @Start
     public void start (Stage stage) throws Exception {
-        ResourceBundle bundle = ResourceBundle.getBundle("Translation");
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/glavna.fxml"), bundle);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/glavna.fxml"), Main.bundle);
         ctrl = new GlavnaController();
         loader.setController(ctrl);
         Parent root = loader.load();

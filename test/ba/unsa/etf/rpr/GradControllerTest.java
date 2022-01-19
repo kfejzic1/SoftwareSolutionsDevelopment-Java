@@ -29,8 +29,7 @@ class GradControllerTest {
     public void start (Stage stage) throws Exception {
         GeografijaDAO dao = GeografijaDAO.getInstance();
         dao.vratiBazuNaDefault();
-        ResourceBundle bundle = ResourceBundle.getBundle("Translation");
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/grad.fxml"), bundle);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/grad.fxml"), Main.bundle);
         ctrl = new GradController(null, dao.drzave());
         loader.setController(ctrl);
         Parent root = loader.load();

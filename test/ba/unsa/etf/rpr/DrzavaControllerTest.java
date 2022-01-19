@@ -28,8 +28,7 @@ class DrzavaControllerTest {
     public void start (Stage stage) throws Exception {
         GeografijaDAO dao = GeografijaDAO.getInstance();
         dao.vratiBazuNaDefault();
-        ResourceBundle bundle = ResourceBundle.getBundle("Translation");
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/drzava.fxml"), bundle);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/drzava.fxml"), Main.bundle);
         ctrl = new DrzavaController(null, dao.gradovi());
         loader.setController(ctrl);
         Parent root = loader.load();
