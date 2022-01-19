@@ -15,7 +15,8 @@ import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 public class Main extends Application {
     private static GeografijaDAO data = GeografijaDAO.getInstance();
-    public static ResourceBundle bundle = ResourceBundle.getBundle("Translation");
+    public static Locale defaultJezik = new Locale("bs");
+    public static ResourceBundle bundle = ResourceBundle.getBundle("Translation", defaultJezik);
 
     public static String ispisiGradove() {
         ArrayList<Grad> gradovi = GeografijaDAO.getInstance().gradovi();
@@ -57,7 +58,6 @@ public class Main extends Application {
 
         primaryStage.setTitle(bundle.getString("titleApp"));
         primaryStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-        Locale.setDefault(new Locale("bs", "BA"));
 
         primaryStage.show();
         primaryStage.setMinWidth(550);
