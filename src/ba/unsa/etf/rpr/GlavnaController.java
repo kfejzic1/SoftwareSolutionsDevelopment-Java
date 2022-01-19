@@ -33,6 +33,8 @@ public class GlavnaController {
     private TableColumn<Grad, Integer> colGradStanovnika;
     @FXML
     private TableColumn<Grad, Integer> colGradDrzava;
+    @FXML
+    private TableColumn<Grad, Integer> colZipCode;
 
     @FXML
     private void initialize() {
@@ -42,6 +44,7 @@ public class GlavnaController {
         colGradNaziv.setCellValueFactory(new PropertyValueFactory<>("naziv"));
         colGradStanovnika.setCellValueFactory(new PropertyValueFactory<>("brojStanovnika"));
         colGradDrzava.setCellValueFactory(new PropertyValueFactory<>("drzava"));
+        colZipCode.setCellValueFactory(new PropertyValueFactory<>("postanskiBroj"));
     }
 
     public void dodajDrzavuAction(ActionEvent actionEvent) throws IOException {
