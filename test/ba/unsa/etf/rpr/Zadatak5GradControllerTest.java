@@ -28,7 +28,7 @@ public class Zadatak5GradControllerTest {
         GeografijaDAO dao = GeografijaDAO.getInstance();
         dao.vratiBazuNaDefault();
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/grad.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/grad.fxml"), Main.bundle);
         ctrl = new GradController(null, dao.drzave());
         loader.setController(ctrl);
         Parent root = loader.load();
