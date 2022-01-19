@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,9 +12,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.TreeMap;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
@@ -76,8 +83,34 @@ public class GradController {
 
         try {
             Integer.parseInt(fldPostanskiBroj.getText());
-            fldPostanskiBroj.getStyleClass().removeAll("poljeNijeValidno");
-            fldPostanskiBroj.getStyleClass().add("poljeValidno");
+
+            //Provjera da li je postanski broj validan u BiH
+
+            URL url = new URL("http://c9.etf.unsa.ba/proba/postanskiBroj.php?postanskiBroj=" + fldPostanskiBroj.getText());
+            new Thread(() -> {
+                try {
+                    System.out.println("Provjeravam validnost poštanskog broja...");
+                    BufferedReader input = new BufferedReader(new InputStreamReader(url.openStream()));
+
+                    if(input.readLine().equals("OK")) {
+                        Platform.runLater(() -> {
+                            fldPostanskiBroj.getStyleClass().removeAll("poljeNijeValidno");
+                            fldPostanskiBroj.getStyleClass().add("poljeValidno");
+                        });
+                    }
+                    else {
+                        Platform.runLater(() -> {
+                            fldPostanskiBroj.getStyleClass().removeAll("poljeValidno");
+                            fldPostanskiBroj.getStyleClass().add("poljeNijeValidno");
+                        });
+                    }
+
+                    System.out.println("Provjereno");
+                    input.close();
+                } catch (IOException e) {
+                    System.out.println("Greška u čitanju");
+                }
+            }).start();
         } catch (Exception e) {
             //Postoji znak koji nije broj u stringu
             fldPostanskiBroj.getStyleClass().removeAll("poljeValidno");
