@@ -11,7 +11,7 @@
 
 <GridPane hgap="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
     <columnConstraints>
-        <ColumnConstraints hgrow="ALWAYS" minWidth="400.0" prefWidth="400.0" />
+        <ColumnConstraints hgrow="ALWAYS" minWidth="450.0" />
         <ColumnConstraints fillWidth="false" hgrow="NEVER" minWidth="120.0" prefWidth="120.0" />
     </columnConstraints>
     <rowConstraints>
@@ -37,6 +37,7 @@
                  <TableColumn fx:id="colGradNaziv" maxWidth="-1.0" minWidth="100.0" prefWidth="-1.0" text="%name" />
                    <TableColumn fx:id="colGradStanovnika" maxWidth="-1.0" minWidth="100.0" prefWidth="-1.0" text="%population" />
                    <TableColumn fx:id="colGradDrzava" maxWidth="-1.0" minWidth="150.0" prefWidth="-1.0" text="%country" />
+            <TableColumn fx:id="colZipCode" maxWidth="-1.0" minWidth="100.0" prefWidth="-1.0" text="%zipCode" />
                </columns>
              </TableView>
    </children>
