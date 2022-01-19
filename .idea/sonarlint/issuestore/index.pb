@@ -12,5 +12,3 @@ V
 &src/ba/unsa/etf/rpr/GradoviReport.java,a\b\ab74c540ed931a434063b1d28e87fb67a7de30b8
 Y
 )src/ba/unsa/etf/rpr/DrzavaController.java,d\4\d4d69172ce6746cfbf43a98af177a78fa76d12f7
-[
-+src/ba/unsa/etf/rpr/PretragaController.java,d\3\d32ba81cc4f61aa82485e5e7449129f73658f617

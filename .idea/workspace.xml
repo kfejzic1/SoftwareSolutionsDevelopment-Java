@@ -1,26 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Translation postanski_broj">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/javafx.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/javafx.xml" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="changes">
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/baza.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/Translation.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/Translation.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/Translation_bs.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/Translation_bs.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/fxml/glavna.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/fxml/glavna.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpr20-zadaca5.iml" beforeDir="false" afterPath="$PROJECT_DIR$/rpr20-zadaca5.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/GlavnaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/GlavnaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/Grad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/Grad.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/GradController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/GradController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/ba/unsa/etf/rpr/DrzavaControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ba/unsa/etf/rpr/DrzavaControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/ba/unsa/etf/rpr/GlavnaControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ba/unsa/etf/rpr/GlavnaControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/ba/unsa/etf/rpr/GradControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ba/unsa/etf/rpr/GradControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/ba/unsa/etf/rpr/Zadatak5GlavnaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ba/unsa/etf/rpr/Zadatak5GlavnaTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/ba/unsa/etf/rpr/Zadatak5GradControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ba/unsa/etf/rpr/Zadatak5GradControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/ba/unsa/etf/rpr/Zadatak5Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ba/unsa/etf/rpr/Zadatak5Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,6 +70,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectId" id="1R1EkMKSKWJgUKWqyFIvaMGKpKP" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -122,7 +116,7 @@
       <recent name="ba.unsa.etf.rpr" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.Zadatak5Test">
+  <component name="RunManager" selected="JUnit.Zadatak5GradControllerTest.testValidacijaPostanskiBroj2">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -151,37 +145,6 @@
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="All in rpr20-zadaca5" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="rpr20-zadaca5" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Zadatak3Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="rpr20-zadaca5" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ba.unsa.etf.rpr.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ba.unsa.etf.rpr" />
-      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rpr.Zadatak3Test" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -216,6 +179,46 @@
       <option name="PACKAGE_NAME" value="ba.unsa.etf.rpr" />
       <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rpr.Zadatak5GradControllerTest" />
       <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Zadatak5GradControllerTest.testValidacijaPostanskiBroj2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="rpr20-zadaca5" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ba.unsa.etf.rpr.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ba.unsa.etf.rpr" />
+      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rpr.Zadatak5GradControllerTest" />
+      <option name="METHOD_NAME" value="testValidacijaPostanskiBroj2(org.testfx.api.FxRobot)" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Zadatak5GradControllerTest.testZadatak6" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="rpr20-zadaca5" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ba.unsa.etf.rpr.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ba.unsa.etf.rpr" />
+      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rpr.Zadatak5GradControllerTest" />
+      <option name="METHOD_NAME" value="testZadatak6(org.testfx.api.FxRobot)" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="moduleWithDependencies" />
@@ -276,19 +279,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="JUnit.Zadatak3Test" />
-      <item itemvalue="JUnit.All in rpr20-zadaca5" />
       <item itemvalue="JUnit.Zadatak5GlavnaTest" />
       <item itemvalue="JUnit.Zadatak5GradControllerTest" />
       <item itemvalue="JUnit.Zadatak5Test" />
+      <item itemvalue="JUnit.Zadatak5GradControllerTest.testZadatak6" />
+      <item itemvalue="JUnit.Zadatak5GradControllerTest.testValidacijaPostanskiBroj2" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.Zadatak5Test" />
+        <item itemvalue="JUnit.Zadatak5GradControllerTest.testValidacijaPostanskiBroj2" />
         <item itemvalue="JUnit.Zadatak5GradControllerTest" />
+        <item itemvalue="JUnit.Zadatak5GradControllerTest.testZadatak6" />
+        <item itemvalue="JUnit.Zadatak5Test" />
         <item itemvalue="JUnit.Zadatak5GlavnaTest" />
-        <item itemvalue="JUnit.All in rpr20-zadaca5" />
-        <item itemvalue="JUnit.Zadatak3Test" />
       </list>
     </recent_temporary>
   </component>
@@ -304,34 +307,6 @@
       <option name="presentableId" value="Default" />
       <updated>1359379246138</updated>
       <workItem from="1359379250712" duration="1302000" />
-    </task>
-    <task id="LOCAL-00001" summary="Initial import">
-      <created>1579258425293</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1579258425293</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Rename projekta">
-      <created>1579258486065</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1579258486065</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Rename projekta">
-      <created>1579258504752</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1579258504752</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Initial import">
-      <created>1591947725342</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1591947725342</updated>
     </task>
     <task id="LOCAL-00005" summary="Initial import">
       <created>1594364819682</created>
@@ -613,7 +588,70 @@
       <option name="project" value="LOCAL" />
       <updated>1642602304028</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Dodan bundle">
+      <created>1642623472222</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1642623472222</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Dodan default jezik na bundle">
+      <created>1642623495658</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1642623495658</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Dodan bundle">
+      <created>1642623526382</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1642623526382</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Dodana kolona postanski broj">
+      <created>1642623545991</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1642623545991</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Integer to int">
+      <created>1642623564423</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1642623564423</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Validacija za postanski broj">
+      <created>1642623593249</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1642623593250</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Dodana kolona postanski broj">
+      <created>1642623641161</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1642623641161</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Translation">
+      <created>1642623667530</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1642623667531</updated>
+    </task>
+    <task id="LOCAL-00053" summary="changes">
+      <created>1642623676604</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1642623676605</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -639,12 +677,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Dodan getter za connection" />
-    <MESSAGE value="Internacionalizacija komandi" />
-    <MESSAGE value="Prevodi" />
-    <MESSAGE value="Proslijedjen budnle konsturktoru" />
-    <MESSAGE value="Dodan btnLanguageAction handler" />
-    <MESSAGE value="changes" />
     <MESSAGE value="Dodana kolona slika" />
     <MESSAGE value="Dodan atribut slika" />
     <MESSAGE value="Dodan button i imageView za sliku i promjenu" />
@@ -656,7 +688,6 @@
     <MESSAGE value="Dodan pretraga.fxml" />
     <MESSAGE value="Implementiran PretragaController" />
     <MESSAGE value="Implementiran btnChangeAction handler" />
-    <MESSAGE value="Translation" />
     <MESSAGE value="Dodan update upit za sliku" />
     <MESSAGE value="Update slike u bazi" />
     <MESSAGE value="Dodana kolona postanski_broj" />
@@ -664,7 +695,14 @@
     <MESSAGE value="Izmijenjeni upiti za postanski broj" />
     <MESSAGE value="Dodan atribut postanski broj" />
     <MESSAGE value="Translation postanski_broj" />
-    <option name="LAST_COMMIT_MESSAGE" value="Translation postanski_broj" />
+    <MESSAGE value="Dodan default jezik na bundle" />
+    <MESSAGE value="Dodan bundle" />
+    <MESSAGE value="Integer to int" />
+    <MESSAGE value="Validacija za postanski broj" />
+    <MESSAGE value="Dodana kolona postanski broj" />
+    <MESSAGE value="Translation" />
+    <MESSAGE value="changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
