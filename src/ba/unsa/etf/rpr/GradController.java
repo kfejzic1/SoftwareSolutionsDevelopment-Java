@@ -29,7 +29,8 @@ public class GradController {
     private ChoiceBox<Drzava> choiceDrzava;
     @FXML
     private ImageView imgViewSlika;
-
+    @FXML
+    private TextField fldPostanskiBroj;
 
     public GradController(Grad grad, ArrayList<Drzava> spisakDrzava) {
         this.drzave=spisakDrzava;
@@ -44,6 +45,9 @@ public class GradController {
             fieldNaziv.setText(grad.getNaziv());
             fieldBrojStanovnika.setText(String.valueOf(grad.getBrojStanovnika()));
             choiceDrzava.getSelectionModel().select(grad.getDrzava());
+
+            if(grad.getPostanskiBroj() != 0)
+                fldPostanskiBroj.setText(String.valueOf(grad.getPostanskiBroj()));
 
             if(!grad.getSlika().isEmpty()){
                 File file = new File(grad.getSlika());
@@ -70,12 +74,23 @@ public class GradController {
             fieldBrojStanovnika.getStyleClass().add("poljeValidno");
         }
 
+        try {
+            Integer.parseInt(fldPostanskiBroj.getText());
+            fldPostanskiBroj.getStyleClass().removeAll("poljeNijeValidno");
+            fldPostanskiBroj.getStyleClass().add("poljeValidno");
+        } catch (Exception e) {
+            //Postoji znak koji nije broj u stringu
+            fldPostanskiBroj.getStyleClass().removeAll("poljeValidno");
+            fldPostanskiBroj.getStyleClass().add("poljeNijeValidno");
+        }
+
         if(!fieldNaziv.getText().isEmpty() && !fieldBrojStanovnika.getText().isEmpty() && Integer.parseInt(fieldBrojStanovnika.getText())>0) {   //Polje je validno i vrsi se unos
             if(grad == null)
                 grad = new Grad();
             grad.setNaziv(fieldNaziv.getText());
             grad.setBrojStanovnika(Integer.parseInt(fieldBrojStanovnika.getText()));
             grad.setDrzava(choiceDrzava.getSelectionModel().getSelectedItem());
+            grad.setPostanskiBroj(Integer.parseInt(fldPostanskiBroj.getText()));
 
             Stage stage = (Stage) fieldNaziv.getScene().getWindow();
             stage.close();
@@ -103,7 +118,8 @@ public class GradController {
         stage.toFront();
 
         stage.setOnHiding(windowEvent -> {
-            grad.setSlika(ctrl.getPath());
+            if(ctrl.getPath() != null)
+                grad.setSlika(ctrl.getPath());
         }); //Moguce odabrati bilo koji fajl
     }
 
