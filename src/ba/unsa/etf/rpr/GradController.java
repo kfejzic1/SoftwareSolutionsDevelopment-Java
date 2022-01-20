@@ -65,12 +65,19 @@ public class GradController {
     }
 
     public void okAction(ActionEvent actionEvent) {
+        boolean validanNaziv = false;
+        boolean validanBrojStanovnika = false;
+        final boolean[] validanPostanskiBroj = {false};
+        if(grad == null)
+            grad = new Grad();
+
         if(fieldNaziv.getText().isEmpty()) {
             fieldNaziv.getStyleClass().removeAll("poljeValidno");
             fieldNaziv.getStyleClass().add("poljeNijeValidno");
         } else {
             fieldNaziv.getStyleClass().removeAll("poljeNijeValidno");
             fieldNaziv.getStyleClass().add("poljeValidno");
+            validanNaziv = true;
         }
 
         if(fieldBrojStanovnika.getText().isEmpty() || Integer.parseInt(fieldBrojStanovnika.getText())<=0) {
@@ -79,6 +86,7 @@ public class GradController {
         } else {
             fieldBrojStanovnika.getStyleClass().removeAll("poljeNijeValidno");
             fieldBrojStanovnika.getStyleClass().add("poljeValidno");
+            validanBrojStanovnika = true;
         }
 
         try {
@@ -87,44 +95,43 @@ public class GradController {
             //Provjera da li je postanski broj validan u BiH
 
             URL url = new URL("http://c9.etf.unsa.ba/proba/postanskiBroj.php?postanskiBroj=" + fldPostanskiBroj.getText());
+
             new Thread(() -> {
                 try {
                     System.out.println("Provjeravam validnost poštanskog broja...");
                     BufferedReader input = new BufferedReader(new InputStreamReader(url.openStream()));
 
                     if(input.readLine().equals("OK")) {
-                        Platform.runLater(() -> {
-                            fldPostanskiBroj.getStyleClass().removeAll("poljeNijeValidno");
-                            fldPostanskiBroj.getStyleClass().add("poljeValidno");
-                        });
+                        fldPostanskiBroj.getStyleClass().removeAll("poljeNijeValidno");
+                        fldPostanskiBroj.getStyleClass().add("poljeValidno");
+                        validanPostanskiBroj[0] = true;
+                    } else {
+                        fldPostanskiBroj.getStyleClass().removeAll("poljeValidno");
+                        fldPostanskiBroj.getStyleClass().add("poljeNijeValidno");
                     }
-                    else {
-                        Platform.runLater(() -> {
-                            fldPostanskiBroj.getStyleClass().removeAll("poljeValidno");
-                            fldPostanskiBroj.getStyleClass().add("poljeNijeValidno");
-                        });
-                    }
-
                     System.out.println("Provjereno");
+
+                    if(validanPostanskiBroj[0])
+                        grad.setPostanskiBroj(Integer.parseInt(fldPostanskiBroj.getText()));
+
                     input.close();
                 } catch (IOException e) {
                     System.out.println("Greška u čitanju");
                 }
             }).start();
+            Thread.sleep(12000);
         } catch (Exception e) {
             //Postoji znak koji nije broj u stringu
             fldPostanskiBroj.getStyleClass().removeAll("poljeValidno");
             fldPostanskiBroj.getStyleClass().add("poljeNijeValidno");
         }
-
-        if(!fieldNaziv.getText().isEmpty() && !fieldBrojStanovnika.getText().isEmpty() && Integer.parseInt(fieldBrojStanovnika.getText())>0) {   //Polje je validno i vrsi se unos
-            if(grad == null)
-                grad = new Grad();
+        if(validanNaziv)
             grad.setNaziv(fieldNaziv.getText());
+        if(validanBrojStanovnika)
             grad.setBrojStanovnika(Integer.parseInt(fieldBrojStanovnika.getText()));
-            grad.setDrzava(choiceDrzava.getSelectionModel().getSelectedItem());
-            grad.setPostanskiBroj(Integer.parseInt(fldPostanskiBroj.getText()));
+        grad.setDrzava(choiceDrzava.getValue());
 
+        if(validanNaziv && validanBrojStanovnika) {   //Polja su validna i vrsi se unos
             Stage stage = (Stage) fieldNaziv.getScene().getWindow();
             stage.close();
         }
