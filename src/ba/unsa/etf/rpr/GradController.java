@@ -67,7 +67,7 @@ public class GradController {
     public void okAction(ActionEvent actionEvent) {
         boolean validanNaziv = false;
         boolean validanBrojStanovnika = false;
-        final boolean[] validanPostanskiBroj = {false};
+        final boolean[] validanPostanskiBroj = {true};
         if(grad == null)
             grad = new Grad();
 
@@ -89,51 +89,71 @@ public class GradController {
             validanBrojStanovnika = true;
         }
 
+        //Obrisati komentar za testiranje posljednjeg zadatka
+        //Validacija poštanskog broja se vrši u novom threadu koji je zakomentarisan ispod
         try {
-            Integer.parseInt(fldPostanskiBroj.getText());
-
             //Provjera da li je postanski broj validan u BiH
-
-            URL url = new URL("http://c9.etf.unsa.ba/proba/postanskiBroj.php?postanskiBroj=" + fldPostanskiBroj.getText());
-
+            boolean finalValidanNaziv = validanNaziv;
+            boolean finalValidanBrojStanovnika = validanBrojStanovnika;
             new Thread(() -> {
                 try {
-                    System.out.println("Provjeravam validnost poštanskog broja...");
-                    BufferedReader input = new BufferedReader(new InputStreamReader(url.openStream()));
+                    URL url = new URL("http://c9.etf.unsa.ba/proba/postanskiBroj.php?postanskiBroj=" + fldPostanskiBroj.getText());
 
+                    //Izbrisati komentar za omogućenu validaciju poštanskog broja putem servisa
+
+                    /*int broj = Integer.parseInt(fldPostanskiBroj.getText());
+                    System.out.println("Provjeravam validnost poštanskog broja...");
+
+                    BufferedReader input = new BufferedReader(new InputStreamReader(url.openStream())); //Pokretanje servisa
                     if(input.readLine().equals("OK")) {
                         fldPostanskiBroj.getStyleClass().removeAll("poljeNijeValidno");
                         fldPostanskiBroj.getStyleClass().add("poljeValidno");
-                        validanPostanskiBroj[0] = true;
                     } else {
                         fldPostanskiBroj.getStyleClass().removeAll("poljeValidno");
                         fldPostanskiBroj.getStyleClass().add("poljeNijeValidno");
+                        validanPostanskiBroj[0] = false;
                     }
+                    input.close();
                     System.out.println("Provjereno");
 
                     if(validanPostanskiBroj[0])
-                        grad.setPostanskiBroj(Integer.parseInt(fldPostanskiBroj.getText()));
+                        grad.setPostanskiBroj(broj);
+                    */
 
-                    input.close();
+                    /*
+                    P.S.
+                        Obrisati komentar koji je postavljen nakon metode start() tj. Thread.sleep(12000).
+                        Komentar se mora obrisati (otkomentarisati) kako bi se uspješno izvršila validacija u testovima jer
+                        testovi ne čekaju dovoljno na validaciju, a zatvaraju prije prozor prije njenog izvršenja.
+                        Zbog toga je postavljena metoda Thread.sleep kako bi forsirala validaciju, ali možda prilikom testiranja blokirala interfejs.
+                        Za ručno testiranje, dovoljno je ostaviti metodu Thread.sleep zakomentarisanu i program će raditi kako treba.
+                     */
+
+                    if(finalValidanNaziv) {
+                        grad.setNaziv(fieldNaziv.getText());
+                    }
+                    if(finalValidanBrojStanovnika) {
+                        grad.setBrojStanovnika(Integer.parseInt(fieldBrojStanovnika.getText()));
+                    }
+                    grad.setDrzava(choiceDrzava.getValue());
+
+                    if(finalValidanNaziv && finalValidanBrojStanovnika) {   //Polja su validna i vrsi se unos
+                        Platform.runLater(() -> {
+                            Stage stage = (Stage) fieldNaziv.getScene().getWindow();
+                            stage.close();
+                        });
+                    }
                 } catch (IOException e) {
                     System.out.println("Greška u čitanju");
+                } catch (Exception e) {
+                    //Postoji znak koji nije broj u stringu
+                    fldPostanskiBroj.getStyleClass().removeAll("poljeValidno");
+                    fldPostanskiBroj.getStyleClass().add("poljeNijeValidno");
                 }
             }).start();
-            Thread.sleep(12000);
+            //Thread.sleep(12000);
         } catch (Exception e) {
-            //Postoji znak koji nije broj u stringu
-            fldPostanskiBroj.getStyleClass().removeAll("poljeValidno");
-            fldPostanskiBroj.getStyleClass().add("poljeNijeValidno");
-        }
-        if(validanNaziv)
-            grad.setNaziv(fieldNaziv.getText());
-        if(validanBrojStanovnika)
-            grad.setBrojStanovnika(Integer.parseInt(fieldBrojStanovnika.getText()));
-        grad.setDrzava(choiceDrzava.getValue());
-
-        if(validanNaziv && validanBrojStanovnika) {   //Polja su validna i vrsi se unos
-            Stage stage = (Stage) fieldNaziv.getScene().getWindow();
-            stage.close();
+            e.printStackTrace();
         }
     }
 

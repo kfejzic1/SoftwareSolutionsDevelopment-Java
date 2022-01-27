@@ -8,7 +8,6 @@
       <change beforePath="$PROJECT_DIR$/baza.db" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/rpr20-zadaca5.iml" beforeDir="false" afterPath="$PROJECT_DIR$/rpr20-zadaca5.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/GradController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rpr/GradController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/ba/unsa/etf/rpr/Zadatak5GlavnaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ba/unsa/etf/rpr/Zadatak5GlavnaTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +117,7 @@
       <recent name="ba.unsa.etf.rpr" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GradControllerTest.testVracanjeGrada">
+  <component name="RunManager" selected="JUnit.Zadatak3Test">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -151,10 +150,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in rpr20-zadaca5" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DrzavaControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="rpr20-zadaca5" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ba.unsa.etf.rpr.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ba.unsa.etf.rpr" />
+      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rpr.DrzavaControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GeografijaDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="rpr20-zadaca5" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ba.unsa.etf.rpr.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ba.unsa.etf.rpr" />
+      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rpr.GeografijaDAOTest" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="moduleWithDependencies" />
@@ -182,27 +207,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GlavnaControllerTest.testDodajGrad" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="rpr20-zadaca5" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ba.unsa.etf.rpr.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ba.unsa.etf.rpr" />
-      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rpr.GlavnaControllerTest" />
-      <option name="METHOD_NAME" value="testDodajGrad(org.testfx.api.FxRobot)" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GradControllerTest.testVracanjeGrada" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GradControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="rpr20-zadaca5" />
       <extension name="coverage">
         <pattern>
@@ -212,8 +217,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="ba.unsa.etf.rpr" />
       <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rpr.GradControllerTest" />
-      <option name="METHOD_NAME" value="testVracanjeGrada(org.testfx.api.FxRobot)" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="moduleWithDependencies" />
@@ -222,7 +226,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Zadatak5GlavnaTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Zadatak3Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="rpr20-zadaca5" />
       <extension name="coverage">
         <pattern>
@@ -231,7 +235,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="ba.unsa.etf.rpr" />
-      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rpr.Zadatak5GlavnaTest" />
+      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rpr.Zadatak3Test" />
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="TEST_SEARCH_SCOPE">
@@ -274,19 +278,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="JUnit.Zadatak5GlavnaTest" />
-      <item itemvalue="JUnit.All in rpr20-zadaca5" />
+      <item itemvalue="JUnit.DrzavaControllerTest" />
+      <item itemvalue="JUnit.GeografijaDAOTest" />
       <item itemvalue="JUnit.GlavnaControllerTest" />
-      <item itemvalue="JUnit.GlavnaControllerTest.testDodajGrad" />
-      <item itemvalue="JUnit.GradControllerTest.testVracanjeGrada" />
+      <item itemvalue="JUnit.GradControllerTest" />
+      <item itemvalue="JUnit.Zadatak3Test" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.GradControllerTest.testVracanjeGrada" />
-        <item itemvalue="JUnit.All in rpr20-zadaca5" />
-        <item itemvalue="JUnit.GlavnaControllerTest.testDodajGrad" />
+        <item itemvalue="JUnit.Zadatak3Test" />
+        <item itemvalue="JUnit.GradControllerTest" />
         <item itemvalue="JUnit.GlavnaControllerTest" />
-        <item itemvalue="JUnit.Zadatak5GlavnaTest" />
+        <item itemvalue="JUnit.GeografijaDAOTest" />
+        <item itemvalue="JUnit.DrzavaControllerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -302,20 +306,6 @@
       <option name="presentableId" value="Default" />
       <updated>1359379246138</updated>
       <workItem from="1359379250712" duration="1302000" />
-    </task>
-    <task id="LOCAL-00007" summary="Initial import">
-      <created>1599812097452</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1599812097453</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Initial import">
-      <created>1600671474764</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1600671474764</updated>
     </task>
     <task id="LOCAL-00009" summary="Initial import">
       <created>1600673586941</created>
@@ -646,7 +636,21 @@
       <option name="project" value="LOCAL" />
       <updated>1642629713028</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="Ispravke thread-a">
+      <created>1642696347565</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1642696347575</updated>
+    </task>
+    <task id="LOCAL-00057" summary="changes">
+      <created>1642696372585</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1642696372585</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -672,7 +676,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Dodan atribut slika" />
     <MESSAGE value="Dodan button i imageView za sliku i promjenu" />
     <MESSAGE value="Izmijenjeni preparedStatementi" />
     <MESSAGE value="optimized imports" />
@@ -696,6 +699,7 @@
     <MESSAGE value="Dodana kolona postanski broj" />
     <MESSAGE value="Translation" />
     <MESSAGE value="Validacija putem online servisa" />
+    <MESSAGE value="Ispravke thread-a" />
     <MESSAGE value="changes" />
     <option name="LAST_COMMIT_MESSAGE" value="changes" />
   </component>

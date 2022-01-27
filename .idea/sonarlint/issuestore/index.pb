@@ -16,8 +16,6 @@ V
 baza.sql,f\f\ff234844bbbb4aaba0856811f2add6a350f143a2
 [
 +test/ba/unsa/etf/rpr/GeografijaDAOTest.java,0\f\0ff69f4372c309a882dc57f4a2baa75720e97ad9
-V
-&test/ba/unsa/etf/rpr/Zadatak3Test.java,d\6\d6a717b67f32a2472316c1090f0c974e3e401383
 M
 src/ba/unsa/etf/rpr/Main.java,b\c\bc4c90a37ac9d1b5ef19ac18f695d26749bb9c3f
 ^
@@ -30,3 +28,5 @@ Y
 )src/ba/unsa/etf/rpr/DrzavaController.java,d\4\d4d69172ce6746cfbf43a98af177a78fa76d12f7
 Y
 )src/ba/unsa/etf/rpr/GlavnaController.java,e\3\e3ee9026ab3b2a317e301be2b0a521ed569f4784
+^
+.test/ba/unsa/etf/rpr/GlavnaControllerTest.java,c\7\c70f17b620a03eff29990a8f7fcc26951798c952
