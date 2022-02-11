@@ -28,21 +28,21 @@ public class ContentStoreTest {
         assertEquals(new Movie("Movie3", 1.3, 39, List.of(Genre.DRAMA)), contents.get(0));
     }
 
-//    @Test
-//    public void doesCsvWithBracesWorkCorrectly() {
-//        contentStore.addContent(new Movie("Movie1", 1, 10, List.of(Genre.COMEDY)));
-//        contentStore.addContent(new Series("Series1", 3, List.of(
-//                new Episode("Episode1", 12),
-//                new Episode("Episode2", 15),
-//                new Episode("Episode3", 17),
-//                new Episode("Episode4", 18)
-//        ), List.of(Genre.ROMANCE,Genre.ACTION)));
-//        contentStore.addContent(new Movie("Movie2", 2, 20, List.of(Genre.ROMANCE)));
-//        assertEquals("{Movie2,ROMANCE,2.0,20 minutes}" + System.lineSeparator() +
-//                "{Series1,3.0,4,ROMANCE,ACTION}" + System.lineSeparator() +
-//                "{Movie1,COMEDY,1.0,10 minutes}", contentStore.getContentsAsCsvFormatWithBraces());
-//    }
-//
+    @Test
+    public void doesCsvWithBracesWorkCorrectly() throws InvalidDurationException, InvalidRatingException {
+        contentStore.addContent(new Movie("Movie1", 1, 10, List.of(Genre.COMEDY)));
+        contentStore.addContent(new Series("Series1", 3, List.of(
+                new Episode("Episode1", 12),
+                new Episode("Episode2", 15),
+                new Episode("Episode3", 17),
+                new Episode("Episode4", 18)
+        ), List.of(Genre.ROMANCE,Genre.ACTION)));
+        contentStore.addContent(new Movie("Movie2", 2, 20, List.of(Genre.ROMANCE)));
+        assertEquals("{Movie2,ROMANCE,2.0,20 minutes}" + System.lineSeparator() +
+                "{Series1,3.0,4,ROMANCE,ACTION}" + System.lineSeparator() +
+                "{Movie1,COMEDY,1.0,10 minutes}", contentStore.getContentsAsCsvFormatWithBraces());
+    }
+
 //    @Test
 //    public void isContentConvertedToWatchableCorrectly() {
 //        contentStore.addContent(new Movie("Movie1", 1, 10, List.of(Genre.COMEDY)));

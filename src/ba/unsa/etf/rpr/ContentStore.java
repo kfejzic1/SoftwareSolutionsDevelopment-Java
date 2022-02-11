@@ -1,11 +1,12 @@
 package ba.unsa.etf.rpr;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ContentStore {
-    private List<Content> kontent;
+    private List<Content> kontent = new ArrayList<>();
 
-    public void addContent(Content content) {kontent.add(content);}
+    public void addContent(Content content) {kontent.add(0, content);}
 
 //    List<Watchable> getWatchables() {
 //        return kontent.

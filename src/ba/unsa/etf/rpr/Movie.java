@@ -56,6 +56,14 @@ public class Movie extends Content implements Comparable<Movie>,Watchable {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Movie)) return false;
+        Movie movie = (Movie) o;
+        return duration == movie.duration && rating.equals(movie.rating) && genres.equals(movie.genres);
+    }
+
+    @Override
     public String toString() {
         String rezultat = "Movie{"  + this.getName() + ",";
         for(Genre g : genres) {
