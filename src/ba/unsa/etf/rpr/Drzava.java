@@ -4,11 +4,28 @@ public class Drzava {
     private int id;
     private String naziv;
     private Grad glavniGrad;
+    private Grad najveciGrad;
+
+    public Grad getNajveciGrad() {
+        return najveciGrad;
+    }
+
+    public void setNajveciGrad(Grad grad) {
+        this.najveciGrad = grad;
+    }
 
     public Drzava(int id, String naziv, Grad glavniGrad) {
         this.id = id;
         this.naziv = naziv;
         this.glavniGrad = glavniGrad;
+        najveciGrad = glavniGrad;
+    }
+
+    public Drzava(int id, String naziv, Grad glavniGrad, Grad najveciGrad) {
+        this.id = id;
+        this.naziv = naziv;
+        this.glavniGrad = glavniGrad;
+        this.najveciGrad = najveciGrad;
     }
 
     public Drzava() {

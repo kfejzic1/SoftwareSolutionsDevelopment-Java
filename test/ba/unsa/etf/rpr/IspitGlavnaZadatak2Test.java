@@ -1,4 +1,4 @@
-/*package ba.unsa.etf.rpr;
+package ba.unsa.etf.rpr;
 
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -248,5 +248,3 @@ public class IspitGlavnaZadatak2Test {
         assertEquals("Graz", choiceNajveci.getValue().getNaziv());
     }
 }
-
-*/

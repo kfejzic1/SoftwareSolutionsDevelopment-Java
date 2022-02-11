@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr;
 
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,6 +16,7 @@ public class DrzavaController {
     public ChoiceBox<Grad> choiceGrad;
     private Drzava drzava;
     private ObservableList<Grad> listGradovi;
+    public ChoiceBox<Grad> choiceNajveci;
 
     public DrzavaController(Drzava drzava, ArrayList<Grad> gradovi) {
         this.drzava = drzava;
@@ -24,12 +26,19 @@ public class DrzavaController {
     @FXML
     public void initialize() {
         choiceGrad.setItems(listGradovi);
+        choiceNajveci.setItems(listGradovi);
         if (drzava != null) {
             fieldNaziv.setText(drzava.getNaziv());
             choiceGrad.getSelectionModel().select(drzava.getGlavniGrad());
+            choiceNajveci.getSelectionModel().select(drzava.getNajveciGrad());
         } else {
             choiceGrad.getSelectionModel().selectFirst();
+            choiceNajveci.getSelectionModel().selectFirst();
         }
+
+        choiceGrad.getSelectionModel().selectedItemProperty().addListener(((observable,grad,t1)-> {
+            choiceNajveci.getSelectionModel().select(choiceGrad.getSelectionModel().getSelectedItem());
+        }));
     }
 
     public Drzava getDrzava() {
@@ -52,7 +61,9 @@ public class DrzavaController {
 
         if (drzava == null) drzava = new Drzava();
         drzava.setNaziv(fieldNaziv.getText());
+        System.out.println(drzava.getNaziv());
         drzava.setGlavniGrad(choiceGrad.getSelectionModel().getSelectedItem());
+        drzava.setNajveciGrad(choiceNajveci.getSelectionModel().getSelectedItem());
         closeWindow();
     }
 

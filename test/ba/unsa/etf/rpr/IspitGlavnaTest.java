@@ -1,4 +1,4 @@
-/*package ba.unsa.etf.rpr;
+package ba.unsa.etf.rpr;
 
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -210,4 +210,3 @@ public class IspitGlavnaTest {
     }
 }
 
-*/

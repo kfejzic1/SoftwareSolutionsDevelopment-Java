@@ -139,6 +139,40 @@ public class GlavnaController {
         }
     }
 
+    public void btnIzmijeniDrzavuHandler(ActionEvent actionEvent) {
+        Grad grad = tableViewGradovi.getSelectionModel().getSelectedItem();
+        if (grad == null) return;
+        Drzava drzava = grad.getDrzava();
+
+        Stage stage = new Stage();
+        Parent root = null;
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/drzava.fxml"));
+            DrzavaController drzavaController = new DrzavaController(drzava, dao.gradovi());
+            loader.setController(drzavaController);
+            root = loader.load();
+            stage.setTitle("Drzava");
+            stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+            stage.setResizable(true);
+            stage.show();
+
+            stage.setOnHiding( event -> {
+                Drzava novaDrzava = drzavaController.getDrzava();
+                if (novaDrzava != null) {
+                    // Ovdje ne smije doći do izuzetka jer se prozor neće zatvoriti
+                    try {
+                        dao.izmijeniDrzavu(novaDrzava);
+                        listGradovi.setAll(dao.gradovi());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            } );
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void actionObrisiGrad(ActionEvent actionEvent) {
         Grad grad = tableViewGradovi.getSelectionModel().getSelectedItem();
         if (grad == null) return;

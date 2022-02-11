@@ -1,4 +1,4 @@
-/*package ba.unsa.etf.rpr;
+package ba.unsa.etf.rpr;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -28,6 +28,7 @@ public class IspitGeografijaDAOTest {
 
         // Uzimam drugu verziju za Austriju
         Drzava austrija2 = dao.nadjiDrzavu("Austrija");
+
         assertEquals("Graz", austrija2.getNajveciGrad().getNaziv());
         Grad graz2 = austrija2.getNajveciGrad();
         assertEquals(graz.getId(), graz2.getId());
@@ -79,7 +80,7 @@ public class IspitGeografijaDAOTest {
 
         // Glavni grad po defaultu je najveći
         Drzava austrija3 = dao.nadjiDrzavu("Austrija");
+
         assertEquals("Beč", austrija3.getNajveciGrad().getNaziv());
     }
 }
-*/
