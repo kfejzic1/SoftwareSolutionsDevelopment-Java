@@ -57,7 +57,7 @@ public class Series extends Content{
 
     @Override
     public String toString() {
-        String rezultat = "Series{"  + this.getName() + "," + this.getRating() + "," + this.getDuration() + ",";
+        String rezultat = "Series{"  + this.getName() + "," + this.getRating() + "," + this.getEpisodes().size() + ",";
         for(int i=0; i<genres.size(); i++) {
             rezultat+=genres.get(i);
             if(i==genres.size()-1)
