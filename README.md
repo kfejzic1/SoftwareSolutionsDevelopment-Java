@@ -1,4 +1,4 @@
-# ZadaciRPR
-Tutorijali, zadaće i ispiti iz predmeta Razvoj Programskih Rješenja
+# Done tasks for subject Software Soulutions Development in Java
+Tutorials, tasks and exams
 
-Svi urađeni projekti se nalaze u različitim branchevima.
+Every done project is located in different branch.
